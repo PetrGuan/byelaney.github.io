@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pro_magic," />
+  <meta name="keywords" content="ACM,DFS," />
 
 
 
@@ -86,22 +86,19 @@
 
 
 
-<meta name="description" content="Calculate Fibonacci Number with O(logN).
-$F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)…$$F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$
-123456789101112131415161">
+<meta name="description" content="Kefa decided to celebrate his first big salary by going to the restaurant.
+He lives by an unusual park. The park is a rooted tree consisting of n vertices with the root at vertex 1. Vertex 1 also cont">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cfib">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/07/Cfib/index.html">
+<meta property="og:title" content="KefAndPark">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/07/KefAndPark/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="Calculate Fibonacci Number with O(logN).
-$F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)…$$F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$
-123456789101112131415161">
-<meta property="og:updated_time" content="2016-06-07T12:51:29.000Z">
+<meta property="og:description" content="Kefa decided to celebrate his first big salary by going to the restaurant.
+He lives by an unusual park. The park is a rooted tree consisting of n vertices with the root at vertex 1. Vertex 1 also cont">
+<meta property="og:updated_time" content="2016-06-07T13:03:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cfib">
-<meta name="twitter:description" content="Calculate Fibonacci Number with O(logN).
-$F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)…$$F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$
-123456789101112131415161">
+<meta name="twitter:title" content="KefAndPark">
+<meta name="twitter:description" content="Kefa decided to celebrate his first big salary by going to the restaurant.
+He lives by an unusual park. The park is a rooted tree consisting of n vertices with the root at vertex 1. Vertex 1 also cont">
 
 
 
@@ -122,9 +119,9 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/07/Cfib/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/07/KefAndPark/"/>
 
-  <title> Cfib | GuanJun's blog </title>
+  <title> KefAndPark | GuanJun's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +241,7 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
             
             
               
-                Cfib
+                KefAndPark
               
             
           </h1>
@@ -256,7 +253,7 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:13:45+09:00" content="2016-06-07">
+            <time itemprop="dateCreated" datetime="2016-06-07T21:57:52+09:00" content="2016-06-07">
               2016-06-07
             </time>
           </span>
@@ -270,8 +267,8 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming-snaps/" itemprop="url" rel="index">
-                    <span itemprop="name">programming_snaps</span>
+                  <a href="/categories/codeforces/" itemprop="url" rel="index">
+                    <span itemprop="name">codeforces</span>
                   </a>
                 </span>
 
@@ -303,9 +300,19 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
       
 
       
-        <p>Calculate Fibonacci Number with <strong>O(logN)</strong>.</p>
-<p>$F(i) = F(i-1) + F(i-2) = 2 <em> F(i-2) + F(i-3) = 3 </em> F(i-3)+ 2 <em> F(i-4)…$<br>$F(i) = F( (i+1)/2 ) </em> F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll MOD = <span class="number">1000000007</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ll,ll&gt; Fib;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">fib</span><span class="params">(ll n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(Fib.find(n) != Fib.end()) <span class="keyword">return</span> Fib[n];</span><br><span class="line">    Fib[n] = (fib((n+<span class="number">1</span>) / <span class="number">2</span>)*fib(n/<span class="number">2</span>) + fib((n<span class="number">-1</span>) / <span class="number">2</span>)*fib((n<span class="number">-2</span>) / <span class="number">2</span>)) % MOD;</span><br><span class="line">    <span class="keyword">return</span> Fib[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    ll N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">if</span>(N&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; fib(N) &lt;&lt; “\n”;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Kefa decided to celebrate his first big salary by going to the restaurant.</p>
+<p>He lives by an unusual park. The park is a rooted tree consisting of n vertices with the root at vertex 1. Vertex 1 also contains Kefa’s house. Unfortunaely for our hero, the park also contains cats. Kefa has already found out what are the vertices with cats in them.</p>
+<p>The leaf vertices of the park contain restaurants. Kefa wants to choose a restaurant where he will go, but unfortunately he is very afraid of cats, so there is no way he will go to the restaurant if the path from the restaurant to his house contains more than m consecutive vertices with cats.</p>
+<p>Your task is to help Kefa count the number of restaurants where he can go.</p>
+<p>Input<br>The first line contains two integers, n and m (2 ≤ n ≤ 10^5, 1 ≤ m ≤ n) — the number of vertices of the tree and the maximum number of consecutive vertices with cats that is still ok for Kefa.</p>
+<p>The second line contains n integers a1, a2, …, an, where each ai either equals to 0 (then vertex i has no cat), or equals to 1 (then vertex i has a cat).</p>
+<p>Next n - 1 lines contains the edges of the tree in the format “xi yi” (without the quotes) (1 ≤ xi, yi ≤ n, xi ≠ yi), where xi and yi are the vertices of the tree, connected by an edge.</p>
+<p>It is guaranteed that the given set of edges specifies a tree.</p>
+<p>Output<br>A single integer — the number of distinct leaves of a tree the path to which from Kefa’s home contains at most m consecutive vertices with cats.</p>
+<p>more specific info see <a href="http://codeforces.com/problemset/problem/580/C" target="_blank" rel="external">C. Kefa and Park</a></p>
+<p>一开始的时候我没有搞清楚题意，用树的观点去做的时候误以为数字小的节点就是数字大的节点的父节点，写完后发现到第八还是第九个测试案例的时候就失败了。比如某一个测试用例的 [4,2]， 这里4反而是2的父节点。于是我尝试换一个角度去思考，用图的概念来处理，算法本身是很简单的一个 dfs，难点就在实现部分了。我用了存放 vector 的数组 e，vector 里存放每个节点的邻居节点。特别注意的是添加邻居节点的时候要注意涉及到的两个节点都要添加。之后就是 dfs 的部分了，dfs 人人都会，难点在于和题目本身结合，如何去表达连续节点有猫的个数不超过 m 这个条件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// v is current vertice</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v,<span class="keyword">int</span> anc,<span class="keyword">int</span> c)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cats[v]) ++c;</span><br><span class="line">    <span class="keyword">else</span> c = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(c &gt; m) <span class="keyword">return</span>;<span class="comment">//too many cats!</span></span><br><span class="line">    <span class="keyword">bool</span> currentLeaf = <span class="literal">true</span>;<span class="comment">//assume current is a leaf</span></span><br><span class="line">    rep(i, e[v].size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> adjancent = e[v][i];</span><br><span class="line">        <span class="keyword">if</span>(adjancent != anc)</span><br><span class="line">        &#123;</span><br><span class="line">            currentLeaf = <span class="literal">false</span>;</span><br><span class="line">            dfs(adjancent, v, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(currentLeaf) ++choices;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要就是三个参数，当前要处理的节点，之前的那个节点，以及之前的连续节点有猫的个数。如果当前节点的 vector 中只含有之前的那个节点的话就说明当前节点是叶子节点。详细代码请参考 <a href="http://codeforces.com/contest/580/submission/18152137" target="_blank" rel="external">My AC code</a></p>
 
       
     </div>
@@ -327,7 +334,9 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
       
         <div class="post-tags">
           
-            <a href="/tags/pro-magic/" rel="tag">#pro_magic</a>
+            <a href="/tags/ACM/" rel="tag">#ACM</a>
+          
+            <a href="/tags/DFS/" rel="tag">#DFS</a>
           
         </div>
       
@@ -336,17 +345,13 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/06/07/divby8/" rel="next" title="divby8">
+                <i class="fa fa-chevron-left"></i> divby8
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/add2num/" rel="prev" title="add2num">
-                add2num <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
