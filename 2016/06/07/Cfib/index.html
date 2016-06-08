@@ -87,21 +87,21 @@
 
 
 <meta name="description" content="Calculate Fibonacci Number with O(logN).
-$ math F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)… $$ F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 ) $
-123456789101112">
+F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
+12345678910111213141516171">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cfib">
 <meta property="og:url" content="http://byelaney.github.io/2016/06/07/Cfib/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
 <meta property="og:description" content="Calculate Fibonacci Number with O(logN).
-$ math F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)… $$ F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 ) $
-123456789101112">
-<meta property="og:updated_time" content="2016-06-08T02:02:03.000Z">
+F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
+12345678910111213141516171">
+<meta property="og:updated_time" content="2016-06-08T02:03:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cfib">
 <meta name="twitter:description" content="Calculate Fibonacci Number with O(logN).
-$ math F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)… $$ F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 ) $
-123456789101112">
+F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
+12345678910111213141516171">
 
 
 
@@ -304,7 +304,7 @@ $ math F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3�
 
       
         <p>Calculate Fibonacci Number with <strong>O(logN)</strong>.</p>
-<p>$ math F(i) = F(i-1) + F(i-2) = 2 <em> F(i-2) + F(i-3) = 3 </em> F(i-3)+ 2 <em> F(i-4)… $<br>$ F(i) = F( (i+1)/2 ) </em> F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 ) $</p>
+<p><strong>F(i) = F(i-1) + F(i-2) = 2 <em> F(i-2) + F(i-3) = 3 </em> F(i-3)+ 2 * F(i-4)…</strong><br><strong>F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll MOD = <span class="number">1000000007</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ll,ll&gt; Fib;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">fib</span><span class="params">(ll n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(Fib.find(n) != Fib.end()) <span class="keyword">return</span> Fib[n];</span><br><span class="line">    Fib[n] = (fib((n+<span class="number">1</span>) / <span class="number">2</span>)*fib(n/<span class="number">2</span>) + fib((n<span class="number">-1</span>) / <span class="number">2</span>)*fib((n<span class="number">-2</span>) / <span class="number">2</span>)) % MOD;</span><br><span class="line">    <span class="keyword">return</span> Fib[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    ll N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">if</span>(N&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; fib(N) &lt;&lt; “\n”;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -595,24 +595,7 @@ $ math F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3�
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
