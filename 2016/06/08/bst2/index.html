@@ -68,10 +68,12 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pro_magic," />
+  <meta name="keywords" content="greedy," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="GuanJun's blog" type="application/atom+xml" />
@@ -86,22 +88,19 @@
 
 
 
-<meta name="description" content="Calculate Fibonacci Number with O(logN).
-$F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)…$$F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$
-123456789101112131415161">
+<meta name="description" content="买卖股票的最佳时机 II假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。
+对我来说，这题有点类似连续和最大那道题，其实题目的关键是 什么时候该买，什么时候该卖。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cfib">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/07/Cfib/index.html">
+<meta property="og:title" content="bst2">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/08/bst2/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="Calculate Fibonacci Number with O(logN).
-$F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)…$$F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$
-123456789101112131415161">
-<meta property="og:updated_time" content="2016-06-07T12:51:29.000Z">
+<meta property="og:description" content="买卖股票的最佳时机 II假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。
+对我来说，这题有点类似连续和最大那道题，其实题目的关键是 什么时候该买，什么时候该卖。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，">
+<meta property="og:updated_time" content="2016-06-08T01:26:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cfib">
-<meta name="twitter:description" content="Calculate Fibonacci Number with O(logN).
-$F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2  F(i-4)…$$F(i) = F( (i+1)/2 )  F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$
-123456789101112131415161">
+<meta name="twitter:title" content="bst2">
+<meta name="twitter:description" content="买卖股票的最佳时机 II假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。
+对我来说，这题有点类似连续和最大那道题，其实题目的关键是 什么时候该买，什么时候该卖。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，">
 
 
 
@@ -122,9 +121,9 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/07/Cfib/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/08/bst2/"/>
 
-  <title> Cfib | GuanJun's blog </title>
+  <title> bst2 | GuanJun's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +243,7 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
             
             
               
-                Cfib
+                bst2
               
             
           </h1>
@@ -256,8 +255,8 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:13:45+09:00" content="2016-06-07">
-              2016-06-07
+            <time itemprop="dateCreated" datetime="2016-06-08T10:17:11+09:00" content="2016-06-08">
+              2016-06-08
             </time>
           </span>
 
@@ -270,8 +269,8 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming-snaps/" itemprop="url" rel="index">
-                    <span itemprop="name">programming_snaps</span>
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
                   </a>
                 </span>
 
@@ -303,9 +302,9 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
       
 
       
-        <p>Calculate Fibonacci Number with <strong>O(logN)</strong>.</p>
-<p>$F(i) = F(i-1) + F(i-2) = 2 <em> F(i-2) + F(i-3) = 3 </em> F(i-3)+ 2 <em> F(i-4)…$<br>$F(i) = F( (i+1)/2 ) </em> F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )$</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll MOD = <span class="number">1000000007</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ll,ll&gt; Fib;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">fib</span><span class="params">(ll n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(Fib.find(n) != Fib.end()) <span class="keyword">return</span> Fib[n];</span><br><span class="line">    Fib[n] = (fib((n+<span class="number">1</span>) / <span class="number">2</span>)*fib(n/<span class="number">2</span>) + fib((n<span class="number">-1</span>) / <span class="number">2</span>)*fib((n<span class="number">-2</span>) / <span class="number">2</span>)) % MOD;</span><br><span class="line">    <span class="keyword">return</span> Fib[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    ll N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">if</span>(N&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; fib(N) &lt;&lt; “\n”;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="买卖股票的最佳时机-II"><a href="#买卖股票的最佳时机-II" class="headerlink" title="买卖股票的最佳时机 II"></a>买卖股票的最佳时机 II</h2><p>假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。</p>
+<p>对我来说，这题有点类似连续和最大那道题，其实题目的关键是 <strong>什么时候该买</strong>，<strong>什么时候该卖</strong>。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，就用低价的股票来替代当前手里的股票。确定买的时机比较简单，难的是确定什么时候该卖，这里就不同于连续和最大了，没有连续的要求(可以仔细体会一下)。现在我们手里握有股票 $buy$,看到了今天的股票价格 $P_i$,首先要保证 $P<em>i - buy &gt; 0$,但这并不一定使利润最大化，最关键的一个条件就是 $P</em>{i+1} &lt; P_i$,也就是明天的股票没有今天值钱了，这时候我们才可以确定地去售出。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;prices)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> buy = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> profit = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;prices.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (buy == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// we need to buy first</span></span><br><span class="line">            buy = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] &lt; buy)</span><br><span class="line">                buy = prices[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (i+<span class="number">1</span> &lt; prices.size())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(prices[i+<span class="number">1</span>] &lt; prices[i])</span><br><span class="line">                    &#123;</span><br><span class="line">                        profit += prices[i] - buy;</span><br><span class="line">                        buy = <span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    profit += prices[i] - buy;</span><br><span class="line">                    buy = <span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> profit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -327,7 +326,7 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
       
         <div class="post-tags">
           
-            <a href="/tags/pro-magic/" rel="tag">#pro_magic</a>
+            <a href="/tags/greedy/" rel="tag">#greedy</a>
           
         </div>
       
@@ -336,17 +335,13 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/06/07/KefAndPark/" rel="next" title="KefAndPark">
+                <i class="fa fa-chevron-left"></i> KefAndPark
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/add2num/" rel="prev" title="add2num">
-                add2num <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,7 +482,7 @@ $F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#买卖股票的最佳时机-II"><span class="nav-number">1.</span> <span class="nav-text">买卖股票的最佳时机 II</span></a></li></ol></div>
             
           </div>
         </section>
