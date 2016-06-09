@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DP," />
+  <meta name="keywords" content="BinarySearch," />
 
 
 
@@ -86,22 +86,28 @@
 
 
 
-<meta name="description" content="买卖股票的最佳时机假设有一个数组，它的第i个元素是一支给定的股票在第i天的价格。如果你最多只允许完成一次交易(例如,一次买卖股票),设计一个算法来找出最大利润。
-好吧…我承认我的解法很耗空间，但不知道为什么第一反应就是这样做，感觉深受 dynamic programming 的毒害啊。
-123456789101112131415161718192021222324252627int maxProf">
+<meta name="description" content="寻找旋转排序数组中的最小值假设一个旋转排序的数组其起始位置是未知的（比如[0 1 2 4 5 6 7] 可能变成是[4 5 6 7 0 1 2]）。
+你需要找到其中最小的元素。
+你可以假设数组中不存在重复的元素。
+找最小的话遍历一遍就行了，或者用二分查找。
+123456789101112131415int findMin(vector&amp;lt;int&amp;gt; &amp;amp;num) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bst1">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/08/bst1/index.html">
+<meta property="og:title" content="rotamin">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/10/rotamin/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="买卖股票的最佳时机假设有一个数组，它的第i个元素是一支给定的股票在第i天的价格。如果你最多只允许完成一次交易(例如,一次买卖股票),设计一个算法来找出最大利润。
-好吧…我承认我的解法很耗空间，但不知道为什么第一反应就是这样做，感觉深受 dynamic programming 的毒害啊。
-123456789101112131415161718192021222324252627int maxProf">
-<meta property="og:updated_time" content="2016-06-08T07:50:10.000Z">
+<meta property="og:description" content="寻找旋转排序数组中的最小值假设一个旋转排序的数组其起始位置是未知的（比如[0 1 2 4 5 6 7] 可能变成是[4 5 6 7 0 1 2]）。
+你需要找到其中最小的元素。
+你可以假设数组中不存在重复的元素。
+找最小的话遍历一遍就行了，或者用二分查找。
+123456789101112131415int findMin(vector&amp;lt;int&amp;gt; &amp;amp;num) &amp;#123;">
+<meta property="og:updated_time" content="2016-06-09T23:31:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bst1">
-<meta name="twitter:description" content="买卖股票的最佳时机假设有一个数组，它的第i个元素是一支给定的股票在第i天的价格。如果你最多只允许完成一次交易(例如,一次买卖股票),设计一个算法来找出最大利润。
-好吧…我承认我的解法很耗空间，但不知道为什么第一反应就是这样做，感觉深受 dynamic programming 的毒害啊。
-123456789101112131415161718192021222324252627int maxProf">
+<meta name="twitter:title" content="rotamin">
+<meta name="twitter:description" content="寻找旋转排序数组中的最小值假设一个旋转排序的数组其起始位置是未知的（比如[0 1 2 4 5 6 7] 可能变成是[4 5 6 7 0 1 2]）。
+你需要找到其中最小的元素。
+你可以假设数组中不存在重复的元素。
+找最小的话遍历一遍就行了，或者用二分查找。
+123456789101112131415int findMin(vector&amp;lt;int&amp;gt; &amp;amp;num) &amp;#123;">
 
 
 
@@ -122,9 +128,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/08/bst1/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/10/rotamin/"/>
 
-  <title> bst1 | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> rotamin | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +250,7 @@
             
             
               
-                bst1
+                rotamin
               
             
           </h1>
@@ -256,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-08T16:39:22+09:00" content="2016-06-08">
-              2016-06-08
+            <time itemprop="dateCreated" datetime="2016-06-10T08:28:34+09:00" content="2016-06-10">
+              2016-06-10
             </time>
           </span>
 
@@ -286,8 +292,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/08/bst1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/08/bst1/" itemprop="commentsCount"></span>
+                <a href="/2016/06/10/rotamin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/10/rotamin/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +316,11 @@
       
 
       
-        <h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><p>假设有一个数组，它的第i个元素是一支给定的股票在第i天的价格。如果你最多只允许完成一次交易(例如,一次买卖股票),设计一个算法来找出最大利润。</p>
-<p>好吧…我承认我的解法很耗空间，但不知道为什么第一反应就是这样做，感觉深受 <strong>dynamic programming</strong> 的毒害啊。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;prices)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (prices.size() == <span class="number">0</span> || prices.size() == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; buy;</span><br><span class="line">    dp.push_back(<span class="number">0</span>);</span><br><span class="line">    buy.push_back(prices[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>;i&lt;prices.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (prices[i] - buy[i<span class="number">-1</span>] &gt; dp[i<span class="number">-1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            dp.push_back(prices[i] - buy[i<span class="number">-1</span>]);</span><br><span class="line">            buy.push_back(buy[i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            dp.push_back(dp[i<span class="number">-1</span>]);</span><br><span class="line">            <span class="keyword">if</span> (prices[i] &lt; buy[i<span class="number">-1</span>])</span><br><span class="line">                buy.push_back(prices[i]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                buy.push_back(buy[i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dp[i<span class="number">-1</span>] &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> dp[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="寻找旋转排序数组中的最小值"><a href="#寻找旋转排序数组中的最小值" class="headerlink" title="寻找旋转排序数组中的最小值"></a>寻找旋转排序数组中的最小值</h2><p>假设一个旋转排序的数组其起始位置是未知的（比如[0 1 2 4 5 6 7] 可能变成是[4 5 6 7 0 1 2]）。</p>
+<p>你需要找到其中最小的元素。</p>
+<p>你可以假设数组中不存在重复的元素。</p>
+<p>找最小的话遍历一遍就行了，或者用二分查找。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> hi = (<span class="keyword">int</span>)num.size()<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(lo&lt;hi)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = lo + (hi - lo)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(num[mid]&gt;num[hi])&#123;</span><br><span class="line">            lo = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(num[mid]&lt;num[hi])&#123;</span><br><span class="line">            hi = mid;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            hi--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num[lo];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +342,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DP/" rel="tag">#DP</a>
+            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
           
         </div>
       
@@ -343,17 +351,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/08/ringlist/" rel="next" title="ringlist">
-                <i class="fa fa-chevron-left"></i> ringlist
+              <a href="/2016/06/08/binarylevel/" rel="next" title="binarylevel">
+                <i class="fa fa-chevron-left"></i> binarylevel
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/08/binarylevel/" rel="prev" title="binarylevel">
-                binarylevel <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +505,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#买卖股票的最佳时机"><span class="nav-number">1.</span> <span class="nav-text">买卖股票的最佳时机</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找旋转排序数组中的最小值"><span class="nav-number">1.</span> <span class="nav-text">寻找旋转排序数组中的最小值</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +625,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/08/bst1/';
-      var disqus_title = "bst1";
-      var disqus_url = 'http://byelaney.github.io/2016/06/08/bst1/';
+      var disqus_identifier = '2016/06/10/rotamin/';
+      var disqus_title = "rotamin";
+      var disqus_url = 'http://byelaney.github.io/2016/06/10/rotamin/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
