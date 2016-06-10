@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Stack," />
+  <meta name="keywords" content="List," />
 
 
 
@@ -86,28 +86,19 @@
 
 
 
-<meta name="description" content="用栈实现队列正如标题所述，你需要使用两个栈来实现队列的一些操作。
-队列应支持push(element)，pop() 和 top()，其中pop是弹出队列中的第一个(最前面的)元素。
-pop和top方法都应该返回第一个元素的值。
-仅使用两个栈来实现它，不使用任何其他数据结构，push，pop 和 top的复杂度都应该是均摊O(1)的。
-这题其实不太难，很容易发现一个栈全部pop到另一个栈之后就满足队">
+<meta name="description" content="两个链表的交叉请写一个程序，找到两个单链表最开始的交叉节点。
+这题思路要从链表解放，心里要有一个 距离 的概念，我并不确定我是不是最佳解法，但我是这样想的，我们可以得到两个链表的长度 n1 和 n2(通过遍历链表直到为空)，然后计算 abs(n1-n2) ，再让那个较长的链表从头开始遍历 abs(n1-n2) 次，之后再和另一个链表同时遍历并且比较节点是否相同即可。代码写的一如既往的很啰嗦。。。可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stackqueue">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/10/stackqueue/index.html">
+<meta property="og:title" content="twolistIsect">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/10/twolistIsect/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="用栈实现队列正如标题所述，你需要使用两个栈来实现队列的一些操作。
-队列应支持push(element)，pop() 和 top()，其中pop是弹出队列中的第一个(最前面的)元素。
-pop和top方法都应该返回第一个元素的值。
-仅使用两个栈来实现它，不使用任何其他数据结构，push，pop 和 top的复杂度都应该是均摊O(1)的。
-这题其实不太难，很容易发现一个栈全部pop到另一个栈之后就满足队">
-<meta property="og:updated_time" content="2016-06-10T01:45:16.000Z">
+<meta property="og:description" content="两个链表的交叉请写一个程序，找到两个单链表最开始的交叉节点。
+这题思路要从链表解放，心里要有一个 距离 的概念，我并不确定我是不是最佳解法，但我是这样想的，我们可以得到两个链表的长度 n1 和 n2(通过遍历链表直到为空)，然后计算 abs(n1-n2) ，再让那个较长的链表从头开始遍历 abs(n1-n2) 次，之后再和另一个链表同时遍历并且比较节点是否相同即可。代码写的一如既往的很啰嗦。。。可">
+<meta property="og:updated_time" content="2016-06-10T06:57:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stackqueue">
-<meta name="twitter:description" content="用栈实现队列正如标题所述，你需要使用两个栈来实现队列的一些操作。
-队列应支持push(element)，pop() 和 top()，其中pop是弹出队列中的第一个(最前面的)元素。
-pop和top方法都应该返回第一个元素的值。
-仅使用两个栈来实现它，不使用任何其他数据结构，push，pop 和 top的复杂度都应该是均摊O(1)的。
-这题其实不太难，很容易发现一个栈全部pop到另一个栈之后就满足队">
+<meta name="twitter:title" content="twolistIsect">
+<meta name="twitter:description" content="两个链表的交叉请写一个程序，找到两个单链表最开始的交叉节点。
+这题思路要从链表解放，心里要有一个 距离 的概念，我并不确定我是不是最佳解法，但我是这样想的，我们可以得到两个链表的长度 n1 和 n2(通过遍历链表直到为空)，然后计算 abs(n1-n2) ，再让那个较长的链表从头开始遍历 abs(n1-n2) 次，之后再和另一个链表同时遍历并且比较节点是否相同即可。代码写的一如既往的很啰嗦。。。可">
 
 
 
@@ -128,9 +119,9 @@ pop和top方法都应该返回第一个元素的值。
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/10/stackqueue/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/10/twolistIsect/"/>
 
-  <title> stackqueue | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> twolistIsect | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -250,7 +241,7 @@ pop和top方法都应该返回第一个元素的值。
             
             
               
-                stackqueue
+                twolistIsect
               
             
           </h1>
@@ -262,7 +253,7 @@ pop和top方法都应该返回第一个元素的值。
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-10T10:42:42+09:00" content="2016-06-10">
+            <time itemprop="dateCreated" datetime="2016-06-10T15:52:24+09:00" content="2016-06-10">
               2016-06-10
             </time>
           </span>
@@ -292,8 +283,8 @@ pop和top方法都应该返回第一个元素的值。
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/10/stackqueue/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/10/stackqueue/" itemprop="commentsCount"></span>
+                <a href="/2016/06/10/twolistIsect/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/10/twolistIsect/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -316,12 +307,9 @@ pop和top方法都应该返回第一个元素的值。
       
 
       
-        <h2 id="用栈实现队列"><a href="#用栈实现队列" class="headerlink" title="用栈实现队列"></a>用栈实现队列</h2><p>正如标题所述，你需要使用两个栈来实现队列的一些操作。</p>
-<p>队列应支持push(element)，pop() 和 top()，其中pop是弹出队列中的第一个(最前面的)元素。</p>
-<p>pop和top方法都应该返回第一个元素的值。</p>
-<p>仅使用两个栈来实现它，不使用任何其他数据结构，push，pop 和 top的复杂度都应该是均摊O(1)的。</p>
-<p>这题其实不太难，很容易发现一个栈全部pop到另一个栈之后就满足队列的顺序了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Queue &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack1;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack2;</span><br><span class="line"></span><br><span class="line">    Queue() &#123;</span><br><span class="line">        <span class="comment">// do intialization if necessary</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> element)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        stack1.push(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (stack2.size() == <span class="number">0</span>)</span><br><span class="line">            fillup();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (stack2.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> top = stack2.top();</span><br><span class="line">            stack2.pop();</span><br><span class="line">            <span class="keyword">return</span> top;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (stack2.size() == <span class="number">0</span>)</span><br><span class="line">            fillup();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (stack2.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> stack2.top();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fillup</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (stack1.size() &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                stack2.push(stack1.top());</span><br><span class="line">                stack1.pop();</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="两个链表的交叉"><a href="#两个链表的交叉" class="headerlink" title="两个链表的交叉"></a>两个链表的交叉</h2><p>请写一个程序，找到两个单链表最开始的交叉节点。</p>
+<p>这题思路要从链表解放，心里要有一个 <strong>距离</strong> 的概念，我并不确定我是不是最佳解法，但我是这样想的，我们可以得到两个链表的长度 <strong>n1 和 n2</strong>(通过遍历链表直到为空)，然后计算 <strong>abs(n1-n2)</strong> ，再让那个较长的链表从头开始遍历 <strong>abs(n1-n2)</strong> 次，之后再和另一个链表同时遍历并且比较节点是否相同即可。代码写的一如既往的很啰嗦。。。可能跟我人本身有关，不喜欢太复杂的东西，喜欢简单直白的美。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> n1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n2 = <span class="number">0</span>;</span><br><span class="line">    ListNode* node1 = headA;</span><br><span class="line">    ListNode* node2 = headB;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (node1 == <span class="literal">NULL</span> || node2 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (node1 == node2) <span class="keyword">return</span> node1;</span><br><span class="line"></span><br><span class="line">        node1 = node1-&gt;next;</span><br><span class="line">        node2 = node2-&gt;next;</span><br><span class="line">        ++n1;++n2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(node1 == <span class="literal">NULL</span> || node2 == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (node1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(node2 != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            node2 = node2-&gt;next;</span><br><span class="line">            ++n2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* node = headB;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n2-n1;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* nodea = headA;</span><br><span class="line">        ListNode* res = IntersectSL(nodea,node);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (node2 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(node1 != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            node1 = node1-&gt;next;</span><br><span class="line">            ++n1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* node = headA;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n1-n2;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* nodeb = headB;</span><br><span class="line">        ListNode* res = IntersectSL(nodeb,node);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// l1 and l2 the same length</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode* <span class="title">IntersectSL</span><span class="params">(ListNode* n1,ListNode* n2)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(n1 != <span class="literal">NULL</span> &amp;&amp; n2 != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n1 == n2)</span><br><span class="line">            <span class="keyword">return</span> n1;</span><br><span class="line">        n1 = n1-&gt;next;</span><br><span class="line">        n2 = n2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -343,7 +331,7 @@ pop和top方法都应该返回第一个元素的值。
       
         <div class="post-tags">
           
-            <a href="/tags/Stack/" rel="tag">#Stack</a>
+            <a href="/tags/List/" rel="tag">#List</a>
           
         </div>
       
@@ -352,17 +340,13 @@ pop和top方法都应该返回第一个元素的值。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/10/wigglesort/" rel="next" title="wigglesort">
-                <i class="fa fa-chevron-left"></i> wigglesort
+              <a href="/2016/06/10/stackqueue/" rel="next" title="stackqueue">
+                <i class="fa fa-chevron-left"></i> stackqueue
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/10/twolistIsect/" rel="prev" title="twolistIsect">
-                twolistIsect <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,7 +494,7 @@ pop和top方法都应该返回第一个元素的值。
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用栈实现队列"><span class="nav-number">1.</span> <span class="nav-text">用栈实现队列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两个链表的交叉"><span class="nav-number">1.</span> <span class="nav-text">两个链表的交叉</span></a></li></ol></div>
             
           </div>
         </section>
@@ -630,9 +614,9 @@ pop和top方法都应该返回第一个元素的值。
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/10/stackqueue/';
-      var disqus_title = "stackqueue";
-      var disqus_url = 'http://byelaney.github.io/2016/06/10/stackqueue/';
+      var disqus_identifier = '2016/06/10/twolistIsect/';
+      var disqus_title = "twolistIsect";
+      var disqus_url = 'http://byelaney.github.io/2016/06/10/twolistIsect/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

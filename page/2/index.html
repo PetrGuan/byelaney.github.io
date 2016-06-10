@@ -240,6 +240,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/07/add2num/" itemprop="url">
+                  add2num
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T21:34:53+09:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/programming-snaps/" itemprop="url" rel="index">
+                    <span itemprop="name">programming_snaps</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/07/add2num/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/add2num/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Add-two-numbers-without-using-arithmetic-operators"><a href="#Add-two-numbers-without-using-arithmetic-operators" class="headerlink" title="Add two numbers without using arithmetic operators"></a>Add two numbers without using arithmetic operators</h2><p>Write a function <strong>Add()</strong> that returns sum of two integers. The function should not use any of the arithmetic operators (+, ++, –, -, .. etc).</p>
+<p>Sum of two bits can be obtained by performing <strong>XOR (^)</strong> of the two bits. Carry bit can be obtained by performing <strong>AND (&amp;)</strong> of two bits.<br>Above is simple Half Adder logic that can be used to add 2 single bits. We can extend this logic for integers. If x and y don’t have set bits at same position(s), then bitwise <strong>XOR (^)</strong> of x and y gives the sum of x and y. To incorporate common set bits also, bitwise <strong>AND (&amp;)</strong> is used. Bitwise AND of x and y gives all carry bits. We calculate (x &amp; y) &lt;&lt; 1 and add it to x ^ y to get the required result.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">// Iterate till there is no carry  </span></span><br><span class="line">    <span class="keyword">while</span> (y != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// carry now contains common set bits of x and y</span></span><br><span class="line">        <span class="keyword">int</span> carry = x &amp; y;  </span><br><span class="line">        <span class="comment">// Sum of bits of x and y where at least one of the bits is not set</span></span><br><span class="line">        x = x ^ y;</span><br><span class="line">        <span class="comment">// Carry is shifted by one so that adding it to x gives the required sum</span></span><br><span class="line">        y = carry &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/07/Cfib/" itemprop="url">
                   Cfib
                 </a>
@@ -495,7 +617,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -512,7 +634,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
