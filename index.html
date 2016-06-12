@@ -240,6 +240,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/12/uniquepath/" itemprop="url">
+                  uniquepath
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-12T09:34:38+09:00" content="2016-06-12">
+              2016-06-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/12/uniquepath/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/uniquepath/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="不同的路径"><a href="#不同的路径" class="headerlink" title="不同的路径"></a>不同的路径</h2><p>有一个机器人的位于一个M×N个网格左上角。</p>
+<p>机器人每一时刻只能向下或者向右移动一步。机器人试图达到网格的右下角（下图中标记为’Finish’）。<br>问有多少条不同的路径？ n和m均不超过100</p>
+<p>这题一开始我是用递归做的，递推式是 <strong>f(m,n) = f(m-1,n) + f(m,n-1)</strong>，后来发现超时了，主要还是函数调用和反复计算了很多次之前可能已经算过的 <strong>f(i,j)</strong>，那就使用 <strong>DP</strong> 好了，递推还是一样的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        dp[<span class="number">0</span>][i] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">            dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/10/twolistIsect/" itemprop="url">
                   twolistIsect
                 </a>
@@ -311,7 +434,7 @@
         
           
             <h2 id="两个链表的交叉"><a href="#两个链表的交叉" class="headerlink" title="两个链表的交叉"></a>两个链表的交叉</h2><p>请写一个程序，找到两个单链表最开始的交叉节点。</p>
-<p>这题思路要从链表解放，心里要有一个 <strong>距离</strong> 的概念，我并不确定我是不是最佳解法，但我是这样想的，我们可以得到两个链表的长度 <strong>n1 和 n2</strong>(通过遍历链表直到为空)，然后计算 <strong>abs(n1-n2)</strong> ，再让那个较长的链表从头开始遍历 <strong>abs(n1-n2)</strong> 次，之后再和另一个链表同时遍历并且比较节点是否相同即可。代码写的一如既往的很啰嗦。。。可能跟我人本身有关，不喜欢太复杂的东西，喜欢简单直白的美。</p>
+<p>这题思路要从链表解放，心里要有一个 <strong>距离</strong> 的概念，我并不确定我是不是最佳解法，但我是这样想的，我们可以得到两个链表的长度 <strong>n1 和 n2</strong>(通过遍历链表直到为空)，然后计算 <strong>abs(n1-n2)</strong> ，再让那个较长的链表从头开始遍历 <strong>abs(n1-n2)</strong> 次，之后再和另一个链表同时遍历并且比较节点是否相同即可。代码写的一如既往的很啰嗦。。。可能跟我人本身有关，不喜欢太复杂的东西，喜欢简单直白的美。(其实是毫无内涵)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> n1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n2 = <span class="number">0</span>;</span><br><span class="line">    ListNode* node1 = headA;</span><br><span class="line">    ListNode* node2 = headB;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (node1 == <span class="literal">NULL</span> || node2 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (node1 == node2) <span class="keyword">return</span> node1;</span><br><span class="line"></span><br><span class="line">        node1 = node1-&gt;next;</span><br><span class="line">        node2 = node2-&gt;next;</span><br><span class="line">        ++n1;++n2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(node1 == <span class="literal">NULL</span> || node2 == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (node1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(node2 != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            node2 = node2-&gt;next;</span><br><span class="line">            ++n2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* node = headB;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n2-n1;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* nodea = headA;</span><br><span class="line">        ListNode* res = IntersectSL(nodea,node);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (node2 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(node1 != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            node1 = node1-&gt;next;</span><br><span class="line">            ++n1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* node = headA;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n1-n2;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* nodeb = headB;</span><br><span class="line">        ListNode* res = IntersectSL(nodeb,node);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// l1 and l2 the same length</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode* <span class="title">IntersectSL</span><span class="params">(ListNode* n1,ListNode* n2)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(n1 != <span class="literal">NULL</span> &amp;&amp; n2 != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n1 == n2)</span><br><span class="line">            <span class="keyword">return</span> n1;</span><br><span class="line">        n1 = n1-&gt;next;</span><br><span class="line">        n2 = n2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
@@ -1333,133 +1456,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/07/divby8/" itemprop="url">
-                  divby8
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:49:11+09:00" content="2016-06-07">
-              2016-06-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/codeforces/" itemprop="url" rel="index">
-                    <span itemprop="name">codeforces</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/07/divby8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/divby8/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="C-Divisibility-by-Eight"><a href="#C-Divisibility-by-Eight" class="headerlink" title="C. Divisibility by Eight"></a>C. Divisibility by Eight</h2><p>You are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.</p>
-<p>Your task is to determine if it is possible in this case to remove some of the digits (possibly not remove any digit at all) so that the result contains at least one digit, forms a non-negative integer, doesn’t have leading zeroes and is divisible by 8. After the removing, it is forbidden to rearrange the digits.</p>
-<p>If a solution exists, you should print it.</p>
-<p>Input<br>The single line of the input contains a non-negative integer n. The representation of number n doesn’t contain any leading zeroes and its length doesn’t exceed 100 digits.</p>
-<p>Output<br>Print “NO” (without quotes), if there is no such way to remove some digits from number n.</p>
-<p>Otherwise, print “YES” in the first line and the resulting number after removing digits from number n in the second line. The printed number must be divisible by 8.</p>
-<p>If there are multiple possible answers, you may print any of them.</p>
-<p>这里需要用到一个小知识，如果一个数能被8整除的话，那么这个数的最右三位（只有二位或一位的话同理）一定能被8整除。因为输入很大有100位数字，所以使用string来存储。这里我们先构建一个数组，里面存储了所有0到999能被8整除的数字。使用暴力算法，迭代每一个数字去看输入的最右三位是否能被整除。<a href="http://codeforces.com/contest/550/submission/18053768" target="_blank" rel="external">My AC code</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1505,7 +1501,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

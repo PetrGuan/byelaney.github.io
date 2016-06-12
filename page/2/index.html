@@ -240,6 +240,133 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/07/divby8/" itemprop="url">
+                  divby8
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T21:49:11+09:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/codeforces/" itemprop="url" rel="index">
+                    <span itemprop="name">codeforces</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/07/divby8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/divby8/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="C-Divisibility-by-Eight"><a href="#C-Divisibility-by-Eight" class="headerlink" title="C. Divisibility by Eight"></a>C. Divisibility by Eight</h2><p>You are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.</p>
+<p>Your task is to determine if it is possible in this case to remove some of the digits (possibly not remove any digit at all) so that the result contains at least one digit, forms a non-negative integer, doesn’t have leading zeroes and is divisible by 8. After the removing, it is forbidden to rearrange the digits.</p>
+<p>If a solution exists, you should print it.</p>
+<p>Input<br>The single line of the input contains a non-negative integer n. The representation of number n doesn’t contain any leading zeroes and its length doesn’t exceed 100 digits.</p>
+<p>Output<br>Print “NO” (without quotes), if there is no such way to remove some digits from number n.</p>
+<p>Otherwise, print “YES” in the first line and the resulting number after removing digits from number n in the second line. The printed number must be divisible by 8.</p>
+<p>If there are multiple possible answers, you may print any of them.</p>
+<p>这里需要用到一个小知识，如果一个数能被8整除的话，那么这个数的最右三位（只有二位或一位的话同理）一定能被8整除。因为输入很大有100位数字，所以使用string来存储。这里我们先构建一个数组，里面存储了所有0到999能被8整除的数字。使用暴力算法，迭代每一个数字去看输入的最右三位是否能被整除。<a href="http://codeforces.com/contest/550/submission/18053768" target="_blank" rel="external">My AC code</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/07/add2num/" itemprop="url">
                   add2num
                 </a>
@@ -617,7 +744,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
