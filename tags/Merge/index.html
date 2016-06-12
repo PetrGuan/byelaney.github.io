@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ACM,brute_force," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,19 +86,15 @@
 
 
 
-<meta name="description" content="C. Divisibility by EightYou are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.
-Your task is to determine if it is possibl">
-<meta property="og:type" content="article">
-<meta property="og:title" content="divby8">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/07/divby8/index.html">
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GuanJun's blog">
+<meta property="og:url" content="http://byelaney.github.io/tags/Merge/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="C. Divisibility by EightYou are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.
-Your task is to determine if it is possibl">
-<meta property="og:updated_time" content="2016-06-08T01:55:04.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="divby8">
-<meta name="twitter:description" content="C. Divisibility by EightYou are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.
-Your task is to determine if it is possibl">
+<meta name="twitter:title" content="GuanJun's blog">
+<meta name="twitter:description">
 
 
 
@@ -119,9 +115,9 @@ Your task is to determine if it is possibl">
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/07/divby8/"/>
+  <link rel="canonical" href="http://byelaney.github.io/tags/Merge/"/>
 
-  <title> divby8 | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Tag: Merge | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -142,7 +138,7 @@ Your task is to determine if it is possibl">
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -220,160 +216,46 @@ Your task is to determine if it is possibl">
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                divby8
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:49:11+09:00" content="2016-06-07">
-              2016-06-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/codeforces/" itemprop="url" rel="index">
-                    <span itemprop="name">codeforces</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/07/divby8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/divby8/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="C-Divisibility-by-Eight"><a href="#C-Divisibility-by-Eight" class="headerlink" title="C. Divisibility by Eight"></a>C. Divisibility by Eight</h2><p>You are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.</p>
-<p>Your task is to determine if it is possible in this case to remove some of the digits (possibly not remove any digit at all) so that the result contains at least one digit, forms a non-negative integer, doesn’t have leading zeroes and is divisible by 8. After the removing, it is forbidden to rearrange the digits.</p>
-<p>If a solution exists, you should print it.</p>
-<p>Input<br>The single line of the input contains a non-negative integer n. The representation of number n doesn’t contain any leading zeroes and its length doesn’t exceed 100 digits.</p>
-<p>Output<br>Print “NO” (without quotes), if there is no such way to remove some digits from number n.</p>
-<p>Otherwise, print “YES” in the first line and the resulting number after removing digits from number n in the second line. The printed number must be divisible by 8.</p>
-<p>If there are multiple possible answers, you may print any of them.</p>
-<p>这里需要用到一个小知识，如果一个数能被8整除的话，那么这个数的最右三位（只有二位或一位的话同理）一定能被8整除。因为输入很大有100位数字，所以使用string来存储。这里我们先构建一个数组，里面存储了所有0到999能被8整除的数字。使用暴力算法，迭代每一个数字去看输入的最右三位是否能被整除。<a href="http://codeforces.com/contest/550/submission/18053768" target="_blank" rel="external">My AC code</a></p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Merge
+        <small>Tag</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2016/06/12/mergesortlist/" itemprop="url">
+              
+                <span itemprop="name">mergesortlist</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-06-12T15:07:15+09:00"
+              content="2016-06-12" >
+          06-12
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/ACM/" rel="tag">#ACM</a>
-          
-            <a href="/tags/brute-force/" rel="tag">#brute_force</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/06/07/add2num/" rel="next" title="add2num">
-                <i class="fa fa-chevron-left"></i> add2num
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/KefAndPark/" rel="prev" title="KefAndPark">
-                KefAndPark <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -381,17 +263,6 @@ Your task is to determine if it is possibl">
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -411,17 +282,8 @@ Your task is to determine if it is possibl">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -498,17 +360,6 @@ Your task is to determine if it is possibl">
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Divisibility-by-Eight"><span class="nav-number">1.</span> <span class="nav-text">C. Divisibility by Eight</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -605,10 +456,6 @@ Your task is to determine if it is possibl">
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
@@ -625,9 +472,9 @@ Your task is to determine if it is possibl">
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/07/divby8/';
-      var disqus_title = "divby8";
-      var disqus_url = 'http://byelaney.github.io/2016/06/07/divby8/';
+      var disqus_identifier = 'tags/Merge/index.html';
+      var disqus_title = "";
+      var disqus_url = '';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -638,8 +485,6 @@ Your task is to determine if it is possibl">
       }
 
       run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
       
     </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   

@@ -240,6 +240,382 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/08/ringlist/" itemprop="url">
+                  ringlist
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-08T16:28:52+09:00" content="2016-06-08">
+              2016-06-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/08/ringlist/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/08/ringlist/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="带环链表"><a href="#带环链表" class="headerlink" title="带环链表"></a>带环链表</h2><p>给定一个链表，判断它是否有环。</p>
+<p>这里只要用龟兔赛跑的算法就可以了，如果有环的话，乌龟一定会追上兔子！(确定不是兔子套圈乌龟吗…)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        ListNode* turtle = head;</span><br><span class="line">        ListNode* hare = head-&gt;next;</span><br><span class="line">        <span class="keyword">while</span> (hare != <span class="literal">NULL</span> &amp;&amp; turtle != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (hare == turtle) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (hare-&gt;next == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            hare = hare-&gt;next;</span><br><span class="line">            hare = hare-&gt;next;</span><br><span class="line">            turtle = turtle-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/08/bst2/" itemprop="url">
+                  bst2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-08T10:17:11+09:00" content="2016-06-08">
+              2016-06-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/08/bst2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/08/bst2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="买卖股票的最佳时机-II"><a href="#买卖股票的最佳时机-II" class="headerlink" title="买卖股票的最佳时机 II"></a>买卖股票的最佳时机 II</h2><p>假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。</p>
+<p>对我来说，这题有点类似连续和最大那道题，其实题目的关键是 <strong>什么时候该买</strong>，<strong>什么时候该卖</strong>。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，就用低价的股票来替代当前手里的股票。确定买的时机比较简单，难的是确定什么时候该卖，这里就不同于连续和最大了，没有连续的要求(可以仔细体会一下)。现在我们手里握有股票 <strong>buy</strong>,看到了今天的股票价格 <strong>P_i</strong>,首先要保证 <strong>P_i - buy &gt; 0</strong>,但这并不一定使利润最大化，最关键的一个条件就是 <strong>P_{i+1} &lt; P_i</strong>,也就是明天的股票没有今天值钱了，这时候我们才可以确定地去售出。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;prices)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> buy = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> profit = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;prices.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (buy == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// we need to buy first</span></span><br><span class="line">            buy = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] &lt; buy)</span><br><span class="line">                buy = prices[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (i+<span class="number">1</span> &lt; prices.size())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(prices[i+<span class="number">1</span>] &lt; prices[i])</span><br><span class="line">                    &#123;</span><br><span class="line">                        profit += prices[i] - buy;</span><br><span class="line">                        buy = <span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    profit += prices[i] - buy;</span><br><span class="line">                    buy = <span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> profit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/07/KefAndPark/" itemprop="url">
+                  KefAndPark
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T21:57:52+09:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/codeforces/" itemprop="url" rel="index">
+                    <span itemprop="name">codeforces</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/07/KefAndPark/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/KefAndPark/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Kefa-And-Park"><a href="#Kefa-And-Park" class="headerlink" title="Kefa And Park"></a>Kefa And Park</h2><p>Kefa decided to celebrate his first big salary by going to the restaurant.</p>
+<p>He lives by an unusual park. The park is a rooted tree consisting of n vertices with the root at vertex 1. Vertex 1 also contains Kefa’s house. Unfortunaely for our hero, the park also contains cats. Kefa has already found out what are the vertices with cats in them.</p>
+<p>The leaf vertices of the park contain restaurants. Kefa wants to choose a restaurant where he will go, but unfortunately he is very afraid of cats, so there is no way he will go to the restaurant if the path from the restaurant to his house contains more than m consecutive vertices with cats.</p>
+<p>Your task is to help Kefa count the number of restaurants where he can go.</p>
+<p>Input<br>The first line contains two integers, n and m (2 ≤ n ≤ 10^5, 1 ≤ m ≤ n) — the number of vertices of the tree and the maximum number of consecutive vertices with cats that is still ok for Kefa.</p>
+<p>The second line contains n integers a1, a2, …, an, where each ai either equals to 0 (then vertex i has no cat), or equals to 1 (then vertex i has a cat).</p>
+<p>Next n - 1 lines contains the edges of the tree in the format “xi yi” (without the quotes) (1 ≤ xi, yi ≤ n, xi ≠ yi), where xi and yi are the vertices of the tree, connected by an edge.</p>
+<p>It is guaranteed that the given set of edges specifies a tree.</p>
+<p>Output<br>A single integer — the number of distinct leaves of a tree the path to which from Kefa’s home contains at most m consecutive vertices with cats.</p>
+<p>more specific info see <a href="http://codeforces.com/problemset/problem/580/C" target="_blank" rel="external">C. Kefa and Park</a></p>
+<p>一开始的时候我没有搞清楚题意，用树的观点去做的时候误以为数字小的节点就是数字大的节点的父节点，写完后发现到第八还是第九个测试案例的时候就失败了。比如某一个测试用例的 [4,2]， 这里4反而是2的父节点。于是我尝试换一个角度去思考，用图的概念来处理，算法本身是很简单的一个 dfs，难点就在实现部分了。我用了存放 vector 的数组 e，vector 里存放每个节点的邻居节点。特别注意的是添加邻居节点的时候要注意涉及到的两个节点都要添加。之后就是 dfs 的部分了，dfs 人人都会，难点在于和题目本身结合，如何去表达连续节点有猫的个数不超过 m 这个条件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// v is current vertice</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v,<span class="keyword">int</span> anc,<span class="keyword">int</span> c)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cats[v]) ++c;</span><br><span class="line">    <span class="keyword">else</span> c = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(c &gt; m) <span class="keyword">return</span>;<span class="comment">//too many cats!</span></span><br><span class="line">    <span class="keyword">bool</span> currentLeaf = <span class="literal">true</span>;<span class="comment">//assume current is a leaf</span></span><br><span class="line">    rep(i, e[v].size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> adjancent = e[v][i];</span><br><span class="line">        <span class="keyword">if</span>(adjancent != anc)</span><br><span class="line">        &#123;</span><br><span class="line">            currentLeaf = <span class="literal">false</span>;</span><br><span class="line">            dfs(adjancent, v, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(currentLeaf) ++choices;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要就是三个参数，当前要处理的节点，之前的那个节点，以及之前的连续节点有猫的个数。如果当前节点的 vector 中只含有之前的那个节点的话就说明当前节点是叶子节点。详细代码请参考 <a href="http://codeforces.com/contest/580/submission/18152137" target="_blank" rel="external">My AC code</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/07/divby8/" itemprop="url">
                   divby8
                 </a>
@@ -744,7 +1120,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -761,7 +1137,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="greedy," />
+  <meta name="keywords" content="DivideAndConquer," />
 
 
 
@@ -86,19 +86,22 @@
 
 
 
-<meta name="description" content="买卖股票的最佳时机 II假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。
-对我来说，这题有点类似连续和最大那道题，其实题目的关键是 什么时候该买，什么时候该卖。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，">
+<meta name="description" content="x的n次幂实现 pow(x,n),当答案和标准输出差绝对值小于1e-3时都算正确
+没什么说的，使用分而治之方法，记得考虑n小于0的情况。
+1234567891011121314151617181920212223double myPow(double x, int n) &amp;#123;        // Write your code here    if (n == 0) return 1;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bst2">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/08/bst2/index.html">
+<meta property="og:title" content="npow">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/12/npow/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="买卖股票的最佳时机 II假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。
-对我来说，这题有点类似连续和最大那道题，其实题目的关键是 什么时候该买，什么时候该卖。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，">
-<meta property="og:updated_time" content="2016-06-08T02:05:32.000Z">
+<meta property="og:description" content="x的n次幂实现 pow(x,n),当答案和标准输出差绝对值小于1e-3时都算正确
+没什么说的，使用分而治之方法，记得考虑n小于0的情况。
+1234567891011121314151617181920212223double myPow(double x, int n) &amp;#123;        // Write your code here    if (n == 0) return 1;">
+<meta property="og:updated_time" content="2016-06-12T01:10:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bst2">
-<meta name="twitter:description" content="买卖股票的最佳时机 II假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。
-对我来说，这题有点类似连续和最大那道题，其实题目的关键是 什么时候该买，什么时候该卖。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，">
+<meta name="twitter:title" content="npow">
+<meta name="twitter:description" content="x的n次幂实现 pow(x,n),当答案和标准输出差绝对值小于1e-3时都算正确
+没什么说的，使用分而治之方法，记得考虑n小于0的情况。
+1234567891011121314151617181920212223double myPow(double x, int n) &amp;#123;        // Write your code here    if (n == 0) return 1;">
 
 
 
@@ -119,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/08/bst2/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/12/npow/"/>
 
-  <title> bst2 | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> npow | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -241,7 +244,7 @@
             
             
               
-                bst2
+                npow
               
             
           </h1>
@@ -253,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-08T10:17:11+09:00" content="2016-06-08">
-              2016-06-08
+            <time itemprop="dateCreated" datetime="2016-06-12T10:08:19+09:00" content="2016-06-12">
+              2016-06-12
             </time>
           </span>
 
@@ -283,8 +286,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/08/bst2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/08/bst2/" itemprop="commentsCount"></span>
+                <a href="/2016/06/12/npow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/npow/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,9 +310,9 @@
       
 
       
-        <h2 id="买卖股票的最佳时机-II"><a href="#买卖股票的最佳时机-II" class="headerlink" title="买卖股票的最佳时机 II"></a>买卖股票的最佳时机 II</h2><p>假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。</p>
-<p>对我来说，这题有点类似连续和最大那道题，其实题目的关键是 <strong>什么时候该买</strong>，<strong>什么时候该卖</strong>。我的想法是每次遇到一个价格，如果手里没有股票的话就先买下来。如果遇到比当前手里股票便宜的股票，就用低价的股票来替代当前手里的股票。确定买的时机比较简单，难的是确定什么时候该卖，这里就不同于连续和最大了，没有连续的要求(可以仔细体会一下)。现在我们手里握有股票 <strong>buy</strong>,看到了今天的股票价格 <strong>P_i</strong>,首先要保证 <strong>P_i - buy &gt; 0</strong>,但这并不一定使利润最大化，最关键的一个条件就是 <strong>P_{i+1} &lt; P_i</strong>,也就是明天的股票没有今天值钱了，这时候我们才可以确定地去售出。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;prices)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> buy = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> profit = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;prices.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (buy == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// we need to buy first</span></span><br><span class="line">            buy = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] &lt; buy)</span><br><span class="line">                buy = prices[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (i+<span class="number">1</span> &lt; prices.size())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(prices[i+<span class="number">1</span>] &lt; prices[i])</span><br><span class="line">                    &#123;</span><br><span class="line">                        profit += prices[i] - buy;</span><br><span class="line">                        buy = <span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    profit += prices[i] - buy;</span><br><span class="line">                    buy = <span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> profit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="x的n次幂"><a href="#x的n次幂" class="headerlink" title="x的n次幂"></a>x的n次幂</h2><p>实现 pow(x,n),当答案和标准输出差绝对值小于1e-3时都算正确</p>
+<p>没什么说的，使用分而治之方法，记得考虑n小于0的情况。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> t = myPow(x, n/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (n%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> t*t;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> t*t*x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        n = -n;</span><br><span class="line">        <span class="keyword">double</span> t = myPow(x, n/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (n%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>/(t*t);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>/(t*t*x);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -331,7 +334,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/greedy/" rel="tag">#greedy</a>
+            <a href="/tags/DivideAndConquer/" rel="tag">#DivideAndConquer</a>
           
         </div>
       
@@ -340,16 +343,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/KefAndPark/" rel="next" title="KefAndPark">
-                <i class="fa fa-chevron-left"></i> KefAndPark
+              <a href="/2016/06/12/uniquepath/" rel="next" title="uniquepath">
+                <i class="fa fa-chevron-left"></i> uniquepath
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/08/ringlist/" rel="prev" title="ringlist">
-                ringlist <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/12/partiAry/" rel="prev" title="partiAry">
+                partiAry <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +501,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#买卖股票的最佳时机-II"><span class="nav-number">1.</span> <span class="nav-text">买卖股票的最佳时机 II</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#x的n次幂"><span class="nav-number">1.</span> <span class="nav-text">x的n次幂</span></a></li></ol></div>
             
           </div>
         </section>
@@ -618,9 +621,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/08/bst2/';
-      var disqus_title = "bst2";
-      var disqus_url = 'http://byelaney.github.io/2016/06/08/bst2/';
+      var disqus_identifier = '2016/06/12/npow/';
+      var disqus_title = "npow";
+      var disqus_url = 'http://byelaney.github.io/2016/06/12/npow/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
