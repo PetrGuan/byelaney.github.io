@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="GuanJun's blog" type="application/atom+xml" />
 
@@ -100,7 +102,7 @@
 
 如果 s 是 “test” 并且 t 是 “test”,那么 LD(s,t) = 0,因为显然这两个字符串相同。
 如果 s 是 “test”">
-<meta property="og:updated_time" content="2016-06-14T10:26:50.000Z">
+<meta property="og:updated_time" content="2016-06-14T10:28:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="levenshtein">
 <meta name="twitter:description" content="什么是 Levenshtein Distance?Levenshtein distance (LD) 是一种检测字符串相似度的方法, 假设我们有字符串 s 和字符串 t, 这个距离就是字符串 s 转换到字符串 t 的步骤数,包括删除,增加和替换。比如说：
@@ -334,7 +336,7 @@
 </blockquote>
 <p>首先来对这个算法有一个大概的了解:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Slow, recursive Levenshtein implementation</span></span><br><span class="line"><span class="comment"># (inspired by &lt;http://en.wikipedia.org/wiki/Levenshtein_distance&gt;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">leven</span><span class="params">(s, t)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># base case: empty strings</span></span><br><span class="line">    <span class="keyword">if</span> len(s) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> len(t)  <span class="comment"># cost of inserting all of t</span></span><br><span class="line">    <span class="keyword">if</span> len(t) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> len(s)  <span class="comment"># cost of inserting all of s</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># test if last characters match</span></span><br><span class="line">    <span class="keyword">if</span> s[<span class="number">-1</span>] == t[<span class="number">-1</span>]:</span><br><span class="line">        cost = <span class="number">0</span>    <span class="comment"># match; no cost</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cost = <span class="number">1</span>   <span class="comment"># no match; cost of substituting one letter.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># return minimum of</span></span><br><span class="line">    <span class="comment"># - (1) delete char from s,</span></span><br><span class="line">    <span class="comment"># - (2) delete char from t, and</span></span><br><span class="line">    <span class="comment"># - (3) delete char from both</span></span><br><span class="line">    <span class="keyword">return</span> min(</span><br><span class="line">        leven(s[:<span class="number">-1</span>], t) + <span class="number">1</span>, <span class="comment"># e.g., leven(fas, cats) + 1 (for deleting 't' from 'fast')</span></span><br><span class="line">        leven(s, t[:<span class="number">-1</span>]) + <span class="number">1</span>, <span class="comment"># e.g., leven(fast, cat) + 1 (for deleting 's' from 'cats')</span></span><br><span class="line">        leven(s[:<span class="number">-1</span>], t[:<span class="number">-1</span>]) +</span><br><span class="line">          cost <span class="comment"># e.g., leven(fas, cat) + cost (for 's'-&gt; t)</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-<p>这里算法本身还是比较好理解的,代码的注释有很�详细的说明。需要注意的是这里使用了递归,显然这很方便理解,但是如果你仔细想一下,这样的递归效率是非常低下的。道理与斐波那契数列的递归一样,重复计算了很多次我们已经计算过的项。所以我们要转变一下想法,从递归向 dynamic programming 进发。</p>
+<p>这里算法本身还是比较好理解的,代码的注释有很详细的说明。需要注意的是这里使用了递归,显然这很方便理解,但是如果你仔细想一下,这样的递归效率是非常低下的。道理与斐波那契数列的递归一样,重复计算了很多次我们已经计算过的项。所以我们要转变一下想法,从递归向 dynamic programming 进发。</p>
 <p>其实 dynamic programming 还是比较容易理解的,区别就在于前面的结果和当前的结果的联系,我们每次计算都会保存好这些结果,以供之后的计算使用,具体算法如下:</p>
 <table>
 <thead>
