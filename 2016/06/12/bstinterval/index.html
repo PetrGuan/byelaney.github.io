@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pro_magic," />
+  <meta name="keywords" content="Tree," />
 
 
 
@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="Calculate Fibonacci Number with O(logN).
-F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
-12345678910111213141516171">
+<meta name="description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
+基本上还是递归的思想，还是比较简单的。
+1234567891011121314151617vector&amp;lt;int&amp;gt; search">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cfib">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/07/Cfib/index.html">
+<meta property="og:title" content="bstinterval">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/12/bstinterval/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="Calculate Fibonacci Number with O(logN).
-F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
-12345678910111213141516171">
-<meta property="og:updated_time" content="2016-06-08T02:03:44.000Z">
+<meta property="og:description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
+基本上还是递归的思想，还是比较简单的。
+1234567891011121314151617vector&amp;lt;int&amp;gt; search">
+<meta property="og:updated_time" content="2016-06-12T06:31:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cfib">
-<meta name="twitter:description" content="Calculate Fibonacci Number with O(logN).
-F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
-12345678910111213141516171">
+<meta name="twitter:title" content="bstinterval">
+<meta name="twitter:description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
+基本上还是递归的思想，还是比较简单的。
+1234567891011121314151617vector&amp;lt;int&amp;gt; search">
 
 
 
@@ -122,9 +122,9 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/07/Cfib/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/12/bstinterval/"/>
 
-  <title> Cfib | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> bstinterval | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +244,7 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
             
             
               
-                Cfib
+                bstinterval
               
             
           </h1>
@@ -256,8 +256,8 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:13:45+09:00" content="2016-06-07">
-              2016-06-07
+            <time itemprop="dateCreated" datetime="2016-06-12T15:28:50+09:00" content="2016-06-12">
+              2016-06-12
             </time>
           </span>
 
@@ -270,8 +270,8 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming-snaps/" itemprop="url" rel="index">
-                    <span itemprop="name">programming_snaps</span>
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
                   </a>
                 </span>
 
@@ -286,8 +286,8 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/07/Cfib/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/Cfib/" itemprop="commentsCount"></span>
+                <a href="/2016/06/12/bstinterval/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/bstinterval/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +310,9 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
       
 
       
-        <p>Calculate Fibonacci Number with <strong>O(logN)</strong>.</p>
-<p><strong>F(i) = F(i-1) + F(i-2) = 2 <em> F(i-2) + F(i-3) = 3 </em> F(i-3)+ 2 * F(i-4)…</strong><br><strong>F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll MOD = <span class="number">1000000007</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ll,ll&gt; Fib;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">fib</span><span class="params">(ll n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(Fib.find(n) != Fib.end()) <span class="keyword">return</span> Fib[n];</span><br><span class="line">    Fib[n] = (fib((n+<span class="number">1</span>) / <span class="number">2</span>)*fib(n/<span class="number">2</span>) + fib((n<span class="number">-1</span>) / <span class="number">2</span>)*fib((n<span class="number">-2</span>) / <span class="number">2</span>)) % MOD;</span><br><span class="line">    <span class="keyword">return</span> Fib[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    ll N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">if</span>(N&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; fib(N) &lt;&lt; “\n”;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="二叉查找树中搜索区间"><a href="#二叉查找树中搜索区间" class="headerlink" title="二叉查找树中搜索区间"></a>二叉查找树中搜索区间</h2><p>给定两个值 k1 和 k2（k1 &lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &lt;= x &lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。</p>
+<p>基本上还是递归的思想，还是比较简单的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; searchRange(TreeNode* root, <span class="keyword">int</span> k1, <span class="keyword">int</span> k2) &#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> v;</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;val &lt; k1) <span class="keyword">return</span> searchRange(root-&gt;right, k1, k2);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;val &gt; k2) <span class="keyword">return</span> searchRange(root-&gt;left, k1, k2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left = searchRange(root-&gt;left, k1, k2);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; right = searchRange(root-&gt;right, k1, k2);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;left.size();++i)</span><br><span class="line">        v.push_back(left[i]);</span><br><span class="line">    v.push_back(root-&gt;val);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;right.size();++i)</span><br><span class="line">        v.push_back(right[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +334,7 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
       
         <div class="post-tags">
           
-            <a href="/tags/pro-magic/" rel="tag">#pro_magic</a>
+            <a href="/tags/Tree/" rel="tag">#Tree</a>
           
         </div>
       
@@ -343,16 +343,16 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/06/12/mergesortlist/" rel="next" title="mergesortlist">
+                <i class="fa fa-chevron-left"></i> mergesortlist
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/07/add2num/" rel="prev" title="add2num">
-                add2num <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/14/levenshtein/" rel="prev" title="levenshtein">
+                levenshtein <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,7 +501,7 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉查找树中搜索区间"><span class="nav-number">1.</span> <span class="nav-text">二叉查找树中搜索区间</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +621,9 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/07/Cfib/';
-      var disqus_title = "Cfib";
-      var disqus_url = 'http://byelaney.github.io/2016/06/07/Cfib/';
+      var disqus_identifier = '2016/06/12/bstinterval/';
+      var disqus_title = "bstinterval";
+      var disqus_url = 'http://byelaney.github.io/2016/06/12/bstinterval/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://byelaney.github.io/"/>
-  <updated>2016-06-12T06:08:19.000Z</updated>
+  <updated>2016-06-14T10:26:50.000Z</updated>
   <id>http://byelaney.github.io/</id>
   
   <author>
@@ -14,6 +14,148 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>levenshtein</title>
+    <link href="http://byelaney.github.io/2016/06/14/levenshtein/"/>
+    <id>http://byelaney.github.io/2016/06/14/levenshtein/</id>
+    <published>2016-06-14T09:34:29.000Z</published>
+    <updated>2016-06-14T10:26:50.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;什么是-Levenshtein-Distance&quot;&gt;&lt;a href=&quot;#什么是-Levenshtein-Distance&quot; class=&quot;headerlink&quot; title=&quot;什么是 Levenshtein Distance?&quot;&gt;&lt;/a&gt;什么是 Levenshtein Distance?&lt;/h2&gt;&lt;p&gt;Levenshtein distance (LD) 是一种检测字符串相似度的方法, 假设我们有字符串 s 和字符串 t, 这个距离就是字符串 s 转换到字符串 t 的步骤数,包括删除,增加和替换。比如说：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;如果 s 是 “test” 并且 t 是 “test”,那么 LD(s,t) = 0,因为显然这两个字符串相同。&lt;/li&gt;
+&lt;li&gt;如果 s 是 “test” 并且 t 是 “tent”, 那么 LD(s,t) = 1, 因为只需要替换一个字母即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;显然 LD 越大，说明两个字符串的差别越大。Levenshtein distance 是一个俄罗斯科学家发明的,他叫 Vladimir Levenshtein,自古毛子多开挂啊！这个算法的应用还是非常广泛的,比较熟悉的可能就是论文查重了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;拼写的检测&lt;/li&gt;
+&lt;li&gt;演讲识别&lt;/li&gt;
+&lt;li&gt;DNA 的分析&lt;/li&gt;
+&lt;li&gt;查重方面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先来对这个算法有一个大概的了解:&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Slow, recursive Levenshtein implementation&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# (inspired by &amp;lt;http://en.wikipedia.org/wiki/Levenshtein_distance&amp;gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;leven&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(s, t)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# base case: empty strings&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(s) == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; len(t)  &lt;span class=&quot;comment&quot;&gt;# cost of inserting all of t&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(t) == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; len(s)  &lt;span class=&quot;comment&quot;&gt;# cost of inserting all of s&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# test if last characters match&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; s[&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;] == t[&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        cost = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;    &lt;span class=&quot;comment&quot;&gt;# match; no cost&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        cost = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;   &lt;span class=&quot;comment&quot;&gt;# no match; cost of substituting one letter.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# return minimum of&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# - (1) delete char from s,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# - (2) delete char from t, and&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# - (3) delete char from both&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; min(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        leven(s[:&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;], t) + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;# e.g., leven(fas, cats) + 1 (for deleting &#39;t&#39; from &#39;fast&#39;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        leven(s, t[:&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]) + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;# e.g., leven(fast, cat) + 1 (for deleting &#39;s&#39; from &#39;cats&#39;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        leven(s[:&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;], t[:&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]) +&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          cost &lt;span class=&quot;comment&quot;&gt;# e.g., leven(fas, cat) + cost (for &#39;s&#39;-&amp;gt; t)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这里算法本身还是比较好理解的,代码的注释有很�详细的说明。需要注意的是这里使用了递归,显然这很方便理解,但是如果你仔细想一下,这样的递归效率是非常低下的。道理与斐波那契数列的递归一样,重复计算了很多次我们已经计算过的项。所以我们要转变一下想法,从递归向 dynamic programming 进发。&lt;/p&gt;
+&lt;p&gt;其实 dynamic programming 还是比较容易理解的,区别就在于前面的结果和当前的结果的联系,我们每次计算都会保存好这些结果,以供之后的计算使用,具体算法如下:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Step&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;(1)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;设 s 的长度为 n&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;设 t 的长度为 m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;如果 s 的长度为0,那么就返回 m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;如果 t 的长度为0,那么就返回 n&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;构建一个 (m+1)*(n+1) 的矩阵 dp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(2)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;把第一行的值依次设置为0到n&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;把第一列的值依次设置为0到m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(3)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;迭代 s 的每个字符(i 从 1 到 n):&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;迭代 t 的每个字符(j 从 1 到 m):&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(4)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;if s[i] = t[j],那么 cost = 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;if s[i] != t[j],那么 cost = 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(5)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;把 dp[i,j] 设置为以下值之中的最小值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;(a). dp[i-1,j] + 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;(b). dp[i,j-1] + 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;(c). dp[i-1,j-1] + cost&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(6)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;最后,你可以在 dp[m,n] 发现最终的结果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;第(5)步的三步可能比较难理解,其实也很简单,就是上面递归实现的三种情况。顺便提一下,时间复杂度是O(m*n)。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是-Levenshtein-Distance&quot;&gt;&lt;a href=&quot;#什么是-Levenshtein-Distance&quot; class=&quot;headerlink&quot; title=&quot;什么是 Levenshtein Distance?&quot;&gt;&lt;/a&gt;什么是 Levenshte
+    
+    </summary>
+    
+      <category term="algorithm" scheme="http://byelaney.github.io/categories/algorithm/"/>
+    
+    
+      <category term="DP" scheme="http://byelaney.github.io/tags/DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bstinterval</title>
+    <link href="http://byelaney.github.io/2016/06/12/bstinterval/"/>
+    <id>http://byelaney.github.io/2016/06/12/bstinterval/</id>
+    <published>2016-06-12T06:28:50.000Z</published>
+    <updated>2016-06-12T06:31:01.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;二叉查找树中搜索区间&quot;&gt;&lt;a href=&quot;#二叉查找树中搜索区间&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树中搜索区间&quot;&gt;&lt;/a&gt;二叉查找树中搜索区间&lt;/h2&gt;&lt;p&gt;给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。&lt;/p&gt;
+&lt;p&gt;基本上还是递归的思想，还是比较简单的。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; searchRange(TreeNode* root, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; k1, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; k2) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// write your code here&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; v;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (root == &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; v;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (root-&amp;gt;val &amp;lt; k1) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; searchRange(root-&amp;gt;right, k1, k2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (root-&amp;gt;val &amp;gt; k2) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; searchRange(root-&amp;gt;left, k1, k2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; left = searchRange(root-&amp;gt;left, k1, k2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; right = searchRange(root-&amp;gt;right, k1, k2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;i&amp;lt;left.size();++i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        v.push_back(left[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    v.push_back(root-&amp;gt;val);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;i&amp;lt;right.size();++i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        v.push_back(right[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; v;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;二叉查找树中搜索区间&quot;&gt;&lt;a href=&quot;#二叉查找树中搜索区间&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树中搜索区间&quot;&gt;&lt;/a&gt;二叉查找树中搜索区间&lt;/h2&gt;&lt;p&gt;给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。
+    
+    </summary>
+    
+      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
+    
+    
+      <category term="Tree" scheme="http://byelaney.github.io/tags/Tree/"/>
+    
+  </entry>
   
   <entry>
     <title>mergesortlist</title>
