@@ -240,6 +240,259 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/15/subtree/" itemprop="url">
+                  subtree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T10:07:16+09:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/subtree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/subtree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="子树"><a href="#子树" class="headerlink" title="子树"></a>子树</h2><p>有两个不同大小的二进制树： T1 有上百万的节点； T2 有好几百的节点。请设计一种算法，判定 T2 是否为 T1的子树。</p>
+<p>注意:若 T1 中存在从节点 n 开始的子树与 T2 相同，我们称 T2 是 T1 的子树。也就是说，如果在 T1 节点 n 处将树砍断，砍断的部分将与 T2 完全相同。</p>
+<p>这题我愣了好久,老是 wrong answer,其实还是递归条件没有搞的很清楚。这一题我看网上其实还有一种解法,要利用到树的遍历。如果一棵树的前序和中序遍历已经确定,那么我们就可以唯一确定这一棵树。于是我们可以先遍历这两棵树并且分别构造前序和中序遍历的结果,之后单纯进行字符串比较即可。当然我还是使用的递归的方法,注意对每个节点判断是否是相同的树,之后再进行递归判定是否是子树。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Identical</span><span class="params">(TreeNode* T1, TreeNode* T2)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (T1 == <span class="literal">NULL</span> &amp;&amp; T2 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (T1 != <span class="literal">NULL</span> &amp;&amp; T2 != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (T1-&gt;val != T2-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">bool</span> left = Identical(T1-&gt;left, T2-&gt;left);</span><br><span class="line">        <span class="keyword">bool</span> right = Identical(T1-&gt;right, T2-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> (left &amp;&amp; right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isSubtree</span><span class="params">(TreeNode* T1, TreeNode* T2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (T2 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (T1 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> root = Identical(T1, T2);</span><br><span class="line">    <span class="keyword">if</span> (root) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">bool</span> left = Identical(T1-&gt;left, T2);</span><br><span class="line">    <span class="keyword">bool</span> right = Identical(T1-&gt;right, T2);</span><br><span class="line">    <span class="keyword">if</span> (left || right) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> (isSubtree(T1-&gt;left, T2)||isSubtree(T1-&gt;right, T2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/15/levenshtein2/" itemprop="url">
+                  levenshtein2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T09:41:07+09:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/levenshtein2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/levenshtein2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Levenshtein-Distance-的延伸"><a href="#Levenshtein-Distance-的延伸" class="headerlink" title="Levenshtein Distance 的延伸"></a>Levenshtein Distance 的延伸</h2><p>上一篇介绍了具体怎么算 Levenshtein Distance,这一篇我来大概讲讲应用。</p>
+<p>例如当你要处理拼写错误的时候,你就可以利用这个 Levenshtein Distance,具体怎么用呢？一个很容易想到的方法就是搜索你的词语库,计算输入和词语库词语的 Levenshtein Distance,返回值最小的那个是比较合理的。这个方法乍一看很美,其实是不太现实的,因为词语库一般都很大,而处理拼写错误的请求是很频繁的,这样的计算代价太大了,或者说效率很低。那么有没有什么好办法呢？答案是肯定的。这里要提到一个词 ‘trade off’,我们需要牺牲一定的准确性。我们可以反过来思考,现在我们有了用户输入的 term ,并且根据以往的统计经验,70%-80%的拼写错误都是一个字符的错误,于是我们可以利用这一点,生成所有可能的字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">alphabet = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edits</span><span class="params">(word, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">""" Return all single edits to word.</span><br><span class="line">    Consider insertions, deletes, replacement, and transposition.</span><br><span class="line">    """</span></span><br><span class="line">    splits     = [(word[:i], word[i:]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    <span class="comment"># e.g., cat -&gt; [('', 'cat'), ('c', 'at'), ('ca', 't'), ('cat', '')]</span></span><br><span class="line">    deletes    = [a + b[<span class="number">1</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">if</span> b]                       <span class="comment"># cat-&gt; ca</span></span><br><span class="line">    transposes = [a + b[<span class="number">1</span>] + b[<span class="number">0</span>] + b[<span class="number">2</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">if</span> len(b)&gt;<span class="number">1</span>]  <span class="comment"># cat -&gt; act</span></span><br><span class="line">    replaces   = [a + c + b[<span class="number">1</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">for</span> c <span class="keyword">in</span> alphabet <span class="keyword">if</span> b] <span class="comment"># cat -&gt; car</span></span><br><span class="line">    inserts    = [a + c + b     <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">for</span> c <span class="keyword">in</span> alphabet]      <span class="comment"># cat -&gt; cats</span></span><br><span class="line">    <span class="keyword">if</span> verbose:</span><br><span class="line">        print(<span class="string">'splits=%s\ndeletes=%s\ntransposes=%s\nreplaces=%s\ninserts=%s\n'</span> %</span><br><span class="line">             (splits, deletes, transposes, replaces, inserts))</span><br><span class="line">    <span class="keyword">return</span> set(deletes + transposes + replaces + inserts)                  <span class="comment"># union all edits</span></span><br><span class="line">    <span class="comment"># n deletions, n-1 transpositions, 26n substitutions, and 26(n+1) insertions, for a total of 54n+25.</span></span><br></pre></td></tr></table></figure>
+<h2 id="如何使用-spelling-correction"><a href="#如何使用-spelling-correction" class="headerlink" title="如何使用 spelling correction?"></a>如何使用 spelling correction?</h2><blockquote>
+<ul>
+<li>Make suggestions (“Did you mean?”)</li>
+<li>Add corrected terms to query</li>
+<li>only if query term is not in dictionary</li>
+<li>only if number of matches &lt; N</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/14/levenshtein/" itemprop="url">
                   levenshtein
                 </a>
@@ -1291,258 +1544,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/10/wigglesort/" itemprop="url">
-                  wigglesort
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-10T10:15:44+09:00" content="2016-06-10">
-              2016-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/10/wigglesort/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/10/wigglesort/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>给你一个没有排序的数组，请将原数组就地重新排列满足如下性质:<br>nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]….</p>
-<p>要求: 不能使用额外数组。</p>
-<p>我把这题想的太复杂了…想成先排序再交换，其实只要遍历一遍，同时把 <strong>nums[i] 与 nums[i+1]</strong> 不满足以上关系的交换就好了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">wiggleSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (((i % <span class="number">2</span> == <span class="number">1</span>) &amp;&amp; nums[i] &lt; nums[i - <span class="number">1</span>]) || ((i % <span class="number">2</span> == <span class="number">0</span>) &amp;&amp; nums[i] &gt; nums[i - <span class="number">1</span>])) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">            nums[i] = nums[i - <span class="number">1</span>];</span><br><span class="line">            nums[i - <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/10/rotamin/" itemprop="url">
-                  rotamin
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-10T08:28:34+09:00" content="2016-06-10">
-              2016-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/10/rotamin/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/10/rotamin/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="寻找旋转排序数组中的最小值"><a href="#寻找旋转排序数组中的最小值" class="headerlink" title="寻找旋转排序数组中的最小值"></a>寻找旋转排序数组中的最小值</h2><p>假设一个旋转排序的数组其起始位置是未知的（比如[0 1 2 4 5 6 7] 可能变成是[4 5 6 7 0 1 2]）。</p>
-<p>你需要找到其中最小的元素。</p>
-<p>你可以假设数组中不存在重复的元素。</p>
-<p>找最小的话遍历一遍就行了，或者用二分查找。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> hi = (<span class="keyword">int</span>)num.size()<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(lo&lt;hi)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = lo + (hi - lo)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(num[mid]&gt;num[hi])&#123;</span><br><span class="line">            lo = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(num[mid]&lt;num[hi])&#123;</span><br><span class="line">            hi = mid;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            hi--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num[lo];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1583,7 +1589,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1600,7 +1606,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

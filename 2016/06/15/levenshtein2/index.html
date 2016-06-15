@@ -68,10 +68,12 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pro_magic," />
+  <meta name="keywords" content="application," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="GuanJun's blog" type="application/atom+xml" />
@@ -86,19 +88,19 @@
 
 
 
-<meta name="description" content="Add two numbers without using arithmetic operatorsWrite a function Add() that returns sum of two integers. The function should not use any of the arithmetic operators (+, ++, –, -, .. etc).
-Sum of two">
+<meta name="description" content="Levenshtein Distance 的延伸上一篇介绍了具体怎么算 Levenshtein Distance,这一篇我来大概讲讲应用。
+例如当你要处理拼写错误的时候,你就可以利用这个 Levenshtein Distance,具体怎么用呢？一个很容易想到的方法就是搜索你的词语库,计算输入和词语库词语的 Levenshtein Distance,返回值最小的那个是比较合理的。这个方法乍一看很美,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="add2num">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/07/add2num/index.html">
+<meta property="og:title" content="levenshtein2">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/15/levenshtein2/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="Add two numbers without using arithmetic operatorsWrite a function Add() that returns sum of two integers. The function should not use any of the arithmetic operators (+, ++, –, -, .. etc).
-Sum of two">
-<meta property="og:updated_time" content="2016-06-08T01:54:56.000Z">
+<meta property="og:description" content="Levenshtein Distance 的延伸上一篇介绍了具体怎么算 Levenshtein Distance,这一篇我来大概讲讲应用。
+例如当你要处理拼写错误的时候,你就可以利用这个 Levenshtein Distance,具体怎么用呢？一个很容易想到的方法就是搜索你的词语库,计算输入和词语库词语的 Levenshtein Distance,返回值最小的那个是比较合理的。这个方法乍一看很美,">
+<meta property="og:updated_time" content="2016-06-15T01:06:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="add2num">
-<meta name="twitter:description" content="Add two numbers without using arithmetic operatorsWrite a function Add() that returns sum of two integers. The function should not use any of the arithmetic operators (+, ++, –, -, .. etc).
-Sum of two">
+<meta name="twitter:title" content="levenshtein2">
+<meta name="twitter:description" content="Levenshtein Distance 的延伸上一篇介绍了具体怎么算 Levenshtein Distance,这一篇我来大概讲讲应用。
+例如当你要处理拼写错误的时候,你就可以利用这个 Levenshtein Distance,具体怎么用呢？一个很容易想到的方法就是搜索你的词语库,计算输入和词语库词语的 Levenshtein Distance,返回值最小的那个是比较合理的。这个方法乍一看很美,">
 
 
 
@@ -119,9 +121,9 @@ Sum of two">
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/07/add2num/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/15/levenshtein2/"/>
 
-  <title> add2num | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> levenshtein2 | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -241,7 +243,7 @@ Sum of two">
             
             
               
-                add2num
+                levenshtein2
               
             
           </h1>
@@ -253,8 +255,8 @@ Sum of two">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:34:53+09:00" content="2016-06-07">
-              2016-06-07
+            <time itemprop="dateCreated" datetime="2016-06-15T09:41:07+09:00" content="2016-06-15">
+              2016-06-15
             </time>
           </span>
 
@@ -267,8 +269,8 @@ Sum of two">
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming-snaps/" itemprop="url" rel="index">
-                    <span itemprop="name">programming_snaps</span>
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
                   </a>
                 </span>
 
@@ -283,8 +285,8 @@ Sum of two">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/07/add2num/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/add2num/" itemprop="commentsCount"></span>
+                <a href="/2016/06/15/levenshtein2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/levenshtein2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,9 +309,17 @@ Sum of two">
       
 
       
-        <h2 id="Add-two-numbers-without-using-arithmetic-operators"><a href="#Add-two-numbers-without-using-arithmetic-operators" class="headerlink" title="Add two numbers without using arithmetic operators"></a>Add two numbers without using arithmetic operators</h2><p>Write a function <strong>Add()</strong> that returns sum of two integers. The function should not use any of the arithmetic operators (+, ++, –, -, .. etc).</p>
-<p>Sum of two bits can be obtained by performing <strong>XOR (^)</strong> of the two bits. Carry bit can be obtained by performing <strong>AND (&amp;)</strong> of two bits.<br>Above is simple Half Adder logic that can be used to add 2 single bits. We can extend this logic for integers. If x and y don’t have set bits at same position(s), then bitwise <strong>XOR (^)</strong> of x and y gives the sum of x and y. To incorporate common set bits also, bitwise <strong>AND (&amp;)</strong> is used. Bitwise AND of x and y gives all carry bits. We calculate (x &amp; y) &lt;&lt; 1 and add it to x ^ y to get the required result.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">// Iterate till there is no carry  </span></span><br><span class="line">    <span class="keyword">while</span> (y != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// carry now contains common set bits of x and y</span></span><br><span class="line">        <span class="keyword">int</span> carry = x &amp; y;  </span><br><span class="line">        <span class="comment">// Sum of bits of x and y where at least one of the bits is not set</span></span><br><span class="line">        x = x ^ y;</span><br><span class="line">        <span class="comment">// Carry is shifted by one so that adding it to x gives the required sum</span></span><br><span class="line">        y = carry &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Levenshtein-Distance-的延伸"><a href="#Levenshtein-Distance-的延伸" class="headerlink" title="Levenshtein Distance 的延伸"></a>Levenshtein Distance 的延伸</h2><p>上一篇介绍了具体怎么算 Levenshtein Distance,这一篇我来大概讲讲应用。</p>
+<p>例如当你要处理拼写错误的时候,你就可以利用这个 Levenshtein Distance,具体怎么用呢？一个很容易想到的方法就是搜索你的词语库,计算输入和词语库词语的 Levenshtein Distance,返回值最小的那个是比较合理的。这个方法乍一看很美,其实是不太现实的,因为词语库一般都很大,而处理拼写错误的请求是很频繁的,这样的计算代价太大了,或者说效率很低。那么有没有什么好办法呢？答案是肯定的。这里要提到一个词 ‘trade off’,我们需要牺牲一定的准确性。我们可以反过来思考,现在我们有了用户输入的 term ,并且根据以往的统计经验,70%-80%的拼写错误都是一个字符的错误,于是我们可以利用这一点,生成所有可能的字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">alphabet = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edits</span><span class="params">(word, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">""" Return all single edits to word.</span><br><span class="line">    Consider insertions, deletes, replacement, and transposition.</span><br><span class="line">    """</span></span><br><span class="line">    splits     = [(word[:i], word[i:]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    <span class="comment"># e.g., cat -&gt; [('', 'cat'), ('c', 'at'), ('ca', 't'), ('cat', '')]</span></span><br><span class="line">    deletes    = [a + b[<span class="number">1</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">if</span> b]                       <span class="comment"># cat-&gt; ca</span></span><br><span class="line">    transposes = [a + b[<span class="number">1</span>] + b[<span class="number">0</span>] + b[<span class="number">2</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">if</span> len(b)&gt;<span class="number">1</span>]  <span class="comment"># cat -&gt; act</span></span><br><span class="line">    replaces   = [a + c + b[<span class="number">1</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">for</span> c <span class="keyword">in</span> alphabet <span class="keyword">if</span> b] <span class="comment"># cat -&gt; car</span></span><br><span class="line">    inserts    = [a + c + b     <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">for</span> c <span class="keyword">in</span> alphabet]      <span class="comment"># cat -&gt; cats</span></span><br><span class="line">    <span class="keyword">if</span> verbose:</span><br><span class="line">        print(<span class="string">'splits=%s\ndeletes=%s\ntransposes=%s\nreplaces=%s\ninserts=%s\n'</span> %</span><br><span class="line">             (splits, deletes, transposes, replaces, inserts))</span><br><span class="line">    <span class="keyword">return</span> set(deletes + transposes + replaces + inserts)                  <span class="comment"># union all edits</span></span><br><span class="line">    <span class="comment"># n deletions, n-1 transpositions, 26n substitutions, and 26(n+1) insertions, for a total of 54n+25.</span></span><br></pre></td></tr></table></figure>
+<h2 id="如何使用-spelling-correction"><a href="#如何使用-spelling-correction" class="headerlink" title="如何使用 spelling correction?"></a>如何使用 spelling correction?</h2><blockquote>
+<ul>
+<li>Make suggestions (“Did you mean?”)</li>
+<li>Add corrected terms to query</li>
+<li>only if query term is not in dictionary</li>
+<li>only if number of matches &lt; N</li>
+</ul>
+</blockquote>
 
       
     </div>
@@ -331,7 +341,7 @@ Sum of two">
       
         <div class="post-tags">
           
-            <a href="/tags/pro-magic/" rel="tag">#pro_magic</a>
+            <a href="/tags/application/" rel="tag">#application</a>
           
         </div>
       
@@ -340,16 +350,16 @@ Sum of two">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/Cfib/" rel="next" title="Cfib">
-                <i class="fa fa-chevron-left"></i> Cfib
+              <a href="/2016/06/14/levenshtein/" rel="next" title="levenshtein">
+                <i class="fa fa-chevron-left"></i> levenshtein
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/07/divby8/" rel="prev" title="divby8">
-                divby8 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/15/subtree/" rel="prev" title="subtree">
+                subtree <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +508,7 @@ Sum of two">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-two-numbers-without-using-arithmetic-operators"><span class="nav-number">1.</span> <span class="nav-text">Add two numbers without using arithmetic operators</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Levenshtein-Distance-的延伸"><span class="nav-number">1.</span> <span class="nav-text">Levenshtein Distance 的延伸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用-spelling-correction"><span class="nav-number">2.</span> <span class="nav-text">如何使用 spelling correction?</span></a></li></ol></div>
             
           </div>
         </section>
@@ -618,9 +628,9 @@ Sum of two">
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/07/add2num/';
-      var disqus_title = "add2num";
-      var disqus_url = 'http://byelaney.github.io/2016/06/07/add2num/';
+      var disqus_identifier = '2016/06/15/levenshtein2/';
+      var disqus_title = "levenshtein2";
+      var disqus_url = 'http://byelaney.github.io/2016/06/15/levenshtein2/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

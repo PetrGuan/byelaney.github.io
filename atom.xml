@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://byelaney.github.io/"/>
-  <updated>2016-06-14T10:28:25.000Z</updated>
+  <updated>2016-06-15T01:46:47.000Z</updated>
   <id>http://byelaney.github.io/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>subtree</title>
+    <link href="http://byelaney.github.io/2016/06/15/subtree/"/>
+    <id>http://byelaney.github.io/2016/06/15/subtree/</id>
+    <published>2016-06-15T01:07:16.000Z</published>
+    <updated>2016-06-15T01:46:47.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;子树&quot;&gt;&lt;a href=&quot;#子树&quot; class=&quot;headerlink&quot; title=&quot;子树&quot;&gt;&lt;/a&gt;子树&lt;/h2&gt;&lt;p&gt;有两个不同大小的二进制树： T1 有上百万的节点； T2 有好几百的节点。请设计一种算法，判定 T2 是否为 T1的子树。&lt;/p&gt;
+&lt;p&gt;注意:若 T1 中存在从节点 n 开始的子树与 T2 相同，我们称 T2 是 T1 的子树。也就是说，如果在 T1 节点 n 处将树砍断，砍断的部分将与 T2 完全相同。&lt;/p&gt;
+&lt;p&gt;这题我愣了好久,老是 wrong answer,其实还是递归条件没有搞的很清楚。这一题我看网上其实还有一种解法,要利用到树的遍历。如果一棵树的前序和中序遍历已经确定,那么我们就可以唯一确定这一棵树。于是我们可以先遍历这两棵树并且分别构造前序和中序遍历的结果,之后单纯进行字符串比较即可。当然我还是使用的递归的方法,注意对每个节点判断是否是相同的树,之后再进行递归判定是否是子树。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Identical&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(TreeNode* T1, TreeNode* T2)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (T1 == &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &amp;amp;&amp;amp; T2 == &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (T1 != &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &amp;amp;&amp;amp; T2 != &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (T1-&amp;gt;val != T2-&amp;gt;val) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; left = Identical(T1-&amp;gt;left, T2-&amp;gt;left);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; right = Identical(T1-&amp;gt;right, T2-&amp;gt;right);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (left &amp;amp;&amp;amp; right);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isSubtree&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(TreeNode* T1, TreeNode* T2)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// write your code here&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (T2 == &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (T1 == &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; root = Identical(T1, T2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (root) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; left = Identical(T1-&amp;gt;left, T2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; right = Identical(T1-&amp;gt;right, T2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (left || right) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (isSubtree(T1-&amp;gt;left, T2)||isSubtree(T1-&amp;gt;right, T2));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;子树&quot;&gt;&lt;a href=&quot;#子树&quot; class=&quot;headerlink&quot; title=&quot;子树&quot;&gt;&lt;/a&gt;子树&lt;/h2&gt;&lt;p&gt;有两个不同大小的二进制树： T1 有上百万的节点； T2 有好几百的节点。请设计一种算法，判定 T2 是否为 T1的子树。&lt;/p&gt;
+&lt;p&gt;注
+    
+    </summary>
+    
+      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
+    
+    
+      <category term="tree" scheme="http://byelaney.github.io/tags/tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>levenshtein2</title>
+    <link href="http://byelaney.github.io/2016/06/15/levenshtein2/"/>
+    <id>http://byelaney.github.io/2016/06/15/levenshtein2/</id>
+    <published>2016-06-15T00:41:07.000Z</published>
+    <updated>2016-06-15T01:06:37.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Levenshtein-Distance-的延伸&quot;&gt;&lt;a href=&quot;#Levenshtein-Distance-的延伸&quot; class=&quot;headerlink&quot; title=&quot;Levenshtein Distance 的延伸&quot;&gt;&lt;/a&gt;Levenshtein Distance 的延伸&lt;/h2&gt;&lt;p&gt;上一篇介绍了具体怎么算 Levenshtein Distance,这一篇我来大概讲讲应用。&lt;/p&gt;
+&lt;p&gt;例如当你要处理拼写错误的时候,你就可以利用这个 Levenshtein Distance,具体怎么用呢？一个很容易想到的方法就是搜索你的词语库,计算输入和词语库词语的 Levenshtein Distance,返回值最小的那个是比较合理的。这个方法乍一看很美,其实是不太现实的,因为词语库一般都很大,而处理拼写错误的请求是很频繁的,这样的计算代价太大了,或者说效率很低。那么有没有什么好办法呢？答案是肯定的。这里要提到一个词 ‘trade off’,我们需要牺牲一定的准确性。我们可以反过来思考,现在我们有了用户输入的 term ,并且根据以往的统计经验,70%-80%的拼写错误都是一个字符的错误,于是我们可以利用这一点,生成所有可能的字符串。&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alphabet = &lt;span class=&quot;string&quot;&gt;&#39;abcdefghijklmnopqrstuvwxyz&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;edits&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(word, verbose=False)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;&quot;&quot; Return all single edits to word.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Consider insertions, deletes, replacement, and transposition.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&quot;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    splits     = [(word[:i], word[i:]) &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(len(word) + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# e.g., cat -&amp;gt; [(&#39;&#39;, &#39;cat&#39;), (&#39;c&#39;, &#39;at&#39;), (&#39;ca&#39;, &#39;t&#39;), (&#39;cat&#39;, &#39;&#39;)]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    deletes    = [a + b[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:] &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; a, b &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; splits &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; b]                       &lt;span class=&quot;comment&quot;&gt;# cat-&amp;gt; ca&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    transposes = [a + b[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] + b[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] + b[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;:] &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; a, b &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; splits &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; len(b)&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]  &lt;span class=&quot;comment&quot;&gt;# cat -&amp;gt; act&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    replaces   = [a + c + b[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:] &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; a, b &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; splits &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; c &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; alphabet &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; b] &lt;span class=&quot;comment&quot;&gt;# cat -&amp;gt; car&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    inserts    = [a + c + b     &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; a, b &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; splits &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; c &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; alphabet]      &lt;span class=&quot;comment&quot;&gt;# cat -&amp;gt; cats&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; verbose:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&lt;span class=&quot;string&quot;&gt;&#39;splits=%s\ndeletes=%s\ntransposes=%s\nreplaces=%s\ninserts=%s\n&#39;&lt;/span&gt; %&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             (splits, deletes, transposes, replaces, inserts))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; set(deletes + transposes + replaces + inserts)                  &lt;span class=&quot;comment&quot;&gt;# union all edits&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# n deletions, n-1 transpositions, 26n substitutions, and 26(n+1) insertions, for a total of 54n+25.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;如何使用-spelling-correction&quot;&gt;&lt;a href=&quot;#如何使用-spelling-correction&quot; class=&quot;headerlink&quot; title=&quot;如何使用 spelling correction?&quot;&gt;&lt;/a&gt;如何使用 spelling correction?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Make suggestions (“Did you mean?”)&lt;/li&gt;
+&lt;li&gt;Add corrected terms to query&lt;/li&gt;
+&lt;li&gt;only if query term is not in dictionary&lt;/li&gt;
+&lt;li&gt;only if number of matches &amp;lt; N&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Levenshtein-Distance-的延伸&quot;&gt;&lt;a href=&quot;#Levenshtein-Distance-的延伸&quot; class=&quot;headerlink&quot; title=&quot;Levenshtein Distance 的延伸&quot;&gt;&lt;/a&gt;Levenshtein Di
+    
+    </summary>
+    
+      <category term="algorithm" scheme="http://byelaney.github.io/categories/algorithm/"/>
+    
+    
+      <category term="application" scheme="http://byelaney.github.io/tags/application/"/>
+    
+  </entry>
   
   <entry>
     <title>levenshtein</title>
@@ -590,33 +650,6 @@
     
     
       <category term="pro_magic" scheme="http://byelaney.github.io/tags/pro-magic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://byelaney.github.io/2016/06/07/hello-world/"/>
-    <id>http://byelaney.github.io/2016/06/07/hello-world/</id>
-    <published>2016-06-07T11:33:57.000Z</published>
-    <updated>2016-06-07T11:33:57.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
     
   </entry>
   
