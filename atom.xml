@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://byelaney.github.io/"/>
-  <updated>2016-06-15T01:46:47.000Z</updated>
+  <updated>2016-06-16T11:39:08.000Z</updated>
   <id>http://byelaney.github.io/</id>
   
   <author>
@@ -14,6 +14,194 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>median</title>
+    <link href="http://byelaney.github.io/2016/06/16/median/"/>
+    <id>http://byelaney.github.io/2016/06/16/median/</id>
+    <published>2016-06-16T11:32:08.000Z</published>
+    <updated>2016-06-16T11:39:08.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;中位数&quot;&gt;&lt;a href=&quot;#中位数&quot; class=&quot;headerlink&quot; title=&quot;中位数&quot;&gt;&lt;/a&gt;中位数&lt;/h2&gt;&lt;p&gt;给定一个未排序的整数数组，找到其中位数。中位数是排序后数组的中间值，如果数组的个数是偶数个，则返回排序后数组的第N/2个数。&lt;/p&gt;
+&lt;p&gt;这题其实还挺难的,当然你可以先排序然后再直接取中间那个数,这里考虑一种不一样的解法,使用 Priority Queue。假设数组长度是奇数 N,那么我们要做的就是找到一个数,这个数满足什么条件呢？只要有 (N-1)/2 个数比它小(或等于),(N-1)/2 个数比它大(或等于)就可以了。为什么要使用 Priority Queue呢,因为很容易获取到 queue 里最大的那个数,我们要做的就是先往 queue 里塞数,直到它的长度到了 (N-1)/2,之后再把剩下的数和 queue 的 top(最大的数) 比较即可。代码如下:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;median&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; &amp;amp;nums)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; k = (nums.size() + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        priority_queue&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; que;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; len = nums.size();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; len; i ++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(que.size() == k) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(nums[i] &amp;lt; que.top()) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    que.pop();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    que.push(nums[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                que.push(nums[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; que.top();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;中位数&quot;&gt;&lt;a href=&quot;#中位数&quot; class=&quot;headerlink&quot; title=&quot;中位数&quot;&gt;&lt;/a&gt;中位数&lt;/h2&gt;&lt;p&gt;给定一个未排序的整数数组，找到其中位数。中位数是排序后数组的中间值，如果数组的个数是偶数个，则返回排序后数组的第N/2个数。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
+    
+    
+      <category term="PriorityQueue" scheme="http://byelaney.github.io/tags/PriorityQueue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>quicksort</title>
+    <link href="http://byelaney.github.io/2016/06/16/quicksort/"/>
+    <id>http://byelaney.github.io/2016/06/16/quicksort/</id>
+    <published>2016-06-16T10:00:17.000Z</published>
+    <updated>2016-06-16T10:34:35.000Z</updated>
+    
+    <content type="html">&lt;p&gt;做到与快速排序相关的一道题,所以来复习一下快速排序。顾名思义,这个算法是很快速的算法。平均复杂度是 O(nlogn),主要还是分而治之的思想。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先选取一个 pivot,关于如何选取有一些不同的方法,比如选取中间的那个数,或者是随机选一个数。&lt;/li&gt;
+&lt;li&gt;之后是很关键的一步, partition。对数组里的元素进行划分, pivot 左边的元素要满足都小于 pivot,右边的都要大于等于 pivot。&lt;/li&gt;
+&lt;li&gt;对 pivot 左边和右边的部分递归地进行排序。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们重点看一下 partition 这一步,这一步的实现是整个算法的关键所在。我们维护两个指针 i 和 j,分别指向数组的第一个元素以及最后一个元素。 partition 的时候我们把 i 往右边移动,把 j 往左边移动。如果遇到 A[i] &amp;gt;= pivot 以及 A[j] &amp;lt; pivot,这时候就把这两个元素交换即可。具体看如下代码:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;partition&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; arr[], &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; left, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; right)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = left, j = right;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; tmp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; pivot = arr[(left + right) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (i &amp;lt;= j) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (arr[i] &amp;lt; pivot)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  i++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (arr[j] &amp;gt;= pivot)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  j--;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (i &amp;lt;= j) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  &lt;span class=&quot;comment&quot;&gt;//swap arr[i] and arr[j]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  tmp = arr[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  arr[i] = arr[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  arr[j] = tmp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  i++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  j--;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;quickSort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; arr[], &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; left, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; right)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index = partition(arr, left, right); &lt;span class=&quot;comment&quot;&gt;// left other &amp;lt; arr[index] &amp;lt;= right other&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (left &amp;lt; index - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            quickSort(arr, left, index - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;// recursively sort left part&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (index &amp;lt; right)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            quickSort(arr, index, right); &lt;span class=&quot;comment&quot;&gt;// recursively sort right part&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Knuth 的高徒 Robert Sedgewick 还改进了 quicksort,这里就不讨论了,有兴趣的同学可以去看一下。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;做到与快速排序相关的一道题,所以来复习一下快速排序。顾名思义,这个算法是很快速的算法。平均复杂度是 O(nlogn),主要还是分而治之的思想。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先选取一个 pivot,关于如何选取有一些不同的方法,比如选取中间的那个数,或者是随机选一个数。&lt;/l
+    
+    </summary>
+    
+      <category term="algorithm" scheme="http://byelaney.github.io/categories/algorithm/"/>
+    
+    
+      <category term="sorting" scheme="http://byelaney.github.io/tags/sorting/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>longestIncSeq</title>
+    <link href="http://byelaney.github.io/2016/06/15/longestIncSeq/"/>
+    <id>http://byelaney.github.io/2016/06/15/longestIncSeq/</id>
+    <published>2016-06-15T13:45:43.000Z</published>
+    <updated>2016-06-15T13:50:52.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;最长上升连续子序列&quot;&gt;&lt;a href=&quot;#最长上升连续子序列&quot; class=&quot;headerlink&quot; title=&quot;最长上升连续子序列&quot;&gt;&lt;/a&gt;最长上升连续子序列&lt;/h2&gt;&lt;p&gt;给定一个整数数组（下标从 0 到 n-1， n 表示整个数组的规模），请找出该数组中的最长上升连续子序列。（最长上升连续子序列可以定义为从右到左或从左到右的序列。）&lt;/p&gt;
+&lt;p&gt;根据题意这题好像挺难的样子,标签上说要用枚举法或者动态数组。但我其实觉得还可以,从左往右扫描,相邻的数字进行比大小,这里关键就是比了大小之后,你可以进行一系列操作,等于另一序列在同时进行。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;longestIncreasingContinuousSubsequence&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt;&amp;amp; A)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Write your code here&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (A.size() == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; p1 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; max = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; max1 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//ascending max&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; max2 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//descending max&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; counter = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (counter &amp;lt; A.size())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (p1 &amp;lt; A.size()&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt; &amp;amp;&amp;amp; A[p1] &amp;lt; A[p1+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            max2 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ++max1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (max1 &amp;gt; max)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                max = max1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (p1 &amp;lt; A.size()&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt; &amp;amp;&amp;amp; A[p1] &amp;gt;= A[p1+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            max1 = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ++max2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (max2 &amp;gt; max)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                max = max2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//do nothing&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ++counter;++p1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; max+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;最长上升连续子序列&quot;&gt;&lt;a href=&quot;#最长上升连续子序列&quot; class=&quot;headerlink&quot; title=&quot;最长上升连续子序列&quot;&gt;&lt;/a&gt;最长上升连续子序列&lt;/h2&gt;&lt;p&gt;给定一个整数数组（下标从 0 到 n-1， n 表示整个数组的规模），请找出该数组中
+    
+    </summary>
+    
+      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
+    
+    
+      <category term="Pointers" scheme="http://byelaney.github.io/tags/Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>scalaIndex</title>
+    <link href="http://byelaney.github.io/2016/06/15/scalaIndex/"/>
+    <id>http://byelaney.github.io/2016/06/15/scalaIndex/</id>
+    <published>2016-06-15T09:18:24.000Z</published>
+    <updated>2016-06-15T13:51:01.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Building-an-index&quot;&gt;&lt;a href=&quot;#Building-an-index&quot; class=&quot;headerlink&quot; title=&quot;Building an index&quot;&gt;&lt;/a&gt;Building an index&lt;/h2&gt;&lt;p&gt;至今为止我们讨论的都是内存中的操作,如果 document 太大了无法在内存中操作的时候,我们该怎么办呢？这时就涉及到和硬盘的数据交换了。影响效率的因素有:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;寻道的时间 (time to locate data in disk)&lt;/li&gt;
+&lt;li&gt;传输的能力 (to copy from data into memory)&lt;/li&gt;
+&lt;li&gt;数据在磁盘上是连续的还是不连续的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Block-sort-based-indexing-BSBI&quot;&gt;&lt;a href=&quot;#Block-sort-based-indexing-BSBI&quot; class=&quot;headerlink&quot; title=&quot;Block sort-based indexing (BSBI)&quot;&gt;&lt;/a&gt;Block sort-based indexing (BSBI)&lt;/h2&gt;&lt;p&gt;这里比较直观的一个理解就是既然无法把所有 document 读入内存,那么我们就把 document 分成能读入内存的许多块(block),一块一块处理就好了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先把 document 分为许多块&lt;/li&gt;
+&lt;li&gt;对每一块:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;处理每一个 block,获得 (word_id,doc_id) pairs&lt;/li&gt;
+&lt;li&gt;对这些 pairs 进行排序,并且构建 postings lists&lt;/li&gt;
+&lt;li&gt;把 postings lists 写入内存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;对这些 postings lists 进行 merge 操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;例如我们有以下两个 postings lists:&lt;br&gt;| word        | doc_id |&lt;br&gt;| ——–   | :—-:  |&lt;br&gt;| brutus     | d1,d3 |&lt;br&gt;| caesar        | d1,d2,d4   |&lt;br&gt;| noble        |  d5  |&lt;br&gt;| with        |  d1,d2,d3,d5  |&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;word&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;doc_id&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;brutus&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d6,d7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;caesar&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d8,d9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;julius&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;killed&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;合并之后如下:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;word&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;doc_id&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;brutus&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d1,d3,d6,d7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;caesar&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d1,d2,d4,d8,d9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;julius&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;killed&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;noble&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;with&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;d1,d2,d3,d5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Building-an-index&quot;&gt;&lt;a href=&quot;#Building-an-index&quot; class=&quot;headerlink&quot; title=&quot;Building an index&quot;&gt;&lt;/a&gt;Building an index&lt;/h2&gt;&lt;p&gt;至今为止我们讨论的都
+    
+    </summary>
+    
+      <category term="IR" scheme="http://byelaney.github.io/categories/IR/"/>
+    
+    
+      <category term="Disk" scheme="http://byelaney.github.io/tags/Disk/"/>
+    
+  </entry>
   
   <entry>
     <title>subtree</title>
@@ -530,126 +718,6 @@
     
     
       <category term="greedy" scheme="http://byelaney.github.io/tags/greedy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KefAndPark</title>
-    <link href="http://byelaney.github.io/2016/06/07/KefAndPark/"/>
-    <id>http://byelaney.github.io/2016/06/07/KefAndPark/</id>
-    <published>2016-06-07T12:57:52.000Z</published>
-    <updated>2016-06-08T02:05:01.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Kefa-And-Park&quot;&gt;&lt;a href=&quot;#Kefa-And-Park&quot; class=&quot;headerlink&quot; title=&quot;Kefa And Park&quot;&gt;&lt;/a&gt;Kefa And Park&lt;/h2&gt;&lt;p&gt;Kefa decided to celebrate his first big salary by going to the restaurant.&lt;/p&gt;
-&lt;p&gt;He lives by an unusual park. The park is a rooted tree consisting of n vertices with the root at vertex 1. Vertex 1 also contains Kefa’s house. Unfortunaely for our hero, the park also contains cats. Kefa has already found out what are the vertices with cats in them.&lt;/p&gt;
-&lt;p&gt;The leaf vertices of the park contain restaurants. Kefa wants to choose a restaurant where he will go, but unfortunately he is very afraid of cats, so there is no way he will go to the restaurant if the path from the restaurant to his house contains more than m consecutive vertices with cats.&lt;/p&gt;
-&lt;p&gt;Your task is to help Kefa count the number of restaurants where he can go.&lt;/p&gt;
-&lt;p&gt;Input&lt;br&gt;The first line contains two integers, n and m (2 ≤ n ≤ 10^5, 1 ≤ m ≤ n) — the number of vertices of the tree and the maximum number of consecutive vertices with cats that is still ok for Kefa.&lt;/p&gt;
-&lt;p&gt;The second line contains n integers a1, a2, …, an, where each ai either equals to 0 (then vertex i has no cat), or equals to 1 (then vertex i has a cat).&lt;/p&gt;
-&lt;p&gt;Next n - 1 lines contains the edges of the tree in the format “xi yi” (without the quotes) (1 ≤ xi, yi ≤ n, xi ≠ yi), where xi and yi are the vertices of the tree, connected by an edge.&lt;/p&gt;
-&lt;p&gt;It is guaranteed that the given set of edges specifies a tree.&lt;/p&gt;
-&lt;p&gt;Output&lt;br&gt;A single integer — the number of distinct leaves of a tree the path to which from Kefa’s home contains at most m consecutive vertices with cats.&lt;/p&gt;
-&lt;p&gt;more specific info see &lt;a href=&quot;http://codeforces.com/problemset/problem/580/C&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;C. Kefa and Park&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;一开始的时候我没有搞清楚题意，用树的观点去做的时候误以为数字小的节点就是数字大的节点的父节点，写完后发现到第八还是第九个测试案例的时候就失败了。比如某一个测试用例的 [4,2]， 这里4反而是2的父节点。于是我尝试换一个角度去思考，用图的概念来处理，算法本身是很简单的一个 dfs，难点就在实现部分了。我用了存放 vector 的数组 e，vector 里存放每个节点的邻居节点。特别注意的是添加邻居节点的时候要注意涉及到的两个节点都要添加。之后就是 dfs 的部分了，dfs 人人都会，难点在于和题目本身结合，如何去表达连续节点有猫的个数不超过 m 这个条件。&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// v is current vertice&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; v,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; anc,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(cats[v]) ++c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; c = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(c &amp;gt; m) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//too many cats!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; currentLeaf = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//assume current is a leaf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    rep(i, e[v].size())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; adjancent = e[v][i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(adjancent != anc)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            currentLeaf = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            dfs(adjancent, v, c);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(currentLeaf) ++choices;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;主要就是三个参数，当前要处理的节点，之前的那个节点，以及之前的连续节点有猫的个数。如果当前节点的 vector 中只含有之前的那个节点的话就说明当前节点是叶子节点。详细代码请参考 &lt;a href=&quot;http://codeforces.com/contest/580/submission/18152137&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;My AC code&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Kefa-And-Park&quot;&gt;&lt;a href=&quot;#Kefa-And-Park&quot; class=&quot;headerlink&quot; title=&quot;Kefa And Park&quot;&gt;&lt;/a&gt;Kefa And Park&lt;/h2&gt;&lt;p&gt;Kefa decided to celebrate 
-    
-    </summary>
-    
-      <category term="codeforces" scheme="http://byelaney.github.io/categories/codeforces/"/>
-    
-    
-      <category term="ACM" scheme="http://byelaney.github.io/tags/ACM/"/>
-    
-      <category term="DFS" scheme="http://byelaney.github.io/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>divby8</title>
-    <link href="http://byelaney.github.io/2016/06/07/divby8/"/>
-    <id>http://byelaney.github.io/2016/06/07/divby8/</id>
-    <published>2016-06-07T12:49:11.000Z</published>
-    <updated>2016-06-08T01:55:04.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;C-Divisibility-by-Eight&quot;&gt;&lt;a href=&quot;#C-Divisibility-by-Eight&quot; class=&quot;headerlink&quot; title=&quot;C. Divisibility by Eight&quot;&gt;&lt;/a&gt;C. Divisibility by Eight&lt;/h2&gt;&lt;p&gt;You are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.&lt;/p&gt;
-&lt;p&gt;Your task is to determine if it is possible in this case to remove some of the digits (possibly not remove any digit at all) so that the result contains at least one digit, forms a non-negative integer, doesn’t have leading zeroes and is divisible by 8. After the removing, it is forbidden to rearrange the digits.&lt;/p&gt;
-&lt;p&gt;If a solution exists, you should print it.&lt;/p&gt;
-&lt;p&gt;Input&lt;br&gt;The single line of the input contains a non-negative integer n. The representation of number n doesn’t contain any leading zeroes and its length doesn’t exceed 100 digits.&lt;/p&gt;
-&lt;p&gt;Output&lt;br&gt;Print “NO” (without quotes), if there is no such way to remove some digits from number n.&lt;/p&gt;
-&lt;p&gt;Otherwise, print “YES” in the first line and the resulting number after removing digits from number n in the second line. The printed number must be divisible by 8.&lt;/p&gt;
-&lt;p&gt;If there are multiple possible answers, you may print any of them.&lt;/p&gt;
-&lt;p&gt;这里需要用到一个小知识，如果一个数能被8整除的话，那么这个数的最右三位（只有二位或一位的话同理）一定能被8整除。因为输入很大有100位数字，所以使用string来存储。这里我们先构建一个数组，里面存储了所有0到999能被8整除的数字。使用暴力算法，迭代每一个数字去看输入的最右三位是否能被整除。&lt;a href=&quot;http://codeforces.com/contest/550/submission/18053768&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;My AC code&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;C-Divisibility-by-Eight&quot;&gt;&lt;a href=&quot;#C-Divisibility-by-Eight&quot; class=&quot;headerlink&quot; title=&quot;C. Divisibility by Eight&quot;&gt;&lt;/a&gt;C. Divisibility 
-    
-    </summary>
-    
-      <category term="codeforces" scheme="http://byelaney.github.io/categories/codeforces/"/>
-    
-    
-      <category term="ACM" scheme="http://byelaney.github.io/tags/ACM/"/>
-    
-      <category term="brute_force" scheme="http://byelaney.github.io/tags/brute-force/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>add2num</title>
-    <link href="http://byelaney.github.io/2016/06/07/add2num/"/>
-    <id>http://byelaney.github.io/2016/06/07/add2num/</id>
-    <published>2016-06-07T12:34:53.000Z</published>
-    <updated>2016-06-08T01:54:56.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Add-two-numbers-without-using-arithmetic-operators&quot;&gt;&lt;a href=&quot;#Add-two-numbers-without-using-arithmetic-operators&quot; class=&quot;headerlink&quot; title=&quot;Add two numbers without using arithmetic operators&quot;&gt;&lt;/a&gt;Add two numbers without using arithmetic operators&lt;/h2&gt;&lt;p&gt;Write a function &lt;strong&gt;Add()&lt;/strong&gt; that returns sum of two integers. The function should not use any of the arithmetic operators (+, ++, –, -, .. etc).&lt;/p&gt;
-&lt;p&gt;Sum of two bits can be obtained by performing &lt;strong&gt;XOR (^)&lt;/strong&gt; of the two bits. Carry bit can be obtained by performing &lt;strong&gt;AND (&amp;amp;)&lt;/strong&gt; of two bits.&lt;br&gt;Above is simple Half Adder logic that can be used to add 2 single bits. We can extend this logic for integers. If x and y don’t have set bits at same position(s), then bitwise &lt;strong&gt;XOR (^)&lt;/strong&gt; of x and y gives the sum of x and y. To incorporate common set bits also, bitwise &lt;strong&gt;AND (&amp;amp;)&lt;/strong&gt; is used. Bitwise AND of x and y gives all carry bits. We calculate (x &amp;amp; y) &amp;lt;&amp;lt; 1 and add it to x ^ y to get the required result.&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; x, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; y)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Iterate till there is no carry  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (y != &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// carry now contains common set bits of x and y&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; carry = x &amp;amp; y;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// Sum of bits of x and y where at least one of the bits is not set&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        x = x ^ y;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// Carry is shifted by one so that adding it to x gives the required sum&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        y = carry &amp;lt;&amp;lt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; x;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Add-two-numbers-without-using-arithmetic-operators&quot;&gt;&lt;a href=&quot;#Add-two-numbers-without-using-arithmetic-operators&quot; class=&quot;headerlink&quot;
-    
-    </summary>
-    
-      <category term="programming_snaps" scheme="http://byelaney.github.io/categories/programming-snaps/"/>
-    
-    
-      <category term="pro_magic" scheme="http://byelaney.github.io/tags/pro-magic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cfib</title>
-    <link href="http://byelaney.github.io/2016/06/07/Cfib/"/>
-    <id>http://byelaney.github.io/2016/06/07/Cfib/</id>
-    <published>2016-06-07T12:13:45.000Z</published>
-    <updated>2016-06-08T02:03:44.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Calculate Fibonacci Number with &lt;strong&gt;O(logN)&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;F(i) = F(i-1) + F(i-2) = 2 &lt;em&gt; F(i-2) + F(i-3) = 3 &lt;/em&gt; F(i-3)+ 2 * F(i-4)…&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; ll;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; ll MOD = &lt;span class=&quot;number&quot;&gt;1000000007&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;unordered_map&lt;/span&gt;&amp;lt;ll,ll&amp;gt; Fib;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;ll &lt;span class=&quot;title&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(ll n)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(n&amp;lt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(Fib.find(n) != Fib.end()) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Fib[n];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Fib[n] = (fib((n+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)*fib(n/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) + fib((n&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)*fib((n&lt;span class=&quot;number&quot;&gt;-2&lt;/span&gt;) / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)) % MOD;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Fib[n];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ll N;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; N;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(N&amp;lt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; fib(N) &amp;lt;&amp;lt; “\n”;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Calculate Fibonacci Number with &lt;strong&gt;O(logN)&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;F(i) = F(i-1) + F(i-2) = 2 &lt;em&gt; F(i-2) + F(i-3) = 3 &lt;/em&gt; F(i-3)
-    
-    </summary>
-    
-      <category term="programming_snaps" scheme="http://byelaney.github.io/categories/programming-snaps/"/>
-    
-    
-      <category term="pro_magic" scheme="http://byelaney.github.io/tags/pro-magic/"/>
     
   </entry>
   
