@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Pointers," />
+  <meta name="keywords" content="Power," />
 
 
 
@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="最长上升连续子序列给定一个整数数组（下标从 0 到 n-1， n 表示整个数组的规模），请找出该数组中的最长上升连续子序列。（最长上升连续子序列可以定义为从右到左或从左到右的序列。）
-根据题意这题好像挺难的样子,标签上说要用枚举法或者动态数组。但我其实觉得还可以,从左往右扫描,相邻的数字进行比大小,这里关键就是比了大小之后,你可以进行一系列操作,等于另一序列在同时进行。
-1234567891011">
+<meta name="description" content="O(1)时间检测2的幂次用 O(1) 时间检测整数 n 是否是 2 的幂次。
+对比2的幂次方即可。
+1234567891011121314151617bool checkPowerOf2(int n) &amp;#123;    // write your code here    if (n&amp;lt;0) return false;    int* bin = new int[32];    int ba">
 <meta property="og:type" content="article">
-<meta property="og:title" content="longestIncSeq">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/15/longestIncSeq/index.html">
+<meta property="og:title" content="twopower">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/17/twopower/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="最长上升连续子序列给定一个整数数组（下标从 0 到 n-1， n 表示整个数组的规模），请找出该数组中的最长上升连续子序列。（最长上升连续子序列可以定义为从右到左或从左到右的序列。）
-根据题意这题好像挺难的样子,标签上说要用枚举法或者动态数组。但我其实觉得还可以,从左往右扫描,相邻的数字进行比大小,这里关键就是比了大小之后,你可以进行一系列操作,等于另一序列在同时进行。
-1234567891011">
-<meta property="og:updated_time" content="2016-06-15T13:50:52.000Z">
+<meta property="og:description" content="O(1)时间检测2的幂次用 O(1) 时间检测整数 n 是否是 2 的幂次。
+对比2的幂次方即可。
+1234567891011121314151617bool checkPowerOf2(int n) &amp;#123;    // write your code here    if (n&amp;lt;0) return false;    int* bin = new int[32];    int ba">
+<meta property="og:updated_time" content="2016-06-17T06:18:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="longestIncSeq">
-<meta name="twitter:description" content="最长上升连续子序列给定一个整数数组（下标从 0 到 n-1， n 表示整个数组的规模），请找出该数组中的最长上升连续子序列。（最长上升连续子序列可以定义为从右到左或从左到右的序列。）
-根据题意这题好像挺难的样子,标签上说要用枚举法或者动态数组。但我其实觉得还可以,从左往右扫描,相邻的数字进行比大小,这里关键就是比了大小之后,你可以进行一系列操作,等于另一序列在同时进行。
-1234567891011">
+<meta name="twitter:title" content="twopower">
+<meta name="twitter:description" content="O(1)时间检测2的幂次用 O(1) 时间检测整数 n 是否是 2 的幂次。
+对比2的幂次方即可。
+1234567891011121314151617bool checkPowerOf2(int n) &amp;#123;    // write your code here    if (n&amp;lt;0) return false;    int* bin = new int[32];    int ba">
 
 
 
@@ -122,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/15/longestIncSeq/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/17/twopower/"/>
 
-  <title> longestIncSeq | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> twopower | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +244,7 @@
             
             
               
-                longestIncSeq
+                twopower
               
             
           </h1>
@@ -256,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-15T22:45:43+09:00" content="2016-06-15">
-              2016-06-15
+            <time itemprop="dateCreated" datetime="2016-06-17T15:16:19+09:00" content="2016-06-17">
+              2016-06-17
             </time>
           </span>
 
@@ -286,8 +286,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/15/longestIncSeq/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/longestIncSeq/" itemprop="commentsCount"></span>
+                <a href="/2016/06/17/twopower/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/17/twopower/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +310,9 @@
       
 
       
-        <h2 id="最长上升连续子序列"><a href="#最长上升连续子序列" class="headerlink" title="最长上升连续子序列"></a>最长上升连续子序列</h2><p>给定一个整数数组（下标从 0 到 n-1， n 表示整个数组的规模），请找出该数组中的最长上升连续子序列。（最长上升连续子序列可以定义为从右到左或从左到右的序列。）</p>
-<p>根据题意这题好像挺难的样子,标签上说要用枚举法或者动态数组。但我其实觉得还可以,从左往右扫描,相邻的数字进行比大小,这里关键就是比了大小之后,你可以进行一系列操作,等于另一序列在同时进行。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">longestIncreasingContinuousSubsequence</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (A.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> max1 = <span class="number">0</span>; <span class="comment">//ascending max</span></span><br><span class="line">    <span class="keyword">int</span> max2 = <span class="number">0</span>; <span class="comment">//descending max</span></span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (counter &lt; A.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (p1 &lt; A.size()<span class="number">-1</span> &amp;&amp; A[p1] &lt; A[p1+<span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            max2 = <span class="number">0</span>;</span><br><span class="line">            ++max1;</span><br><span class="line">            <span class="keyword">if</span> (max1 &gt; max)</span><br><span class="line">                max = max1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p1 &lt; A.size()<span class="number">-1</span> &amp;&amp; A[p1] &gt;= A[p1+<span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            max1 = <span class="number">0</span>;</span><br><span class="line">            ++max2;</span><br><span class="line">            <span class="keyword">if</span> (max2 &gt; max)</span><br><span class="line">                max = max2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//do nothing</span></span><br><span class="line">        &#125;</span><br><span class="line">        ++counter;++p1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="O-1-时间检测2的幂次"><a href="#O-1-时间检测2的幂次" class="headerlink" title="O(1)时间检测2的幂次"></a>O(1)时间检测2的幂次</h2><p>用 O(1) 时间检测整数 n 是否是 2 的幂次。</p>
+<p>对比2的幂次方即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkPowerOf2</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (n&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span>* bin = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">    <span class="keyword">int</span> base = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">32</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        bin[i] = base;</span><br><span class="line">        base *= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">32</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n == bin[i])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +334,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Pointers/" rel="tag">#Pointers</a>
+            <a href="/tags/Power/" rel="tag">#Power</a>
           
         </div>
       
@@ -343,17 +343,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/15/scalaIndex/" rel="next" title="scalaIndex">
-                <i class="fa fa-chevron-left"></i> scalaIndex
+              <a href="/2016/06/16/median/" rel="next" title="median">
+                <i class="fa fa-chevron-left"></i> median
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/16/quicksort/" rel="prev" title="quicksort">
-                quicksort <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +497,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最长上升连续子序列"><span class="nav-number">1.</span> <span class="nav-text">最长上升连续子序列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#O-1-时间检测2的幂次"><span class="nav-number">1.</span> <span class="nav-text">O(1)时间检测2的幂次</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +617,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/15/longestIncSeq/';
-      var disqus_title = "longestIncSeq";
-      var disqus_url = 'http://byelaney.github.io/2016/06/15/longestIncSeq/';
+      var disqus_identifier = '2016/06/17/twopower/';
+      var disqus_title = "twopower";
+      var disqus_url = 'http://byelaney.github.io/2016/06/17/twopower/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
