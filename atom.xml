@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://byelaney.github.io/"/>
-  <updated>2016-06-17T07:12:28.000Z</updated>
+  <updated>2016-06-17T15:07:11.000Z</updated>
   <id>http://byelaney.github.io/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>charUpperLow</title>
+    <link href="http://byelaney.github.io/2016/06/18/charUpperLow/"/>
+    <id>http://byelaney.github.io/2016/06/18/charUpperLow/</id>
+    <published>2016-06-17T15:05:59.000Z</published>
+    <updated>2016-06-17T15:07:11.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;字符大小写排序&quot;&gt;&lt;a href=&quot;#字符大小写排序&quot; class=&quot;headerlink&quot; title=&quot;字符大小写排序&quot;&gt;&lt;/a&gt;字符大小写排序&lt;/h2&gt;&lt;p&gt;给定一个只包含字母的字符串，按照先小写字母后大写字母的顺序进行排序。小写字母或者大写字母他们之间不一定要保持在原始字符串中的相对位置。&lt;/p&gt;
+&lt;p&gt;还是很基础的题目,开头和结尾两个指针即可搞定。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sortLetters&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &amp;amp;letters)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// write your code here&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; left = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; right = (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)letters.size() - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (left &amp;lt; right)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (letters[left] &amp;gt; &lt;span class=&quot;number&quot;&gt;96&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ++left;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (letters[right] &amp;lt; &lt;span class=&quot;number&quot;&gt;97&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            --right;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (left &amp;lt; right)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (left &amp;lt; letters.size() &amp;amp;&amp;amp; right &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// swap them pls&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; tmp = letters[left];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                letters[left] = letters[right];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                letters[right] = tmp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;字符大小写排序&quot;&gt;&lt;a href=&quot;#字符大小写排序&quot; class=&quot;headerlink&quot; title=&quot;字符大小写排序&quot;&gt;&lt;/a&gt;字符大小写排序&lt;/h2&gt;&lt;p&gt;给定一个只包含字母的字符串，按照先小写字母后大写字母的顺序进行排序。小写字母或者大写字母他们之间不一
+    
+    </summary>
+    
+      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
+    
+    
+      <category term="Pointers" scheme="http://byelaney.github.io/tags/Pointers/"/>
+    
+  </entry>
   
   <entry>
     <title>divdlist</title>
@@ -724,31 +749,6 @@
     
     
       <category term="recursive" scheme="http://byelaney.github.io/tags/recursive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bst1</title>
-    <link href="http://byelaney.github.io/2016/06/08/bst1/"/>
-    <id>http://byelaney.github.io/2016/06/08/bst1/</id>
-    <published>2016-06-08T07:39:22.000Z</published>
-    <updated>2016-06-08T07:50:10.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;买卖股票的最佳时机&quot;&gt;&lt;a href=&quot;#买卖股票的最佳时机&quot; class=&quot;headerlink&quot; title=&quot;买卖股票的最佳时机&quot;&gt;&lt;/a&gt;买卖股票的最佳时机&lt;/h2&gt;&lt;p&gt;假设有一个数组，它的第i个元素是一支给定的股票在第i天的价格。如果你最多只允许完成一次交易(例如,一次买卖股票),设计一个算法来找出最大利润。&lt;/p&gt;
-&lt;p&gt;好吧…我承认我的解法很耗空间，但不知道为什么第一反应就是这样做，感觉深受 &lt;strong&gt;dynamic programming&lt;/strong&gt; 的毒害啊。&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;maxProfit&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; &amp;amp;prices)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// write your code here&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (prices.size() == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; || prices.size() == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; dp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; buy;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dp.push_back(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    buy.push_back(prices[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;i&amp;lt;prices.size();++i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (prices[i] - buy[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;] &amp;gt; dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            dp.push_back(prices[i] - buy[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            buy.push_back(buy[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            dp.push_back(dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (prices[i] &amp;lt; buy[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                buy.push_back(prices[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                buy.push_back(buy[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;] &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;买卖股票的最佳时机&quot;&gt;&lt;a href=&quot;#买卖股票的最佳时机&quot; class=&quot;headerlink&quot; title=&quot;买卖股票的最佳时机&quot;&gt;&lt;/a&gt;买卖股票的最佳时机&lt;/h2&gt;&lt;p&gt;假设有一个数组，它的第i个元素是一支给定的股票在第i天的价格。如果你最多只允许完成一
-    
-    </summary>
-    
-      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
-    
-    
-      <category term="DP" scheme="http://byelaney.github.io/tags/DP/"/>
     
   </entry>
   
