@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Tree," />
+  <meta name="keywords" content="vector," />
 
 
 
@@ -86,22 +86,19 @@
 
 
 
-<meta name="description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
-基本上还是递归的思想，还是比较简单的。
-1234567891011121314151617vector&amp;lt;int&amp;gt; search">
+<meta name="description" content="最小差给定两个整数数组（第一个是数组 A，第二个是数组 B），在数组 A 中取 A[i]，数组 B 中取 B[j]，A[i] 和 B[j]两者的差越小越好(|A[i] - B[j]|)。返回最小差。
+题目比较简单,先排序然后双指针比较即可。我写的花了1000ms,我以为太慢了于是去参考了一下答案。发现答案是用 set 写的,先把 A 的元素放进 set ,之后再遍历 B 的元素和 set 里的元素">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bstinterval">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/12/bstinterval/index.html">
+<meta property="og:title" content="smallestdiff">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/18/smallestdiff/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
-基本上还是递归的思想，还是比较简单的。
-1234567891011121314151617vector&amp;lt;int&amp;gt; search">
-<meta property="og:updated_time" content="2016-06-12T06:31:01.000Z">
+<meta property="og:description" content="最小差给定两个整数数组（第一个是数组 A，第二个是数组 B），在数组 A 中取 A[i]，数组 B 中取 B[j]，A[i] 和 B[j]两者的差越小越好(|A[i] - B[j]|)。返回最小差。
+题目比较简单,先排序然后双指针比较即可。我写的花了1000ms,我以为太慢了于是去参考了一下答案。发现答案是用 set 写的,先把 A 的元素放进 set ,之后再遍历 B 的元素和 set 里的元素">
+<meta property="og:updated_time" content="2016-06-18T01:20:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bstinterval">
-<meta name="twitter:description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
-基本上还是递归的思想，还是比较简单的。
-1234567891011121314151617vector&amp;lt;int&amp;gt; search">
+<meta name="twitter:title" content="smallestdiff">
+<meta name="twitter:description" content="最小差给定两个整数数组（第一个是数组 A，第二个是数组 B），在数组 A 中取 A[i]，数组 B 中取 B[j]，A[i] 和 B[j]两者的差越小越好(|A[i] - B[j]|)。返回最小差。
+题目比较简单,先排序然后双指针比较即可。我写的花了1000ms,我以为太慢了于是去参考了一下答案。发现答案是用 set 写的,先把 A 的元素放进 set ,之后再遍历 B 的元素和 set 里的元素">
 
 
 
@@ -122,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/12/bstinterval/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/18/smallestdiff/"/>
 
-  <title> bstinterval | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> smallestdiff | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +241,7 @@
             
             
               
-                bstinterval
+                smallestdiff
               
             
           </h1>
@@ -256,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-12T15:28:50+09:00" content="2016-06-12">
-              2016-06-12
+            <time itemprop="dateCreated" datetime="2016-06-18T10:16:31+09:00" content="2016-06-18">
+              2016-06-18
             </time>
           </span>
 
@@ -286,8 +283,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/12/bstinterval/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/bstinterval/" itemprop="commentsCount"></span>
+                <a href="/2016/06/18/smallestdiff/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/18/smallestdiff/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +307,10 @@
       
 
       
-        <h2 id="二叉查找树中搜索区间"><a href="#二叉查找树中搜索区间" class="headerlink" title="二叉查找树中搜索区间"></a>二叉查找树中搜索区间</h2><p>给定两个值 k1 和 k2（k1 &lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &lt;= x &lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。</p>
-<p>基本上还是递归的思想，还是比较简单的。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; searchRange(TreeNode* root, <span class="keyword">int</span> k1, <span class="keyword">int</span> k2) &#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> v;</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;val &lt; k1) <span class="keyword">return</span> searchRange(root-&gt;right, k1, k2);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;val &gt; k2) <span class="keyword">return</span> searchRange(root-&gt;left, k1, k2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left = searchRange(root-&gt;left, k1, k2);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; right = searchRange(root-&gt;right, k1, k2);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;left.size();++i)</span><br><span class="line">        v.push_back(left[i]);</span><br><span class="line">    v.push_back(root-&gt;val);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;right.size();++i)</span><br><span class="line">        v.push_back(right[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="最小差"><a href="#最小差" class="headerlink" title="最小差"></a>最小差</h2><p>给定两个整数数组（第一个是数组 A，第二个是数组 B），在数组 A 中取 A[i]，数组 B 中取 B[j]，A[i] 和 B[j]两者的差越小越好(|A[i] - B[j]|)。返回最小差。</p>
+<p>题目比较简单,先排序然后双指针比较即可。我写的花了1000ms,我以为太慢了于是去参考了一下答案。发现答案是用 set 写的,先把 A 的元素放进 set ,之后再遍历 B 的元素和 set 里的元素比较,写的比较简洁。然而时间却差不多比我的还慢了50ms…好吧 做出来就好。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">sort(A.begin(), A.end());</span><br><span class="line">    sort(B.begin(), B.end());</span><br><span class="line">    <span class="keyword">int</span> p1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">2147483647</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt; A.size() &amp;&amp; p2 &lt; B.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[p1] &lt; B[p2])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[p1]-B[p2]) &lt; min)</span><br><span class="line">                min = <span class="built_in">abs</span>(A[p1]-B[p2]);</span><br><span class="line">            ++p1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (A[p1] &gt; B[p2])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[p1]-B[p2]) &lt; min)</span><br><span class="line">                min = <span class="built_in">abs</span>(A[p1]-B[p2]);</span><br><span class="line">            ++p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">smallestDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;A, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> diff = <span class="number">0x7fffffff</span>;</span><br><span class="line">        <span class="keyword">int</span> la = A.size();</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; la; ++i)</span><br><span class="line">               s.insert(A[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> lb = B.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lb; ++i) &#123;</span><br><span class="line">            <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it = s.lower_bound(B[i]);</span><br><span class="line">            <span class="keyword">if</span> (it != s.end())</span><br><span class="line">                diff = min(diff, *it - B[i]);</span><br><span class="line">            <span class="keyword">if</span> (it != s.begin()) &#123;</span><br><span class="line">                it --;</span><br><span class="line">                diff = min(diff, B[i] - *it);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> diff;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +332,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Tree/" rel="tag">#Tree</a>
+            <a href="/tags/vector/" rel="tag">#vector</a>
           
         </div>
       
@@ -343,17 +341,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/12/mergesortlist/" rel="next" title="mergesortlist">
-                <i class="fa fa-chevron-left"></i> mergesortlist
+              <a href="/2016/06/18/commonAncestor/" rel="next" title="commonAncestor">
+                <i class="fa fa-chevron-left"></i> commonAncestor
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/14/levenshtein/" rel="prev" title="levenshtein">
-                levenshtein <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +495,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉查找树中搜索区间"><span class="nav-number">1.</span> <span class="nav-text">二叉查找树中搜索区间</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最小差"><span class="nav-number">1.</span> <span class="nav-text">最小差</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +615,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/12/bstinterval/';
-      var disqus_title = "bstinterval";
-      var disqus_url = 'http://byelaney.github.io/2016/06/12/bstinterval/';
+      var disqus_identifier = '2016/06/18/smallestdiff/';
+      var disqus_title = "smallestdiff";
+      var disqus_url = 'http://byelaney.github.io/2016/06/18/smallestdiff/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

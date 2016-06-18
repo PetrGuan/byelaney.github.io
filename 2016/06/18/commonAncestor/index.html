@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="GuanJun's blog" type="application/atom+xml" />
 
@@ -86,22 +88,19 @@
 
 
 
-<meta name="description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
-基本上还是递归的思想，还是比较简单的。
-1234567891011121314151617vector&amp;lt;int&amp;gt; search">
+<meta name="description" content="最近公共祖先给定一棵二叉树，找到两个节点的最近公共父节点(LCA)。
+这题其实有点难度,我一开始的想法是先对两棵树分别做 bfs,然后存在数组里,空节点也要存。这样的话假设树 T[i],那么它的子节点是很容易获取的, 也就是 T[2i+1] 和 T[2i+2]。这时候只要从数组的右边往左边扫描不断寻找各自的父亲节点,发现的第一个就是最近的公共祖先了,后来觉得好像这样写挺麻烦的。关键就在找到各自的父">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bstinterval">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/12/bstinterval/index.html">
+<meta property="og:title" content="commonAncestor">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/18/commonAncestor/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
-基本上还是递归的思想，还是比较简单的。
-1234567891011121314151617vector&amp;lt;int&amp;gt; search">
-<meta property="og:updated_time" content="2016-06-12T06:31:01.000Z">
+<meta property="og:description" content="最近公共祖先给定一棵二叉树，找到两个节点的最近公共父节点(LCA)。
+这题其实有点难度,我一开始的想法是先对两棵树分别做 bfs,然后存在数组里,空节点也要存。这样的话假设树 T[i],那么它的子节点是很容易获取的, 也就是 T[2i+1] 和 T[2i+2]。这时候只要从数组的右边往左边扫描不断寻找各自的父亲节点,发现的第一个就是最近的公共祖先了,后来觉得好像这样写挺麻烦的。关键就在找到各自的父">
+<meta property="og:updated_time" content="2016-06-18T00:57:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bstinterval">
-<meta name="twitter:description" content="二叉查找树中搜索区间给定两个值 k1 和 k2（k1 &amp;lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &amp;lt;= x &amp;lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。
-基本上还是递归的思想，还是比较简单的。
-1234567891011121314151617vector&amp;lt;int&amp;gt; search">
+<meta name="twitter:title" content="commonAncestor">
+<meta name="twitter:description" content="最近公共祖先给定一棵二叉树，找到两个节点的最近公共父节点(LCA)。
+这题其实有点难度,我一开始的想法是先对两棵树分别做 bfs,然后存在数组里,空节点也要存。这样的话假设树 T[i],那么它的子节点是很容易获取的, 也就是 T[2i+1] 和 T[2i+2]。这时候只要从数组的右边往左边扫描不断寻找各自的父亲节点,发现的第一个就是最近的公共祖先了,后来觉得好像这样写挺麻烦的。关键就在找到各自的父">
 
 
 
@@ -122,9 +121,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/12/bstinterval/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/18/commonAncestor/"/>
 
-  <title> bstinterval | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> commonAncestor | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +243,7 @@
             
             
               
-                bstinterval
+                commonAncestor
               
             
           </h1>
@@ -256,8 +255,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-12T15:28:50+09:00" content="2016-06-12">
-              2016-06-12
+            <time itemprop="dateCreated" datetime="2016-06-18T09:48:14+09:00" content="2016-06-18">
+              2016-06-18
             </time>
           </span>
 
@@ -286,8 +285,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/12/bstinterval/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/bstinterval/" itemprop="commentsCount"></span>
+                <a href="/2016/06/18/commonAncestor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/18/commonAncestor/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +309,9 @@
       
 
       
-        <h2 id="二叉查找树中搜索区间"><a href="#二叉查找树中搜索区间" class="headerlink" title="二叉查找树中搜索区间"></a>二叉查找树中搜索区间</h2><p>给定两个值 k1 和 k2（k1 &lt; k2）和一个二叉查找树的根节点。找到树中所有值在 k1 到 k2 范围内的节点。即打印所有x (k1 &lt;= x &lt;= k2) 其中 x 是二叉查找树的中的节点值。返回所有升序的节点值。</p>
-<p>基本上还是递归的思想，还是比较简单的。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; searchRange(TreeNode* root, <span class="keyword">int</span> k1, <span class="keyword">int</span> k2) &#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> v;</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;val &lt; k1) <span class="keyword">return</span> searchRange(root-&gt;right, k1, k2);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;val &gt; k2) <span class="keyword">return</span> searchRange(root-&gt;left, k1, k2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left = searchRange(root-&gt;left, k1, k2);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; right = searchRange(root-&gt;right, k1, k2);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;left.size();++i)</span><br><span class="line">        v.push_back(left[i]);</span><br><span class="line">    v.push_back(root-&gt;val);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;right.size();++i)</span><br><span class="line">        v.push_back(right[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="最近公共祖先"><a href="#最近公共祖先" class="headerlink" title="最近公共祖先"></a>最近公共祖先</h2><p>给定一棵二叉树，找到两个节点的最近公共父节点(LCA)。</p>
+<p>这题其实有点难度,我一开始的想法是先对两棵树分别做 bfs,然后存在数组里,空节点也要存。这样的话假设树 T[i],那么它的子节点是很容易获取的, 也就是 T[2i+1] 和 T[2i+2]。这时候只要从数组的右边往左边扫描不断寻找各自的父亲节点,发现的第一个就是最近的公共祖先了,后来觉得好像这样写挺麻烦的。关键就在找到各自的父亲节点,我就单独提取出来写个找父亲节点的方法,然后再比较即可。我的写法比较耗费空间存储,想法很简单,也是递归,只要子节点里面不含有目标节点,就不把它添加到当前的 vector 里去。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;TreeNode*&gt; findDad(TreeNode* root,TreeNode* t)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; v;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> v;</span><br><span class="line">    <span class="keyword">if</span> (root == t)</span><br><span class="line">    &#123;</span><br><span class="line">        v.push_back(root);</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    &#125;</span><br><span class="line">    v.push_back(root);</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; left = findDad(root-&gt;left, t);</span><br><span class="line">    <span class="keyword">bool</span> l1 = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">bool</span> r1 = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; right = findDad(root-&gt;right, t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = (<span class="keyword">int</span>)left.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">        <span class="keyword">if</span> (left[i] == t)</span><br><span class="line">            l1 = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = (<span class="keyword">int</span>)right.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">        <span class="keyword">if</span> (right[i] == t)</span><br><span class="line">            r1 = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (l1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;left.size();++i)</span><br><span class="line">            v.push_back(left[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (r1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;right.size();++i)</span><br><span class="line">            v.push_back(right[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* A, TreeNode* B)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; Dad1 = findDad(root, A);</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; Dad2 = findDad(root, B);</span><br><span class="line">    <span class="keyword">int</span> p1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt; Dad1.size() &amp;&amp; p2 &lt; Dad2.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Dad1[p1] != Dad2[p2])</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ++p1;++p2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Dad1[p1<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -343,16 +342,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/12/mergesortlist/" rel="next" title="mergesortlist">
-                <i class="fa fa-chevron-left"></i> mergesortlist
+              <a href="/2016/06/18/charUpperLow/" rel="next" title="charUpperLow">
+                <i class="fa fa-chevron-left"></i> charUpperLow
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/14/levenshtein/" rel="prev" title="levenshtein">
-                levenshtein <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/18/smallestdiff/" rel="prev" title="smallestdiff">
+                smallestdiff <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,7 +500,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉查找树中搜索区间"><span class="nav-number">1.</span> <span class="nav-text">二叉查找树中搜索区间</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最近公共祖先"><span class="nav-number">1.</span> <span class="nav-text">最近公共祖先</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +620,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/12/bstinterval/';
-      var disqus_title = "bstinterval";
-      var disqus_url = 'http://byelaney.github.io/2016/06/12/bstinterval/';
+      var disqus_identifier = '2016/06/18/commonAncestor/';
+      var disqus_title = "commonAncestor";
+      var disqus_url = 'http://byelaney.github.io/2016/06/18/commonAncestor/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
