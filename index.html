@@ -240,6 +240,373 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/22/uniquepathII/" itemprop="url">
+                  uniquepathII
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-22T16:10:51+09:00" content="2016-06-22">
+              2016-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/uniquepathII/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/22/uniquepathII/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="不同的路径-II"><a href="#不同的路径-II" class="headerlink" title="不同的路径 II"></a>不同的路径 II</h2><p>“不同的路径” 的跟进问题：</p>
+<p>现在考虑网格中有障碍物，那样将会有多少条不同的路径？网格中的障碍和空位置分别用 1 和 0 来表示。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; &amp;obstacleGrid)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> m = (<span class="keyword">int</span>)obstacleGrid.size();</span><br><span class="line">    <span class="keyword">if</span> (m &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = (<span class="keyword">int</span>)obstacleGrid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[<span class="number">0</span>][i] != <span class="number">1</span>)</span><br><span class="line">                dp[<span class="number">0</span>][i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[<span class="number">0</span>][i] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j&lt;n;++j)</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[i][<span class="number">0</span>] != <span class="number">1</span>)</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j&lt;m;++j)</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[j][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;m;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;n;++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (obstacleGrid[i][j] == <span class="number">1</span>)</span><br><span class="line">                    dp[i][j] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/22/mergesortII/" itemprop="url">
+                  mergesortII
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-22T10:08:58+09:00" content="2016-06-22">
+              2016-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/mergesortII/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/22/mergesortII/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="合并排序数组-II"><a href="#合并排序数组-II" class="headerlink" title="合并排序数组 II"></a>合并排序数组 II</h2><p>合并两个排序的整数数组A和B变成一个新的数组。</p>
+<p>给出 A = [1, 2, 3, empty, empty], B = [4, 5],合并之后 A 将变成 [1,2,3,4,5]。</p>
+<p>这题要转变思路,从后往前来合并,注意 B 数组可能没有合并完。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSortedArray</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p1 = m<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> p2 = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> p3 = m + n <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (p1 &gt;= <span class="number">0</span> &amp;&amp; p2 &gt;= <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[p1] &lt;= B[p2])</span><br><span class="line">        &#123;</span><br><span class="line">            A[p3] = B[p2];</span><br><span class="line">            --p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            A[p3] = A[p1];</span><br><span class="line">            --p1;</span><br><span class="line">        &#125;</span><br><span class="line">        --p3;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p3 &gt;= <span class="number">0</span> &amp;&amp; p2 &gt;= <span class="number">0</span>)</span><br><span class="line">        A[p3--] = B[p2--];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/21/sumsubary/" itemprop="url">
+                  sumsubary
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-21T22:50:14+09:00" content="2016-06-21">
+              2016-06-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/21/sumsubary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/21/sumsubary/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="子数组之和"><a href="#子数组之和" class="headerlink" title="子数组之和"></a>子数组之和</h2><p>给定一个整数数组，找到和为零的子数组。你的代码应该返回满足要求的子数组的起始位置和结束位置。</p>
+<p>真是遗憾，这是第二道我没想出来的题目，我怎么这么笨啊。。。答案把 sum 当作了 map 的 key 进而进行比较，真是太厉害了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subarraySum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums)&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; um;</span><br><span class="line">    um[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;nums.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += nums[i];</span><br><span class="line">        <span class="keyword">if</span> (um.count(sum) &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            v.push_back(um[sum]+<span class="number">1</span>);</span><br><span class="line">            v.push_back(i);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">        um[sum] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/20/isPalindrome/" itemprop="url">
                   isPalindrome
                 </a>
@@ -1074,378 +1441,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/17/twopower/" itemprop="url">
-                  twopower
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-17T15:16:19+09:00" content="2016-06-17">
-              2016-06-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/17/twopower/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/17/twopower/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="O-1-时间检测2的幂次"><a href="#O-1-时间检测2的幂次" class="headerlink" title="O(1)时间检测2的幂次"></a>O(1)时间检测2的幂次</h2><p>用 O(1) 时间检测整数 n 是否是 2 的幂次。</p>
-<p>对比2的幂次方即可。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkPowerOf2</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (n&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span>* bin = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">    <span class="keyword">int</span> base = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">32</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        bin[i] = base;</span><br><span class="line">        base *= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">32</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n == bin[i])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/16/median/" itemprop="url">
-                  median
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T20:32:08+09:00" content="2016-06-16">
-              2016-06-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/16/median/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/16/median/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h2><p>给定一个未排序的整数数组，找到其中位数。中位数是排序后数组的中间值，如果数组的个数是偶数个，则返回排序后数组的第N/2个数。</p>
-<p>这题其实还挺难的,当然你可以先排序然后再直接取中间那个数,这里考虑一种不一样的解法,使用 Priority Queue。假设数组长度是奇数 N,那么我们要做的就是找到一个数,这个数满足什么条件呢？只要有 (N-1)/2 个数比它小(或等于),(N-1)/2 个数比它大(或等于)就可以了。为什么要使用 Priority Queue呢,因为很容易获取到 queue 里最大的那个数,我们要做的就是先往 queue 里塞数,直到它的长度到了 (N-1)/2,之后再把剩下的数和 queue 的 top(最大的数) 比较即可。代码如下:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">median</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> k = (nums.size() + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        priority_queue&lt;<span class="keyword">int</span>&gt; que;</span><br><span class="line">        <span class="keyword">int</span> len = nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(que.size() == k) &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] &lt; que.top()) &#123;</span><br><span class="line">                    que.pop();</span><br><span class="line">                    que.push(nums[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                que.push(nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> que.top();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/16/quicksort/" itemprop="url">
-                  quicksort
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T19:00:17+09:00" content="2016-06-16">
-              2016-06-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/16/quicksort/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/16/quicksort/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>做到与快速排序相关的一道题,所以来复习一下快速排序。顾名思义,这个算法是很快速的算法。平均复杂度是 O(nlogn),主要还是分而治之的思想。</p>
-<ol>
-<li>首先选取一个 pivot,关于如何选取有一些不同的方法,比如选取中间的那个数,或者是随机选一个数。</li>
-<li>之后是很关键的一步, partition。对数组里的元素进行划分, pivot 左边的元素要满足都小于 pivot,右边的都要大于等于 pivot。</li>
-<li>对 pivot 左边和右边的部分递归地进行排序。</li>
-</ol>
-<p>我们重点看一下 partition 这一步,这一步的实现是整个算法的关键所在。我们维护两个指针 i 和 j,分别指向数组的第一个元素以及最后一个元素。 partition 的时候我们把 i 往右边移动,把 j 往左边移动。如果遇到 A[i] &gt;= pivot 以及 A[j] &lt; pivot,这时候就把这两个元素交换即可。具体看如下代码:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i = left, j = right;</span><br><span class="line">      <span class="keyword">int</span> tmp;</span><br><span class="line">      <span class="keyword">int</span> pivot = arr[(left + right) / <span class="number">2</span>];</span><br><span class="line">      <span class="keyword">while</span> (i &lt;= j) &#123;</span><br><span class="line">            <span class="keyword">while</span> (arr[i] &lt; pivot)</span><br><span class="line">                  i++;</span><br><span class="line">            <span class="keyword">while</span> (arr[j] &gt;= pivot)</span><br><span class="line">                  j--;</span><br><span class="line">            <span class="keyword">if</span> (i &lt;= j) &#123;</span><br><span class="line">                  <span class="comment">//swap arr[i] and arr[j]</span></span><br><span class="line">                  tmp = arr[i];</span><br><span class="line">                  arr[i] = arr[j];</span><br><span class="line">                  arr[j] = tmp;</span><br><span class="line">                  i++;</span><br><span class="line">                  j--;</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> index = partition(arr, left, right); <span class="comment">// left other &lt; arr[index] &lt;= right other</span></span><br><span class="line">      <span class="keyword">if</span> (left &lt; index - <span class="number">1</span>)</span><br><span class="line">            quickSort(arr, left, index - <span class="number">1</span>); <span class="comment">// recursively sort left part</span></span><br><span class="line">      <span class="keyword">if</span> (index &lt; right)</span><br><span class="line">            quickSort(arr, index, right); <span class="comment">// recursively sort right part</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Knuth 的高徒 Robert Sedgewick 还改进了 quicksort,这里就不讨论了,有兴趣的同学可以去看一下。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1491,7 +1486,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1508,7 +1503,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
