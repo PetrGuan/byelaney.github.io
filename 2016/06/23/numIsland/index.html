@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Array," />
+  <meta name="keywords" content="Iterate," />
 
 
 
@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="数组剔除元素后的乘积给定一个整数数组A。定义B[i] = A[0]  …  A[i-1]  A[i+1]  … * A[n-1]， 计算B的时候请不要使用除法。
-其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。
-123456789101112131415161718vector&amp;lt;long long&amp;gt; productExcludeItsel">
+<meta name="description" content="岛屿的个数给一个01矩阵，求不同的岛屿的个数。0代表海，1代表岛，如果两个1相邻，那么这两个1属于同一个岛。我们只考虑上下左右为相邻。
+不敢说什么东西了,我写的太难看了…..
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proexclude">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/19/proexclude/index.html">
+<meta property="og:title" content="numIsland">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/23/numIsland/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="数组剔除元素后的乘积给定一个整数数组A。定义B[i] = A[0]  …  A[i-1]  A[i+1]  … * A[n-1]， 计算B的时候请不要使用除法。
-其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。
-123456789101112131415161718vector&amp;lt;long long&amp;gt; productExcludeItsel">
-<meta property="og:updated_time" content="2016-06-19T14:13:24.000Z">
+<meta property="og:description" content="岛屿的个数给一个01矩阵，求不同的岛屿的个数。0代表海，1代表岛，如果两个1相邻，那么这两个1属于同一个岛。我们只考虑上下左右为相邻。
+不敢说什么东西了,我写的太难看了…..
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606">
+<meta property="og:updated_time" content="2016-06-23T13:58:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="proexclude">
-<meta name="twitter:description" content="数组剔除元素后的乘积给定一个整数数组A。定义B[i] = A[0]  …  A[i-1]  A[i+1]  … * A[n-1]， 计算B的时候请不要使用除法。
-其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。
-123456789101112131415161718vector&amp;lt;long long&amp;gt; productExcludeItsel">
+<meta name="twitter:title" content="numIsland">
+<meta name="twitter:description" content="岛屿的个数给一个01矩阵，求不同的岛屿的个数。0代表海，1代表岛，如果两个1相邻，那么这两个1属于同一个岛。我们只考虑上下左右为相邻。
+不敢说什么东西了,我写的太难看了…..
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606">
 
 
 
@@ -122,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/19/proexclude/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/23/numIsland/"/>
 
-  <title> proexclude | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> numIsland | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +244,7 @@
             
             
               
-                proexclude
+                numIsland
               
             
           </h1>
@@ -256,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-19T23:11:25+09:00" content="2016-06-19">
-              2016-06-19
+            <time itemprop="dateCreated" datetime="2016-06-23T22:47:46+09:00" content="2016-06-23">
+              2016-06-23
             </time>
           </span>
 
@@ -286,8 +286,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/19/proexclude/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/19/proexclude/" itemprop="commentsCount"></span>
+                <a href="/2016/06/23/numIsland/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/23/numIsland/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +310,9 @@
       
 
       
-        <h2 id="数组剔除元素后的乘积"><a href="#数组剔除元素后的乘积" class="headerlink" title="数组剔除元素后的乘积"></a>数组剔除元素后的乘积</h2><p>给定一个整数数组A。定义B[i] = A[0] <em> … </em> A[i-1] <em> A[i+1] </em> … * A[n-1]， 计算B的时候请不要使用除法。</p>
-<p>其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; productExcludeItself(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> aux[n+<span class="number">1</span>];</span><br><span class="line">    aux[n] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        aux[i] = aux[i+<span class="number">1</span>] * nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        v.push_back(tmp*aux[i+<span class="number">1</span>]);</span><br><span class="line">        tmp *= nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="岛屿的个数"><a href="#岛屿的个数" class="headerlink" title="岛屿的个数"></a>岛屿的个数</h2><p>给一个01矩阵，求不同的岛屿的个数。0代表海，1代表岛，如果两个1相邻，那么这两个1属于同一个岛。我们只考虑上下左右为相邻。</p>
+<p>不敢说什么东西了,我写的太难看了…..</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">contaminate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt;&amp; grid,<span class="keyword">int</span> row,<span class="keyword">int</span> col,<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (grid[row][col] == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">    grid[row][col] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (row == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (col == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            contaminate(grid, row, col+<span class="number">1</span>,m,n);</span><br><span class="line">            <span class="keyword">if</span> (row &lt; m<span class="number">-1</span>)</span><br><span class="line">                contaminate(grid, row+<span class="number">1</span>, col,m,n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (col &lt; n<span class="number">-1</span>)</span><br><span class="line">                contaminate(grid, row, col+<span class="number">1</span>,m,n);</span><br><span class="line">            <span class="keyword">if</span> (row &lt; m<span class="number">-1</span>)</span><br><span class="line">                contaminate(grid, row+<span class="number">1</span>, col,m,n);</span><br><span class="line"></span><br><span class="line">            contaminate(grid, row, col<span class="number">-1</span>,m,n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (col == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (col &lt; n<span class="number">-1</span>)</span><br><span class="line">                contaminate(grid, row, col+<span class="number">1</span>,m,n);</span><br><span class="line">            <span class="keyword">if</span> (row &lt; m<span class="number">-1</span>)</span><br><span class="line">                contaminate(grid, row+<span class="number">1</span>, col,m,n);</span><br><span class="line">            contaminate(grid, row<span class="number">-1</span>, col,m,n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (col &lt; n<span class="number">-1</span>)</span><br><span class="line">                contaminate(grid, row, col+<span class="number">1</span>,m,n);</span><br><span class="line">            <span class="keyword">if</span> (row &lt; m<span class="number">-1</span>)</span><br><span class="line">                contaminate(grid, row+<span class="number">1</span>, col,m,n);</span><br><span class="line"></span><br><span class="line">            contaminate(grid, row<span class="number">-1</span>, col,m,n);</span><br><span class="line">            contaminate(grid, row, col<span class="number">-1</span>,m,n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = (<span class="keyword">int</span>)grid.size();</span><br><span class="line">    <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)grid[<span class="number">0</span>].size();</span><br><span class="line">    <span class="keyword">int</span> islands = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;n;++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ++islands;</span><br><span class="line">                contaminate(grid, i, j, m, n);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> islands;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +334,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Array/" rel="tag">#Array</a>
+            <a href="/tags/Iterate/" rel="tag">#Iterate</a>
           
         </div>
       
@@ -343,17 +343,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/19/swapListNode/" rel="next" title="swapListNode">
-                <i class="fa fa-chevron-left"></i> swapListNode
+              <a href="/2016/06/22/uniquepathII/" rel="next" title="uniquepathII">
+                <i class="fa fa-chevron-left"></i> uniquepathII
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/20/isPalindrome/" rel="prev" title="isPalindrome">
-                isPalindrome <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +497,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组剔除元素后的乘积"><span class="nav-number">1.</span> <span class="nav-text">数组剔除元素后的乘积</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#岛屿的个数"><span class="nav-number">1.</span> <span class="nav-text">岛屿的个数</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +617,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/19/proexclude/';
-      var disqus_title = "proexclude";
-      var disqus_url = 'http://byelaney.github.io/2016/06/19/proexclude/';
+      var disqus_identifier = '2016/06/23/numIsland/';
+      var disqus_title = "numIsland";
+      var disqus_url = 'http://byelaney.github.io/2016/06/23/numIsland/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
