@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Sort," />
+  <meta name="keywords" content="reuse," />
 
 
 
@@ -86,25 +86,25 @@
 
 
 
-<meta name="description" content="给你一个没有排序的数组，请将原数组就地重新排列满足如下性质:nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]….
-要求: 不能使用额外数组。
-我把这题想的太复杂了…想成先排序再交换，其实只要遍历一遍，同时把 nums[i] 与 nums[i+1] 不满足以上关系的交换就好了。
-12345678910111213void wiggleSort(vec">
+<meta name="description" content="恢复旋转排序数组给定一个旋转排序数组，在原地恢复其排序。
+什么是旋转数组？比如，原始数组为[1,2,3,4], 则其旋转数组可以是[1,2,3,4], [2,3,4,1], [3,4,1,2], [4,1,2,3]
+这题我的思路是这样的,首先把那个旋转点给找到,也就是最小值的坐标。之后从最大值(也就是最小值前面的那个点)开始往前,对每个值都从当前往后交换。寻找最小值用到了二份查找。
+1234567">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wigglesort">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/10/wigglesort/index.html">
+<meta property="og:title" content="recoverRotate">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/24/recoverRotate/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="给你一个没有排序的数组，请将原数组就地重新排列满足如下性质:nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]….
-要求: 不能使用额外数组。
-我把这题想的太复杂了…想成先排序再交换，其实只要遍历一遍，同时把 nums[i] 与 nums[i+1] 不满足以上关系的交换就好了。
-12345678910111213void wiggleSort(vec">
-<meta property="og:updated_time" content="2016-06-10T01:18:51.000Z">
+<meta property="og:description" content="恢复旋转排序数组给定一个旋转排序数组，在原地恢复其排序。
+什么是旋转数组？比如，原始数组为[1,2,3,4], 则其旋转数组可以是[1,2,3,4], [2,3,4,1], [3,4,1,2], [4,1,2,3]
+这题我的思路是这样的,首先把那个旋转点给找到,也就是最小值的坐标。之后从最大值(也就是最小值前面的那个点)开始往前,对每个值都从当前往后交换。寻找最小值用到了二份查找。
+1234567">
+<meta property="og:updated_time" content="2016-06-24T06:51:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wigglesort">
-<meta name="twitter:description" content="给你一个没有排序的数组，请将原数组就地重新排列满足如下性质:nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]….
-要求: 不能使用额外数组。
-我把这题想的太复杂了…想成先排序再交换，其实只要遍历一遍，同时把 nums[i] 与 nums[i+1] 不满足以上关系的交换就好了。
-12345678910111213void wiggleSort(vec">
+<meta name="twitter:title" content="recoverRotate">
+<meta name="twitter:description" content="恢复旋转排序数组给定一个旋转排序数组，在原地恢复其排序。
+什么是旋转数组？比如，原始数组为[1,2,3,4], 则其旋转数组可以是[1,2,3,4], [2,3,4,1], [3,4,1,2], [4,1,2,3]
+这题我的思路是这样的,首先把那个旋转点给找到,也就是最小值的坐标。之后从最大值(也就是最小值前面的那个点)开始往前,对每个值都从当前往后交换。寻找最小值用到了二份查找。
+1234567">
 
 
 
@@ -125,9 +125,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/10/wigglesort/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/24/recoverRotate/"/>
 
-  <title> wigglesort | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> recoverRotate | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -247,7 +247,7 @@
             
             
               
-                wigglesort
+                recoverRotate
               
             
           </h1>
@@ -259,8 +259,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-10T10:15:44+09:00" content="2016-06-10">
-              2016-06-10
+            <time itemprop="dateCreated" datetime="2016-06-24T15:47:30+09:00" content="2016-06-24">
+              2016-06-24
             </time>
           </span>
 
@@ -289,8 +289,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/10/wigglesort/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/10/wigglesort/" itemprop="commentsCount"></span>
+                <a href="/2016/06/24/recoverRotate/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/24/recoverRotate/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -313,10 +313,10 @@
       
 
       
-        <p>给你一个没有排序的数组，请将原数组就地重新排列满足如下性质:<br>nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]….</p>
-<p>要求: 不能使用额外数组。</p>
-<p>我把这题想的太复杂了…想成先排序再交换，其实只要遍历一遍，同时把 <strong>nums[i] 与 nums[i+1]</strong> 不满足以上关系的交换就好了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">wiggleSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (((i % <span class="number">2</span> == <span class="number">1</span>) &amp;&amp; nums[i] &lt; nums[i - <span class="number">1</span>]) || ((i % <span class="number">2</span> == <span class="number">0</span>) &amp;&amp; nums[i] &gt; nums[i - <span class="number">1</span>])) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">            nums[i] = nums[i - <span class="number">1</span>];</span><br><span class="line">            nums[i - <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="恢复旋转排序数组"><a href="#恢复旋转排序数组" class="headerlink" title="恢复旋转排序数组"></a>恢复旋转排序数组</h2><p>给定一个旋转排序数组，在原地恢复其排序。</p>
+<p>什么是旋转数组？比如，原始数组为[1,2,3,4], 则其旋转数组可以是[1,2,3,4], [2,3,4,1], [3,4,1,2], [4,1,2,3]</p>
+<p>这题我的思路是这样的,首先把那个旋转点给找到,也就是最小值的坐标。之后从最大值(也就是最小值前面的那个点)开始往前,对每个值都从当前往后交换。寻找最小值用到了二份查找。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> hi = (<span class="keyword">int</span>)num.size()<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(lo&lt;hi)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = lo + (hi - lo)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(num[mid]&gt;num[hi])&#123;</span><br><span class="line">            lo = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(num[mid]&lt;num[hi])&#123;</span><br><span class="line">            hi = mid;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            hi--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> lo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MySwap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums,<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (start &lt;= end<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = nums[start];</span><br><span class="line">        nums[start] = nums[start+<span class="number">1</span>];</span><br><span class="line">        nums[start+<span class="number">1</span>] = tmp;</span><br><span class="line">        ++start;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">recoverRotatedSortedArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min_id = findMin(nums);</span><br><span class="line">    <span class="keyword">int</span> end = (<span class="keyword">int</span>)nums.size()<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = min_id<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        MySwap(nums, i, end--);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -338,7 +338,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Sort/" rel="tag">#Sort</a>
+            <a href="/tags/reuse/" rel="tag">#reuse</a>
           
         </div>
       
@@ -347,17 +347,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/10/rotamin/" rel="next" title="rotamin">
-                <i class="fa fa-chevron-left"></i> rotamin
+              <a href="/2016/06/23/numIsland/" rel="next" title="numIsland">
+                <i class="fa fa-chevron-left"></i> numIsland
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/10/stackqueue/" rel="prev" title="stackqueue">
-                stackqueue <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,7 +501,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复旋转排序数组"><span class="nav-number">1.</span> <span class="nav-text">恢复旋转排序数组</span></a></li></ol></div>
             
           </div>
         </section>
@@ -625,9 +621,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/10/wigglesort/';
-      var disqus_title = "wigglesort";
-      var disqus_url = 'http://byelaney.github.io/2016/06/10/wigglesort/';
+      var disqus_identifier = '2016/06/24/recoverRotate/';
+      var disqus_title = "recoverRotate";
+      var disqus_url = 'http://byelaney.github.io/2016/06/24/recoverRotate/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
