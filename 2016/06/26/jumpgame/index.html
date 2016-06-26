@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Array," />
+  <meta name="keywords" content="greedy," />
 
 
 
@@ -86,22 +86,19 @@
 
 
 
-<meta name="description" content="数组剔除元素后的乘积给定一个整数数组A。定义B[i] = A[0]  …  A[i-1]  A[i+1]  … * A[n-1]， 计算B的时候请不要使用除法。
-其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。
-123456789101112131415161718vector&amp;lt;long long&amp;gt; productExcludeItsel">
+<meta name="description" content="跳跃游戏给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。判断你是否能到达数组的最后一个位置。
+这个问题有两个方法，一个是贪心和 动态规划。贪心方法时间复杂度为O（N）。动态规划方法的时间复杂度为为O（n^2）。我们手动设置小型数据集，使大家阔以通过测试的两种方式。这仅仅是为了让大家学会如何使用动态规划的方式解决此问题。如果您用动态规划的方式完">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proexclude">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/19/proexclude/index.html">
+<meta property="og:title" content="jumpgame">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/26/jumpgame/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="数组剔除元素后的乘积给定一个整数数组A。定义B[i] = A[0]  …  A[i-1]  A[i+1]  … * A[n-1]， 计算B的时候请不要使用除法。
-其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。
-123456789101112131415161718vector&amp;lt;long long&amp;gt; productExcludeItsel">
-<meta property="og:updated_time" content="2016-06-19T14:13:24.000Z">
+<meta property="og:description" content="跳跃游戏给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。判断你是否能到达数组的最后一个位置。
+这个问题有两个方法，一个是贪心和 动态规划。贪心方法时间复杂度为O（N）。动态规划方法的时间复杂度为为O（n^2）。我们手动设置小型数据集，使大家阔以通过测试的两种方式。这仅仅是为了让大家学会如何使用动态规划的方式解决此问题。如果您用动态规划的方式完">
+<meta property="og:updated_time" content="2016-06-26T14:20:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="proexclude">
-<meta name="twitter:description" content="数组剔除元素后的乘积给定一个整数数组A。定义B[i] = A[0]  …  A[i-1]  A[i+1]  … * A[n-1]， 计算B的时候请不要使用除法。
-其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。
-123456789101112131415161718vector&amp;lt;long long&amp;gt; productExcludeItsel">
+<meta name="twitter:title" content="jumpgame">
+<meta name="twitter:description" content="跳跃游戏给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。判断你是否能到达数组的最后一个位置。
+这个问题有两个方法，一个是贪心和 动态规划。贪心方法时间复杂度为O（N）。动态规划方法的时间复杂度为为O（n^2）。我们手动设置小型数据集，使大家阔以通过测试的两种方式。这仅仅是为了让大家学会如何使用动态规划的方式解决此问题。如果您用动态规划的方式完">
 
 
 
@@ -122,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/19/proexclude/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/26/jumpgame/"/>
 
-  <title> proexclude | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> jumpgame | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +241,7 @@
             
             
               
-                proexclude
+                jumpgame
               
             
           </h1>
@@ -256,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-19T23:11:25+09:00" content="2016-06-19">
-              2016-06-19
+            <time itemprop="dateCreated" datetime="2016-06-26T23:10:37+09:00" content="2016-06-26">
+              2016-06-26
             </time>
           </span>
 
@@ -286,8 +283,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/19/proexclude/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/19/proexclude/" itemprop="commentsCount"></span>
+                <a href="/2016/06/26/jumpgame/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/26/jumpgame/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +307,10 @@
       
 
       
-        <h2 id="数组剔除元素后的乘积"><a href="#数组剔除元素后的乘积" class="headerlink" title="数组剔除元素后的乘积"></a>数组剔除元素后的乘积</h2><p>给定一个整数数组A。定义B[i] = A[0] <em> … </em> A[i-1] <em> A[i+1] </em> … * A[n-1]， 计算B的时候请不要使用除法。</p>
-<p>其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; productExcludeItself(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> aux[n+<span class="number">1</span>];</span><br><span class="line">    aux[n] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        aux[i] = aux[i+<span class="number">1</span>] * nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        v.push_back(tmp*aux[i+<span class="number">1</span>]);</span><br><span class="line">        tmp *= nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="跳跃游戏"><a href="#跳跃游戏" class="headerlink" title="跳跃游戏"></a>跳跃游戏</h2><p>给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。判断你是否能到达数组的最后一个位置。</p>
+<p>这个问题有两个方法，一个是贪心和 动态规划。贪心方法时间复杂度为O（N）。动态规划方法的时间复杂度为为O（n^2）。我们手动设置小型数据集，使大家阔以通过测试的两种方式。这仅仅是为了让大家学会如何使用动态规划的方式解决此问题。如果您用动态规划的方式完成它，你可以尝试贪心法，以使其再次通过一次。</p>
+<p>这题我的思路是随便想的，我也不知道对不对。实际上我们的难点在于选择下一步应该跳到哪里，我的思路是，跳到离终点最近的那个点。方法就是遍历当前点能到达的所有点，计算出那个点所能达到的新的点，然后选出最远的那个点。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nextMove</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> id = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;v.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (v[i] &lt; A.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> next = v[i] + A[v[i]];</span><br><span class="line">            <span class="keyword">if</span> (next &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                max = next;</span><br><span class="line">                id = v[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">canJump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (A.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> last_i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i != A.size()<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=A[i];++j)</span><br><span class="line">        &#123;</span><br><span class="line">            v.push_back(i+j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> next = nextMove(A, v);</span><br><span class="line">        <span class="keyword">if</span> (next &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        last_i = i;</span><br><span class="line">        i = next;</span><br><span class="line">        <span class="keyword">if</span> (last_i == i &amp;&amp; i &lt; A.size()<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +332,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Array/" rel="tag">#Array</a>
+            <a href="/tags/greedy/" rel="tag">#greedy</a>
           
         </div>
       
@@ -343,17 +341,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/19/swapListNode/" rel="next" title="swapListNode">
-                <i class="fa fa-chevron-left"></i> swapListNode
+              <a href="/2016/06/25/threeSum/" rel="next" title="threeSum">
+                <i class="fa fa-chevron-left"></i> threeSum
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/20/isPalindrome/" rel="prev" title="isPalindrome">
-                isPalindrome <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +495,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组剔除元素后的乘积"><span class="nav-number">1.</span> <span class="nav-text">数组剔除元素后的乘积</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃游戏"><span class="nav-number">1.</span> <span class="nav-text">跳跃游戏</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +615,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/19/proexclude/';
-      var disqus_title = "proexclude";
-      var disqus_url = 'http://byelaney.github.io/2016/06/19/proexclude/';
+      var disqus_identifier = '2016/06/26/jumpgame/';
+      var disqus_title = "jumpgame";
+      var disqus_url = 'http://byelaney.github.io/2016/06/26/jumpgame/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

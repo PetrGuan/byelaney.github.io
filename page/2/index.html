@@ -240,6 +240,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/19/proexclude/" itemprop="url">
+                  proexclude
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-19T23:11:25+09:00" content="2016-06-19">
+              2016-06-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/19/proexclude/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/19/proexclude/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="数组剔除元素后的乘积"><a href="#数组剔除元素后的乘积" class="headerlink" title="数组剔除元素后的乘积"></a>数组剔除元素后的乘积</h2><p>给定一个整数数组A。定义B[i] = A[0] <em> … </em> A[i-1] <em> A[i+1] </em> … * A[n-1]， 计算B的时候请不要使用除法。</p>
+<p>其实这题意义挺大的,有时候全部乘起来会溢出所以需要这样的方法。关键是使用一个辅助数组来存储乘积。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; productExcludeItself(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> aux[n+<span class="number">1</span>];</span><br><span class="line">    aux[n] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        aux[i] = aux[i+<span class="number">1</span>] * nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        v.push_back(tmp*aux[i+<span class="number">1</span>]);</span><br><span class="line">        tmp *= nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/19/swapListNode/" itemprop="url">
                   swapListNode
                 </a>
@@ -1324,240 +1446,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/15/scalaIndex/" itemprop="url">
-                  scalaIndex
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-15T18:18:24+09:00" content="2016-06-15">
-              2016-06-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/IR/" itemprop="url" rel="index">
-                    <span itemprop="name">IR</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/15/scalaIndex/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/scalaIndex/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Building-an-index"><a href="#Building-an-index" class="headerlink" title="Building an index"></a>Building an index</h2><p>至今为止我们讨论的都是内存中的操作,如果 document 太大了无法在内存中操作的时候,我们该怎么办呢？这时就涉及到和硬盘的数据交换了。影响效率的因素有:</p>
-<blockquote>
-<ul>
-<li>寻道的时间 (time to locate data in disk)</li>
-<li>传输的能力 (to copy from data into memory)</li>
-<li>数据在磁盘上是连续的还是不连续的</li>
-</ul>
-</blockquote>
-<h2 id="Block-sort-based-indexing-BSBI"><a href="#Block-sort-based-indexing-BSBI" class="headerlink" title="Block sort-based indexing (BSBI)"></a>Block sort-based indexing (BSBI)</h2><p>这里比较直观的一个理解就是既然无法把所有 document 读入内存,那么我们就把 document 分成能读入内存的许多块(block),一块一块处理就好了。</p>
-<ol>
-<li>首先把 document 分为许多块</li>
-<li>对每一块:</li>
-</ol>
-<ul>
-<li>处理每一个 block,获得 (word_id,doc_id) pairs</li>
-<li>对这些 pairs 进行排序,并且构建 postings lists</li>
-<li>把 postings lists 写入内存</li>
-</ul>
-<ol>
-<li>对这些 postings lists 进行 merge 操作</li>
-</ol>
-<p>例如我们有以下两个 postings lists:<br>| word        | doc_id |<br>| ——–   | :—-:  |<br>| brutus     | d1,d3 |<br>| caesar        | d1,d2,d4   |<br>| noble        |  d5  |<br>| with        |  d1,d2,d3,d5  |</p>
-<table>
-<thead>
-<tr>
-<th>word</th>
-<th style="text-align:center">doc_id</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>brutus</td>
-<td style="text-align:center">d6,d7</td>
-</tr>
-<tr>
-<td>caesar</td>
-<td style="text-align:center">d8,d9</td>
-</tr>
-<tr>
-<td>julius</td>
-<td style="text-align:center">d10</td>
-</tr>
-<tr>
-<td>killed</td>
-<td style="text-align:center">d8</td>
-</tr>
-</tbody>
-</table>
-<p>合并之后如下:</p>
-<table>
-<thead>
-<tr>
-<th>word</th>
-<th style="text-align:center">doc_id</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>brutus</td>
-<td style="text-align:center">d1,d3,d6,d7</td>
-</tr>
-<tr>
-<td>caesar</td>
-<td style="text-align:center">d1,d2,d4,d8,d9</td>
-</tr>
-<tr>
-<td>julius</td>
-<td style="text-align:center">d10</td>
-</tr>
-<tr>
-<td>killed</td>
-<td style="text-align:center">d8</td>
-</tr>
-<tr>
-<td>noble</td>
-<td style="text-align:center">d5</td>
-</tr>
-<tr>
-<td>with</td>
-<td style="text-align:center">d1,d2,d3,d5</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># BSBI: Create one postings list per block of documents.</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> groupby</span><br><span class="line"></span><br><span class="line">block1 = [(<span class="number">0</span>, [<span class="string">"the"</span>, <span class="string">"dog"</span>, <span class="string">"jumped"</span>]),</span><br><span class="line">          (<span class="number">1</span>, [<span class="string">"the"</span>, <span class="string">"cat"</span>, <span class="string">"jumped"</span>])]</span><br><span class="line"></span><br><span class="line">block2 = [(<span class="number">2</span>, [<span class="string">"a"</span>, <span class="string">"dog"</span>, <span class="string">"ran"</span>]),</span><br><span class="line">          (<span class="number">3</span>, [<span class="string">"the"</span>, <span class="string">"zebra"</span>, <span class="string">"jumped"</span>])]</span><br><span class="line"></span><br><span class="line">blocks = [block1, block2]</span><br><span class="line"></span><br><span class="line">vocab = defaultdict(<span class="keyword">lambda</span>: len(vocab))  <span class="comment"># auto-increment word indices</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> block_id, block <span class="keyword">in</span> enumerate(blocks):</span><br><span class="line">    <span class="comment"># A. Collect all individual postings: (word_id, doc_id) pairs.</span></span><br><span class="line">    postings = []</span><br><span class="line">    <span class="keyword">for</span> doc_id, doc <span class="keyword">in</span> block:</span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> doc:</span><br><span class="line">            postings.append((vocab[word], doc_id))</span><br><span class="line">    print(<span class="string">'\n\nblock'</span>, block_id, <span class="string">'postings='</span>, postings)</span><br><span class="line">    print(<span class="string">'\nvocab='</span>, vocab.items())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># B. Sort postings and create postings lists.</span></span><br><span class="line">    postings = sorted(postings)  <span class="comment"># sorts by first element of tuple by default</span></span><br><span class="line">    print(<span class="string">'\nblock'</span>, block_id, <span class="string">'sorted postings='</span>, postings)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Group postings for same term together.</span></span><br><span class="line">    postings = groupby(postings, key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">    postings = [(word_id, [g[<span class="number">1</span>] <span class="keyword">for</span> g <span class="keyword">in</span> group]) <span class="keyword">for</span> word_id, group <span class="keyword">in</span> postings]</span><br><span class="line">    print(<span class="string">'\nblock'</span>, block_id, <span class="string">'grouped postings='</span>, postings)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># C. Write to disk</span></span><br><span class="line">    f = open(<span class="string">'bsbi_block'</span> + str(block_id) + <span class="string">'.txt'</span>, <span class="string">'wt'</span>)</span><br><span class="line">    f.write(<span class="string">'\n'</span>.join([<span class="string">'%s'</span> % str(p) <span class="keyword">for</span> p <span class="keyword">in</span> postings]))</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="keyword">print</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Then, merge blocks in linear time.</span></span><br></pre></td></tr></table></figure>
-<h2 id="Single-pass-in-memory-indexing-SPIMI"><a href="#Single-pass-in-memory-indexing-SPIMI" class="headerlink" title="Single-pass in-memory indexing (SPIMI)"></a>Single-pass in-memory indexing (SPIMI)</h2><ol>
-<li>separate dictionary for each block</li>
-<li>create postings lists on the fly, rather than collecting all postings then sorting.</li>
-<li>sort postings lists, rather than individual postings</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SPIMI: Create one postings list per block of documents.</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> groupby</span><br><span class="line"></span><br><span class="line">block1 = [(<span class="number">0</span>, [<span class="string">"the"</span>, <span class="string">"dog"</span>, <span class="string">"jumped"</span>]),</span><br><span class="line">          (<span class="number">1</span>, [<span class="string">"the"</span>, <span class="string">"cat"</span>, <span class="string">"jumped"</span>])]</span><br><span class="line"></span><br><span class="line">block2 = [(<span class="number">2</span>, [<span class="string">"a"</span>, <span class="string">"dog"</span>, <span class="string">"ran"</span>]),</span><br><span class="line">          (<span class="number">3</span>, [<span class="string">"the"</span>, <span class="string">"zebra"</span>, <span class="string">"jumped"</span>])]</span><br><span class="line"></span><br><span class="line">blocks = [block1, block2]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> block_id, block <span class="keyword">in</span> enumerate(blocks):</span><br><span class="line">    <span class="comment"># Note that there is a new vocab for each block!</span></span><br><span class="line">    vocab = defaultdict(<span class="keyword">lambda</span>: len(vocab))  <span class="comment"># maps from term -&gt; term_id</span></span><br><span class="line">    index = defaultdict(<span class="keyword">lambda</span>: [])          <span class="comment"># from term_id -&gt; postings list</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> doc_id, doc <span class="keyword">in</span> block:</span><br><span class="line">        <span class="comment"># append doc_id to the postings list of each term</span></span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> doc:</span><br><span class="line">            index[vocab[word]].append(doc_id)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># B. Sort terms</span></span><br><span class="line">    sorted_terms = sorted(vocab.keys())</span><br><span class="line">    print(<span class="string">'\n\nBlock'</span>, block_id, [t + <span class="string">' '</span> + str(index[vocab[t]]) <span class="keyword">for</span> t <span class="keyword">in</span> sorted_terms])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># C. Write to disk</span></span><br><span class="line">    f = open(<span class="string">'spimi_block'</span> + str(block_id) + <span class="string">'.txt'</span>, <span class="string">'wt'</span>)</span><br><span class="line">    f.write(<span class="string">'\n'</span>.join([<span class="string">'%d, %s'</span> %</span><br><span class="line">                      (vocab[t], str(index[vocab[t]]))</span><br><span class="line">                      <span class="keyword">for</span> t <span class="keyword">in</span> sorted_terms]))</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="keyword">print</span></span><br><span class="line">    print(<span class="string">'\n\t'</span>, vocab.items())</span><br></pre></td></tr></table></figure>
-<h2 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h2><p>下来大致介绍一下大名鼎鼎的 MapReduce,如果我们现在有10万台服务器的话,我们能如何利用它们呢？</p>
-<ol>
-<li>MapReduce 是一种分布式的编程框架。</li>
-<li>把巨大的数据分为小的数据,这一步称为 splits</li>
-</ol>
-<p>主要有两个阶段:</p>
-<ol>
-<li>Map:</li>
-</ol>
-<ul>
-<li>Input:one split</li>
-<li>Output:(key,value) pairs</li>
-</ul>
-<ol>
-<li>Reduce:</li>
-</ol>
-<ul>
-<li>Input:(key,list of mapped values)</li>
-<li>Output:list of output values</li>
-</ul>
-<h2 id="Indexing-with-MapReduce"><a href="#Indexing-with-MapReduce" class="headerlink" title="Indexing with MapReduce"></a>Indexing with MapReduce</h2><blockquote>
-<p>Map: Read a document and output (term, doc_id) pairs.<br>Reduce: Read a list of doc_ids for a term and output a postings list.</p>
-</blockquote>
-<h3 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h3><p>“Twinkle, twinkle little star” → Mapper 1 → (twinkle, 0), (little, 0), (star, 0)<br>“Little by little” → Mapper 2 → (little, 1), (by, 1)</p>
-<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce"></a>Reduce</h3><p>(little, 0), (little, 1) → Reducer 1 → (little, [0, 1])</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1603,7 +1491,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

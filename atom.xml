@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://byelaney.github.io/"/>
-  <updated>2016-06-25T14:34:06.000Z</updated>
+  <updated>2016-06-26T14:20:43.000Z</updated>
   <id>http://byelaney.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jumpgame</title>
+    <link href="http://byelaney.github.io/2016/06/26/jumpgame/"/>
+    <id>http://byelaney.github.io/2016/06/26/jumpgame/</id>
+    <published>2016-06-26T14:10:37.000Z</published>
+    <updated>2016-06-26T14:20:43.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;跳跃游戏&quot;&gt;&lt;a href=&quot;#跳跃游戏&quot; class=&quot;headerlink&quot; title=&quot;跳跃游戏&quot;&gt;&lt;/a&gt;跳跃游戏&lt;/h2&gt;&lt;p&gt;给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。判断你是否能到达数组的最后一个位置。&lt;/p&gt;
+&lt;p&gt;这个问题有两个方法，一个是贪心和 动态规划。贪心方法时间复杂度为O（N）。动态规划方法的时间复杂度为为O（n^2）。我们手动设置小型数据集，使大家阔以通过测试的两种方式。这仅仅是为了让大家学会如何使用动态规划的方式解决此问题。如果您用动态规划的方式完成它，你可以尝试贪心法，以使其再次通过一次。&lt;/p&gt;
+&lt;p&gt;这题我的思路是随便想的，我也不知道对不对。实际上我们的难点在于选择下一步应该跳到哪里，我的思路是，跳到离终点最近的那个点。方法就是遍历当前点能到达的所有点，计算出那个点所能达到的新的点，然后选出最远的那个点。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;nextMove&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; A,&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; v)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; max = &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; id = &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;i&amp;lt;v.size();++i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (v[i] &amp;lt; A.size())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; next = v[i] + A[v[i]];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (next &amp;gt;= max)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                max = next;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                id = v[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; id;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;canJump&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; A)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (A.size() == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; last_i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (i != A.size()&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; v;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;j&amp;lt;=A[i];++j)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            v.push_back(i+j);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; next = nextMove(A, v);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (next &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        last_i = i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        i = next;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (last_i == i &amp;amp;&amp;amp; i &amp;lt; A.size()&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;跳跃游戏&quot;&gt;&lt;a href=&quot;#跳跃游戏&quot; class=&quot;headerlink&quot; title=&quot;跳跃游戏&quot;&gt;&lt;/a&gt;跳跃游戏&lt;/h2&gt;&lt;p&gt;给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。判断你是否能到达数组
+    
+    </summary>
+    
+      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
+    
+    
+      <category term="greedy" scheme="http://byelaney.github.io/tags/greedy/"/>
+    
+  </entry>
   
   <entry>
     <title>threeSum</title>
@@ -510,143 +536,6 @@
     
     
       <category term="Pointers" scheme="http://byelaney.github.io/tags/Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>scalaIndex</title>
-    <link href="http://byelaney.github.io/2016/06/15/scalaIndex/"/>
-    <id>http://byelaney.github.io/2016/06/15/scalaIndex/</id>
-    <published>2016-06-15T09:18:24.000Z</published>
-    <updated>2016-06-17T05:37:23.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Building-an-index&quot;&gt;&lt;a href=&quot;#Building-an-index&quot; class=&quot;headerlink&quot; title=&quot;Building an index&quot;&gt;&lt;/a&gt;Building an index&lt;/h2&gt;&lt;p&gt;至今为止我们讨论的都是内存中的操作,如果 document 太大了无法在内存中操作的时候,我们该怎么办呢？这时就涉及到和硬盘的数据交换了。影响效率的因素有:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;寻道的时间 (time to locate data in disk)&lt;/li&gt;
-&lt;li&gt;传输的能力 (to copy from data into memory)&lt;/li&gt;
-&lt;li&gt;数据在磁盘上是连续的还是不连续的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Block-sort-based-indexing-BSBI&quot;&gt;&lt;a href=&quot;#Block-sort-based-indexing-BSBI&quot; class=&quot;headerlink&quot; title=&quot;Block sort-based indexing (BSBI)&quot;&gt;&lt;/a&gt;Block sort-based indexing (BSBI)&lt;/h2&gt;&lt;p&gt;这里比较直观的一个理解就是既然无法把所有 document 读入内存,那么我们就把 document 分成能读入内存的许多块(block),一块一块处理就好了。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;首先把 document 分为许多块&lt;/li&gt;
-&lt;li&gt;对每一块:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;处理每一个 block,获得 (word_id,doc_id) pairs&lt;/li&gt;
-&lt;li&gt;对这些 pairs 进行排序,并且构建 postings lists&lt;/li&gt;
-&lt;li&gt;把 postings lists 写入内存&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;对这些 postings lists 进行 merge 操作&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;例如我们有以下两个 postings lists:&lt;br&gt;| word        | doc_id |&lt;br&gt;| ——–   | :—-:  |&lt;br&gt;| brutus     | d1,d3 |&lt;br&gt;| caesar        | d1,d2,d4   |&lt;br&gt;| noble        |  d5  |&lt;br&gt;| with        |  d1,d2,d3,d5  |&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;word&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;doc_id&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;brutus&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d6,d7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;caesar&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d8,d9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;julius&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;killed&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;合并之后如下:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;word&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;doc_id&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;brutus&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d1,d3,d6,d7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;caesar&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d1,d2,d4,d8,d9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;julius&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;killed&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;noble&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;with&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;d1,d2,d3,d5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# BSBI: Create one postings list per block of documents.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; collections &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; defaultdict&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; itertools &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; groupby&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;block1 = [(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;the&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;dog&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;jumped&quot;&lt;/span&gt;]),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;the&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;cat&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;jumped&quot;&lt;/span&gt;])]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;block2 = [(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;a&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;dog&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;ran&quot;&lt;/span&gt;]),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          (&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;the&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;zebra&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;jumped&quot;&lt;/span&gt;])]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;blocks = [block1, block2]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vocab = defaultdict(&lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt;: len(vocab))  &lt;span class=&quot;comment&quot;&gt;# auto-increment word indices&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; block_id, block &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; enumerate(blocks):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# A. Collect all individual postings: (word_id, doc_id) pairs.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    postings = []&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; doc_id, doc &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; block:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; word &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; doc:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            postings.append((vocab[word], doc_id))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&#39;\n\nblock&#39;&lt;/span&gt;, block_id, &lt;span class=&quot;string&quot;&gt;&#39;postings=&#39;&lt;/span&gt;, postings)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&#39;\nvocab=&#39;&lt;/span&gt;, vocab.items())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# B. Sort postings and create postings lists.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    postings = sorted(postings)  &lt;span class=&quot;comment&quot;&gt;# sorts by first element of tuple by default&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&#39;\nblock&#39;&lt;/span&gt;, block_id, &lt;span class=&quot;string&quot;&gt;&#39;sorted postings=&#39;&lt;/span&gt;, postings)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# Group postings for same term together.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    postings = groupby(postings, key=&lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt; x:x[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    postings = [(word_id, [g[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; g &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; group]) &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; word_id, group &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; postings]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&#39;\nblock&#39;&lt;/span&gt;, block_id, &lt;span class=&quot;string&quot;&gt;&#39;grouped postings=&#39;&lt;/span&gt;, postings)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# C. Write to disk&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f = open(&lt;span class=&quot;string&quot;&gt;&#39;bsbi_block&#39;&lt;/span&gt; + str(block_id) + &lt;span class=&quot;string&quot;&gt;&#39;.txt&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;wt&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.write(&lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;.join([&lt;span class=&quot;string&quot;&gt;&#39;%s&#39;&lt;/span&gt; % str(p) &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; p &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; postings]))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Then, merge blocks in linear time.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Single-pass-in-memory-indexing-SPIMI&quot;&gt;&lt;a href=&quot;#Single-pass-in-memory-indexing-SPIMI&quot; class=&quot;headerlink&quot; title=&quot;Single-pass in-memory indexing (SPIMI)&quot;&gt;&lt;/a&gt;Single-pass in-memory indexing (SPIMI)&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;separate dictionary for each block&lt;/li&gt;
-&lt;li&gt;create postings lists on the fly, rather than collecting all postings then sorting.&lt;/li&gt;
-&lt;li&gt;sort postings lists, rather than individual postings&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# SPIMI: Create one postings list per block of documents.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; collections &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; defaultdict&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; itertools &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; groupby&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;block1 = [(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;the&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;dog&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;jumped&quot;&lt;/span&gt;]),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;the&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;cat&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;jumped&quot;&lt;/span&gt;])]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;block2 = [(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;a&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;dog&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;ran&quot;&lt;/span&gt;]),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          (&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&quot;the&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;zebra&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;jumped&quot;&lt;/span&gt;])]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;blocks = [block1, block2]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; block_id, block &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; enumerate(blocks):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# Note that there is a new vocab for each block!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    vocab = defaultdict(&lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt;: len(vocab))  &lt;span class=&quot;comment&quot;&gt;# maps from term -&amp;gt; term_id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    index = defaultdict(&lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt;: [])          &lt;span class=&quot;comment&quot;&gt;# from term_id -&amp;gt; postings list&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; doc_id, doc &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; block:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# append doc_id to the postings list of each term&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; word &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; doc:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            index[vocab[word]].append(doc_id)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# B. Sort terms&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sorted_terms = sorted(vocab.keys())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&#39;\n\nBlock&#39;&lt;/span&gt;, block_id, [t + &lt;span class=&quot;string&quot;&gt;&#39; &#39;&lt;/span&gt; + str(index[vocab[t]]) &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; t &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; sorted_terms])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# C. Write to disk&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f = open(&lt;span class=&quot;string&quot;&gt;&#39;spimi_block&#39;&lt;/span&gt; + str(block_id) + &lt;span class=&quot;string&quot;&gt;&#39;.txt&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;wt&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.write(&lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;.join([&lt;span class=&quot;string&quot;&gt;&#39;%d, %s&#39;&lt;/span&gt; %&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                      (vocab[t], str(index[vocab[t]]))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                      &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; t &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; sorted_terms]))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&#39;\n\t&#39;&lt;/span&gt;, vocab.items())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;MapReduce&quot;&gt;&lt;a href=&quot;#MapReduce&quot; class=&quot;headerlink&quot; title=&quot;MapReduce&quot;&gt;&lt;/a&gt;MapReduce&lt;/h2&gt;&lt;p&gt;下来大致介绍一下大名鼎鼎的 MapReduce,如果我们现在有10万台服务器的话,我们能如何利用它们呢？&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;MapReduce 是一种分布式的编程框架。&lt;/li&gt;
-&lt;li&gt;把巨大的数据分为小的数据,这一步称为 splits&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;主要有两个阶段:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Map:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;Input:one split&lt;/li&gt;
-&lt;li&gt;Output:(key,value) pairs&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;Reduce:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;Input:(key,list of mapped values)&lt;/li&gt;
-&lt;li&gt;Output:list of output values&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Indexing-with-MapReduce&quot;&gt;&lt;a href=&quot;#Indexing-with-MapReduce&quot; class=&quot;headerlink&quot; title=&quot;Indexing with MapReduce&quot;&gt;&lt;/a&gt;Indexing with MapReduce&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Map: Read a document and output (term, doc_id) pairs.&lt;br&gt;Reduce: Read a list of doc_ids for a term and output a postings list.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;Mapper&quot;&gt;&lt;a href=&quot;#Mapper&quot; class=&quot;headerlink&quot; title=&quot;Mapper&quot;&gt;&lt;/a&gt;Mapper&lt;/h3&gt;&lt;p&gt;“Twinkle, twinkle little star” → Mapper 1 → (twinkle, 0), (little, 0), (star, 0)&lt;br&gt;“Little by little” → Mapper 2 → (little, 1), (by, 1)&lt;/p&gt;
-&lt;h3 id=&quot;Reduce&quot;&gt;&lt;a href=&quot;#Reduce&quot; class=&quot;headerlink&quot; title=&quot;Reduce&quot;&gt;&lt;/a&gt;Reduce&lt;/h3&gt;&lt;p&gt;(little, 0), (little, 1) → Reducer 1 → (little, [0, 1])&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Building-an-index&quot;&gt;&lt;a href=&quot;#Building-an-index&quot; class=&quot;headerlink&quot; title=&quot;Building an index&quot;&gt;&lt;/a&gt;Building an index&lt;/h2&gt;&lt;p&gt;至今为止我们讨论的都
-    
-    </summary>
-    
-      <category term="IR" scheme="http://byelaney.github.io/categories/IR/"/>
-    
-    
-      <category term="Disk" scheme="http://byelaney.github.io/tags/Disk/"/>
     
   </entry>
   
