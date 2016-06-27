@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pro_magic," />
+  <meta name="keywords" content="Heap," />
 
 
 
@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="Calculate Fibonacci Number with O(logN).
-F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
-12345678910111213141516171">
+<meta name="description" content="堆化给出一个整数数组，堆化操作就是把它变成一个最小堆数组。对于堆数组A，A[0]是堆的根，并对于每个A[i]，A [i  2 + 1]是A[i]的左儿子并且A[i  2 + 2]是A[i]的右儿子。
+这题考察对堆的理解，其实就是一个堆排序堆的初始化的过程。分步的思想，每一步都把父亲节点变为三个节点中最大或最小的那一个。从最后一个父亲节点开始一直到第一个父亲节点，进行这个操作即可。
+12345678">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cfib">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/07/Cfib/index.html">
+<meta property="og:title" content="heapify">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/27/heapify/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="Calculate Fibonacci Number with O(logN).
-F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
-12345678910111213141516171">
-<meta property="og:updated_time" content="2016-06-08T02:03:44.000Z">
+<meta property="og:description" content="堆化给出一个整数数组，堆化操作就是把它变成一个最小堆数组。对于堆数组A，A[0]是堆的根，并对于每个A[i]，A [i  2 + 1]是A[i]的左儿子并且A[i  2 + 2]是A[i]的右儿子。
+这题考察对堆的理解，其实就是一个堆排序堆的初始化的过程。分步的思想，每一步都把父亲节点变为三个节点中最大或最小的那一个。从最后一个父亲节点开始一直到第一个父亲节点，进行这个操作即可。
+12345678">
+<meta property="og:updated_time" content="2016-06-27T05:27:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cfib">
-<meta name="twitter:description" content="Calculate Fibonacci Number with O(logN).
-F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i-3)+ 2 * F(i-4)…F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )
-12345678910111213141516171">
+<meta name="twitter:title" content="heapify">
+<meta name="twitter:description" content="堆化给出一个整数数组，堆化操作就是把它变成一个最小堆数组。对于堆数组A，A[0]是堆的根，并对于每个A[i]，A [i  2 + 1]是A[i]的左儿子并且A[i  2 + 2]是A[i]的右儿子。
+这题考察对堆的理解，其实就是一个堆排序堆的初始化的过程。分步的思想，每一步都把父亲节点变为三个节点中最大或最小的那一个。从最后一个父亲节点开始一直到第一个父亲节点，进行这个操作即可。
+12345678">
 
 
 
@@ -122,9 +122,9 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/07/Cfib/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/27/heapify/"/>
 
-  <title> Cfib | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> heapify | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +244,7 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
             
             
               
-                Cfib
+                heapify
               
             
           </h1>
@@ -256,8 +256,8 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:13:45+09:00" content="2016-06-07">
-              2016-06-07
+            <time itemprop="dateCreated" datetime="2016-06-27T14:20:42+09:00" content="2016-06-27">
+              2016-06-27
             </time>
           </span>
 
@@ -270,8 +270,8 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming-snaps/" itemprop="url" rel="index">
-                    <span itemprop="name">programming_snaps</span>
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
                   </a>
                 </span>
 
@@ -286,8 +286,8 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/07/Cfib/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/Cfib/" itemprop="commentsCount"></span>
+                <a href="/2016/06/27/heapify/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/27/heapify/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +310,9 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
       
 
       
-        <p>Calculate Fibonacci Number with <strong>O(logN)</strong>.</p>
-<p><strong>F(i) = F(i-1) + F(i-2) = 2 <em> F(i-2) + F(i-3) = 3 </em> F(i-3)+ 2 * F(i-4)…</strong><br><strong>F(i) = F( (i+1)/2 ) * F( (i/2) )  +  F( (i-1)/2 ) + F( (i-2)/2 )</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll MOD = <span class="number">1000000007</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ll,ll&gt; Fib;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">fib</span><span class="params">(ll n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(Fib.find(n) != Fib.end()) <span class="keyword">return</span> Fib[n];</span><br><span class="line">    Fib[n] = (fib((n+<span class="number">1</span>) / <span class="number">2</span>)*fib(n/<span class="number">2</span>) + fib((n<span class="number">-1</span>) / <span class="number">2</span>)*fib((n<span class="number">-2</span>) / <span class="number">2</span>)) % MOD;</span><br><span class="line">    <span class="keyword">return</span> Fib[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    ll N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">if</span>(N&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; fib(N) &lt;&lt; “\n”;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="堆化"><a href="#堆化" class="headerlink" title="堆化"></a>堆化</h2><p>给出一个整数数组，堆化操作就是把它变成一个最小堆数组。对于堆数组A，A[0]是堆的根，并对于每个A[i]，A [i <em> 2 + 1]是A[i]的左儿子并且A[i </em> 2 + 2]是A[i]的右儿子。</p>
+<p>这题考察对堆的理解，其实就是一个堆排序堆的初始化的过程。分步的思想，每一步都把父亲节点变为三个节点中最大或最小的那一个。从最后一个父亲节点开始一直到第一个父亲节点，进行这个操作即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">min_heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;A, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> dad = start;</span><br><span class="line">    <span class="keyword">int</span> son = dad * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (son &lt; end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (son+<span class="number">1</span> &lt; end &amp;&amp; A[son+<span class="number">1</span>] &lt; A[son])</span><br><span class="line">            ++son;</span><br><span class="line">        <span class="keyword">if</span> (A[dad] &lt; A[son])</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            swap(A[dad], A[son]);</span><br><span class="line">            dad = son;</span><br><span class="line">            son = dad * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = (<span class="keyword">int</span>)A.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = len/<span class="number">2</span><span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        min_heapify(A, i, len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +334,7 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
       
         <div class="post-tags">
           
-            <a href="/tags/pro-magic/" rel="tag">#pro_magic</a>
+            <a href="/tags/Heap/" rel="tag">#Heap</a>
           
         </div>
       
@@ -343,17 +343,13 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/06/26/jumpgame/" rel="next" title="jumpgame">
+                <i class="fa fa-chevron-left"></i> jumpgame
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/add2num/" rel="prev" title="add2num">
-                add2num <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +497,7 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆化"><span class="nav-number">1.</span> <span class="nav-text">堆化</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +617,9 @@ F(i) = F(i-1) + F(i-2) = 2  F(i-2) + F(i-3) = 3  F(i
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/07/Cfib/';
-      var disqus_title = "Cfib";
-      var disqus_url = 'http://byelaney.github.io/2016/06/07/Cfib/';
+      var disqus_identifier = '2016/06/27/heapify/';
+      var disqus_title = "heapify";
+      var disqus_url = 'http://byelaney.github.io/2016/06/27/heapify/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
