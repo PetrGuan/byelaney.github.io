@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://byelaney.github.io/2016/06/27/segTreeModify/</loc>
+    
+    <lastmod>2016-06-27T14:26:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://byelaney.github.io/2016/06/27/segTreeBuild/</loc>
+    
+    <lastmod>2016-06-27T14:24:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://byelaney.github.io/2016/06/27/heapify/</loc>
     
     <lastmod>2016-06-27T05:27:10.000Z</lastmod>

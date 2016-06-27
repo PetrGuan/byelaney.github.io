@@ -240,6 +240,251 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/12/npow/" itemprop="url">
+                  npow
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-12T10:08:19+09:00" content="2016-06-12">
+              2016-06-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/12/npow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/npow/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="x的n次幂"><a href="#x的n次幂" class="headerlink" title="x的n次幂"></a>x的n次幂</h2><p>实现 pow(x,n),当答案和标准输出差绝对值小于1e-3时都算正确</p>
+<p>没什么说的，使用分而治之方法，记得考虑n小于0的情况。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> t = myPow(x, n/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (n%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> t*t;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> t*t*x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        n = -n;</span><br><span class="line">        <span class="keyword">double</span> t = myPow(x, n/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (n%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>/(t*t);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>/(t*t*x);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/12/uniquepath/" itemprop="url">
+                  uniquepath
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-12T09:34:38+09:00" content="2016-06-12">
+              2016-06-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/12/uniquepath/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/uniquepath/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="不同的路径"><a href="#不同的路径" class="headerlink" title="不同的路径"></a>不同的路径</h2><p>有一个机器人的位于一个M×N个网格左上角。</p>
+<p>机器人每一时刻只能向下或者向右移动一步。机器人试图达到网格的右下角（下图中标记为’Finish’）。<br>问有多少条不同的路径？ n和m均不超过100</p>
+<p>这题一开始我是用递归做的，递推式是 <strong>f(m,n) = f(m-1,n) + f(m,n-1)</strong>，后来发现超时了，主要还是函数调用和反复计算了很多次之前可能已经算过的 <strong>f(i,j)</strong>，那就使用 <strong>DP</strong> 好了，递推还是一样的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        dp[<span class="number">0</span>][i] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">            dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/10/twolistIsect/" itemprop="url">
                   twolistIsect
                 </a>
@@ -1201,265 +1446,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/07/KefAndPark/" itemprop="url">
-                  KefAndPark
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:57:52+09:00" content="2016-06-07">
-              2016-06-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/codeforces/" itemprop="url" rel="index">
-                    <span itemprop="name">codeforces</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/07/KefAndPark/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/KefAndPark/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Kefa-And-Park"><a href="#Kefa-And-Park" class="headerlink" title="Kefa And Park"></a>Kefa And Park</h2><p>Kefa decided to celebrate his first big salary by going to the restaurant.</p>
-<p>He lives by an unusual park. The park is a rooted tree consisting of n vertices with the root at vertex 1. Vertex 1 also contains Kefa’s house. Unfortunaely for our hero, the park also contains cats. Kefa has already found out what are the vertices with cats in them.</p>
-<p>The leaf vertices of the park contain restaurants. Kefa wants to choose a restaurant where he will go, but unfortunately he is very afraid of cats, so there is no way he will go to the restaurant if the path from the restaurant to his house contains more than m consecutive vertices with cats.</p>
-<p>Your task is to help Kefa count the number of restaurants where he can go.</p>
-<p>Input<br>The first line contains two integers, n and m (2 ≤ n ≤ 10^5, 1 ≤ m ≤ n) — the number of vertices of the tree and the maximum number of consecutive vertices with cats that is still ok for Kefa.</p>
-<p>The second line contains n integers a1, a2, …, an, where each ai either equals to 0 (then vertex i has no cat), or equals to 1 (then vertex i has a cat).</p>
-<p>Next n - 1 lines contains the edges of the tree in the format “xi yi” (without the quotes) (1 ≤ xi, yi ≤ n, xi ≠ yi), where xi and yi are the vertices of the tree, connected by an edge.</p>
-<p>It is guaranteed that the given set of edges specifies a tree.</p>
-<p>Output<br>A single integer — the number of distinct leaves of a tree the path to which from Kefa’s home contains at most m consecutive vertices with cats.</p>
-<p>more specific info see <a href="http://codeforces.com/problemset/problem/580/C" target="_blank" rel="external">C. Kefa and Park</a></p>
-<p>一开始的时候我没有搞清楚题意，用树的观点去做的时候误以为数字小的节点就是数字大的节点的父节点，写完后发现到第八还是第九个测试案例的时候就失败了。比如某一个测试用例的 [4,2]， 这里4反而是2的父节点。于是我尝试换一个角度去思考，用图的概念来处理，算法本身是很简单的一个 dfs，难点就在实现部分了。我用了存放 vector 的数组 e，vector 里存放每个节点的邻居节点。特别注意的是添加邻居节点的时候要注意涉及到的两个节点都要添加。之后就是 dfs 的部分了，dfs 人人都会，难点在于和题目本身结合，如何去表达连续节点有猫的个数不超过 m 这个条件。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// v is current vertice</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v,<span class="keyword">int</span> anc,<span class="keyword">int</span> c)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cats[v]) ++c;</span><br><span class="line">    <span class="keyword">else</span> c = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(c &gt; m) <span class="keyword">return</span>;<span class="comment">//too many cats!</span></span><br><span class="line">    <span class="keyword">bool</span> currentLeaf = <span class="literal">true</span>;<span class="comment">//assume current is a leaf</span></span><br><span class="line">    rep(i, e[v].size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> adjancent = e[v][i];</span><br><span class="line">        <span class="keyword">if</span>(adjancent != anc)</span><br><span class="line">        &#123;</span><br><span class="line">            currentLeaf = <span class="literal">false</span>;</span><br><span class="line">            dfs(adjancent, v, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(currentLeaf) ++choices;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>主要就是三个参数，当前要处理的节点，之前的那个节点，以及之前的连续节点有猫的个数。如果当前节点的 vector 中只含有之前的那个节点的话就说明当前节点是叶子节点。详细代码请参考 <a href="http://codeforces.com/contest/580/submission/18152137" target="_blank" rel="external">My AC code</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/07/divby8/" itemprop="url">
-                  divby8
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T21:49:11+09:00" content="2016-06-07">
-              2016-06-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/codeforces/" itemprop="url" rel="index">
-                    <span itemprop="name">codeforces</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/07/divby8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/divby8/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="C-Divisibility-by-Eight"><a href="#C-Divisibility-by-Eight" class="headerlink" title="C. Divisibility by Eight"></a>C. Divisibility by Eight</h2><p>You are given a non-negative integer n, its decimal representation consists of at most 100 digits and doesn’t contain leading zeroes.</p>
-<p>Your task is to determine if it is possible in this case to remove some of the digits (possibly not remove any digit at all) so that the result contains at least one digit, forms a non-negative integer, doesn’t have leading zeroes and is divisible by 8. After the removing, it is forbidden to rearrange the digits.</p>
-<p>If a solution exists, you should print it.</p>
-<p>Input<br>The single line of the input contains a non-negative integer n. The representation of number n doesn’t contain any leading zeroes and its length doesn’t exceed 100 digits.</p>
-<p>Output<br>Print “NO” (without quotes), if there is no such way to remove some digits from number n.</p>
-<p>Otherwise, print “YES” in the first line and the resulting number after removing digits from number n in the second line. The printed number must be divisible by 8.</p>
-<p>If there are multiple possible answers, you may print any of them.</p>
-<p>这里需要用到一个小知识，如果一个数能被8整除的话，那么这个数的最右三位（只有二位或一位的话同理）一定能被8整除。因为输入很大有100位数字，所以使用string来存储。这里我们先构建一个数组，里面存储了所有0到999能被8整除的数字。使用暴力算法，迭代每一个数字去看输入的最右三位是否能被整除。<a href="http://codeforces.com/contest/550/submission/18053768" target="_blank" rel="external">My AC code</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1505,7 +1491,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1522,7 +1508,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
