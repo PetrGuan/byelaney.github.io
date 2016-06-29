@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Pointer," />
+  <meta name="keywords" content="DirectedGraph," />
 
 
 
@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="有效回文串给定一个字符串，判断其是否为一个回文串。只包含字母和数字，忽略大小写。
-基础题,双指针搞定。
-12345678910111213141516171819202122232425262728293031323334bool isvalid(char c)&amp;#123;    if (c &amp;gt;= 48 &amp;amp;&amp;amp; c &amp;lt;= 57) return true;    if (c">
+<meta name="description" content="图中两个点之间的路线给出一张有向图，设计一个算法判断两个点 s 与 t 之间是否存在路线。
+简单的 BFS 一下就可以解决了。
+1234567891011121314151617181920212223242526272829303132struct DirectedGraphNode &amp;#123;         int label;         vector&amp;lt;DirectedGrap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="isPalindrome">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/20/isPalindrome/index.html">
+<meta property="og:title" content="hasRoute">
+<meta property="og:url" content="http://byelaney.github.io/2016/06/29/hasRoute/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="有效回文串给定一个字符串，判断其是否为一个回文串。只包含字母和数字，忽略大小写。
-基础题,双指针搞定。
-12345678910111213141516171819202122232425262728293031323334bool isvalid(char c)&amp;#123;    if (c &amp;gt;= 48 &amp;amp;&amp;amp; c &amp;lt;= 57) return true;    if (c">
-<meta property="og:updated_time" content="2016-06-20T06:06:33.000Z">
+<meta property="og:description" content="图中两个点之间的路线给出一张有向图，设计一个算法判断两个点 s 与 t 之间是否存在路线。
+简单的 BFS 一下就可以解决了。
+1234567891011121314151617181920212223242526272829303132struct DirectedGraphNode &amp;#123;         int label;         vector&amp;lt;DirectedGrap">
+<meta property="og:updated_time" content="2016-06-29T01:41:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="isPalindrome">
-<meta name="twitter:description" content="有效回文串给定一个字符串，判断其是否为一个回文串。只包含字母和数字，忽略大小写。
-基础题,双指针搞定。
-12345678910111213141516171819202122232425262728293031323334bool isvalid(char c)&amp;#123;    if (c &amp;gt;= 48 &amp;amp;&amp;amp; c &amp;lt;= 57) return true;    if (c">
+<meta name="twitter:title" content="hasRoute">
+<meta name="twitter:description" content="图中两个点之间的路线给出一张有向图，设计一个算法判断两个点 s 与 t 之间是否存在路线。
+简单的 BFS 一下就可以解决了。
+1234567891011121314151617181920212223242526272829303132struct DirectedGraphNode &amp;#123;         int label;         vector&amp;lt;DirectedGrap">
 
 
 
@@ -122,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/20/isPalindrome/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/06/29/hasRoute/"/>
 
-  <title> isPalindrome | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> hasRoute | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +244,7 @@
             
             
               
-                isPalindrome
+                hasRoute
               
             
           </h1>
@@ -256,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-20T15:05:07+09:00" content="2016-06-20">
-              2016-06-20
+            <time itemprop="dateCreated" datetime="2016-06-29T10:40:02+09:00" content="2016-06-29">
+              2016-06-29
             </time>
           </span>
 
@@ -286,8 +286,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/20/isPalindrome/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/20/isPalindrome/" itemprop="commentsCount"></span>
+                <a href="/2016/06/29/hasRoute/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/29/hasRoute/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +310,9 @@
       
 
       
-        <h2 id="有效回文串"><a href="#有效回文串" class="headerlink" title="有效回文串"></a>有效回文串</h2><p>给定一个字符串，判断其是否为一个回文串。只包含字母和数字，忽略大小写。</p>
-<p>基础题,双指针搞定。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isvalid</span><span class="params">(<span class="keyword">char</span> c)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (c &gt;= <span class="number">48</span> &amp;&amp; c &lt;= <span class="number">57</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (c &gt;=<span class="number">65</span> &amp;&amp; c &lt;= <span class="number">90</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (c &gt;= <span class="number">97</span> &amp;&amp; c &lt;= <span class="number">122</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span>&amp; s)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">int</span> p1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p2 = (<span class="keyword">int</span>)s.size()<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt; p2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (!isvalid(s[p1]))</span><br><span class="line">            ++p1;</span><br><span class="line">        <span class="keyword">while</span> (!isvalid(s[p2]))</span><br><span class="line">            --p2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p1 &lt; p2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1 &lt; s.size() &amp;&amp; p2 &gt;= <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[p1] == s[p2] || <span class="built_in">abs</span>(s[p1]-s[p2]) == <span class="number">32</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    ++p1;--p2;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="图中两个点之间的路线"><a href="#图中两个点之间的路线" class="headerlink" title="图中两个点之间的路线"></a>图中两个点之间的路线</h2><p>给出一张有向图，设计一个算法判断两个点 s 与 t 之间是否存在路线。</p>
+<p>简单的 BFS 一下就可以解决了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> DirectedGraphNode &#123;</span><br><span class="line">         <span class="keyword">int</span> label;</span><br><span class="line">         <span class="built_in">vector</span>&lt;DirectedGraphNode *&gt; neighbors;</span><br><span class="line">         DirectedGraphNode(<span class="keyword">int</span> x) : label(x) &#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">hasRoute</span><span class="params">(<span class="built_in">vector</span>&lt;DirectedGraphNode*&gt; graph,DirectedGraphNode* s, DirectedGraphNode* t)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;DirectedGraphNode*, <span class="keyword">bool</span>&gt; visited;</span><br><span class="line">    <span class="built_in">queue</span>&lt;DirectedGraphNode*&gt; q;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span> (q.size() &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        DirectedGraphNode* dgn = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">if</span> (dgn == t) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        visited[dgn] = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;DirectedGraphNode*&gt; v = dgn-&gt;neighbors;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;v.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited.count(v[i]) &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (visited[v[i]] == <span class="literal">true</span>)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                q.push(v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +334,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Pointer/" rel="tag">#Pointer</a>
+            <a href="/tags/DirectedGraph/" rel="tag">#DirectedGraph</a>
           
         </div>
       
@@ -343,17 +343,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/19/proexclude/" rel="next" title="proexclude">
-                <i class="fa fa-chevron-left"></i> proexclude
+              <a href="/2016/06/27/segTreeBuild/" rel="next" title="segTreeBuild">
+                <i class="fa fa-chevron-left"></i> segTreeBuild
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/21/sumsubary/" rel="prev" title="sumsubary">
-                sumsubary <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +497,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#有效回文串"><span class="nav-number">1.</span> <span class="nav-text">有效回文串</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图中两个点之间的路线"><span class="nav-number">1.</span> <span class="nav-text">图中两个点之间的路线</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +617,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/20/isPalindrome/';
-      var disqus_title = "isPalindrome";
-      var disqus_url = 'http://byelaney.github.io/2016/06/20/isPalindrome/';
+      var disqus_identifier = '2016/06/29/hasRoute/';
+      var disqus_title = "hasRoute";
+      var disqus_url = 'http://byelaney.github.io/2016/06/29/hasRoute/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
