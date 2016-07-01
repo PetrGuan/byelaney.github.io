@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://byelaney.github.io/"/>
-  <updated>2016-06-29T07:54:46.000Z</updated>
+  <updated>2016-07-01T01:52:55.000Z</updated>
   <id>http://byelaney.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>paintroof</title>
+    <link href="http://byelaney.github.io/2016/07/01/paintroof/"/>
+    <id>http://byelaney.github.io/2016/07/01/paintroof/</id>
+    <published>2016-07-01T01:41:35.000Z</published>
+    <updated>2016-07-01T01:52:55.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;房屋染色&quot;&gt;&lt;a href=&quot;#房屋染色&quot; class=&quot;headerlink&quot; title=&quot;房屋染色&quot;&gt;&lt;/a&gt;房屋染色&lt;/h2&gt;&lt;p&gt;这里有n个房子在一列直线上，现在我们需要给房屋染色，分别有红色蓝色和绿色。每个房屋染不同的颜色费用也不同，你需要设计一种染色方案使得相邻的房屋颜色不同，并且费用最小。费用通过一个 nx3 的矩阵给出，比如cost[0][0]表示房屋0染红色的费用，cost[1][2]表示房屋1染绿色的费用。&lt;/p&gt;
+&lt;p&gt;costs = [[14,2,11],[11,14,5],[14,3,10]] return 10&lt;/p&gt;
+&lt;p&gt;这题是典型的动态规划问题，我的理解是这样的。想要知道当前最小的 cost c_i，由于只有三个颜色方案，所以当前的选择的颜色只有3个可能(红蓝绿)。如果当前选的是红色，那么上一个选的只能是蓝色或者是绿色，其余的也同理。所以在决定当前最小的 cost c_i 的时候，总共有 3*2 = 6 个方案。如果我们能求出这六个方案，那么只要从这六个里面选出来值最小的就行了。所以我们每次需要记录三个值，即当前颜色的最小值。首先设置初始值，就是第一个房子三个颜色的最小值。之后从第二个房子开始，每次都利用上一次的结果，最后就能得到最终的最小值了。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;minCost&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;&amp;amp; costs)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (costs.size() == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; start = costs[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; dp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dp.push_back(start);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;i&amp;lt;costs.size();++i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; d;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; red = min(costs[i][&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] + dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;], costs[i][&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] + dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; blue = min(costs[i][&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] + dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;], costs[i][&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] + dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; green = min(costs[i][&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;] + dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;], costs[i][&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;] + dp[i&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        d.push_back(red);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        d.push_back(blue);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        d.push_back(green);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        dp.push_back(d);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; final = dp[costs.size()&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; cost1 = min(final[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;], final[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; min(cost1,final[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;房屋染色&quot;&gt;&lt;a href=&quot;#房屋染色&quot; class=&quot;headerlink&quot; title=&quot;房屋染色&quot;&gt;&lt;/a&gt;房屋染色&lt;/h2&gt;&lt;p&gt;这里有n个房子在一列直线上，现在我们需要给房屋染色，分别有红色蓝色和绿色。每个房屋染不同的颜色费用也不同，你需要设计一种染色
+    
+    </summary>
+    
+      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
+    
+    
+      <category term="DP" scheme="http://byelaney.github.io/tags/DP/"/>
+    
+  </entry>
   
   <entry>
     <title>jumpgameII</title>
@@ -504,31 +530,6 @@
     
     
       <category term="Tree" scheme="http://byelaney.github.io/tags/Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>charUpperLow</title>
-    <link href="http://byelaney.github.io/2016/06/18/charUpperLow/"/>
-    <id>http://byelaney.github.io/2016/06/18/charUpperLow/</id>
-    <published>2016-06-17T15:05:59.000Z</published>
-    <updated>2016-06-17T15:07:11.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;字符大小写排序&quot;&gt;&lt;a href=&quot;#字符大小写排序&quot; class=&quot;headerlink&quot; title=&quot;字符大小写排序&quot;&gt;&lt;/a&gt;字符大小写排序&lt;/h2&gt;&lt;p&gt;给定一个只包含字母的字符串，按照先小写字母后大写字母的顺序进行排序。小写字母或者大写字母他们之间不一定要保持在原始字符串中的相对位置。&lt;/p&gt;
-&lt;p&gt;还是很基础的题目,开头和结尾两个指针即可搞定。&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sortLetters&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &amp;amp;letters)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// write your code here&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; left = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; right = (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)letters.size() - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (left &amp;lt; right)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (letters[left] &amp;gt; &lt;span class=&quot;number&quot;&gt;96&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ++left;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (letters[right] &amp;lt; &lt;span class=&quot;number&quot;&gt;97&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            --right;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (left &amp;lt; right)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (left &amp;lt; letters.size() &amp;amp;&amp;amp; right &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// swap them pls&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; tmp = letters[left];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                letters[left] = letters[right];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                letters[right] = tmp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;字符大小写排序&quot;&gt;&lt;a href=&quot;#字符大小写排序&quot; class=&quot;headerlink&quot; title=&quot;字符大小写排序&quot;&gt;&lt;/a&gt;字符大小写排序&lt;/h2&gt;&lt;p&gt;给定一个只包含字母的字符串，按照先小写字母后大写字母的顺序进行排序。小写字母或者大写字母他们之间不一
-    
-    </summary>
-    
-      <category term="LintCode" scheme="http://byelaney.github.io/categories/LintCode/"/>
-    
-    
-      <category term="Pointers" scheme="http://byelaney.github.io/tags/Pointers/"/>
     
   </entry>
   

@@ -86,22 +86,19 @@
 
 
 
-<meta name="description" content="不同的路径 II“不同的路径” 的跟进问题：
-现在考虑网格中有障碍物，那样将会有多少条不同的路径？网格中的障碍和空位置分别用 1 和 0 来表示。
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152int uniquePathsWithObstacles(ve">
+<meta name="description" content="房屋染色这里有n个房子在一列直线上，现在我们需要给房屋染色，分别有红色蓝色和绿色。每个房屋染不同的颜色费用也不同，你需要设计一种染色方案使得相邻的房屋颜色不同，并且费用最小。费用通过一个 nx3 的矩阵给出，比如cost[0][0]表示房屋0染红色的费用，cost[1][2]表示房屋1染绿色的费用。
+costs = [[14,2,11],[11,14,5],[14,3,10]] return 10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="uniquepathII">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/22/uniquepathII/index.html">
+<meta property="og:title" content="paintroof">
+<meta property="og:url" content="http://byelaney.github.io/2016/07/01/paintroof/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="不同的路径 II“不同的路径” 的跟进问题：
-现在考虑网格中有障碍物，那样将会有多少条不同的路径？网格中的障碍和空位置分别用 1 和 0 来表示。
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152int uniquePathsWithObstacles(ve">
-<meta property="og:updated_time" content="2016-06-22T07:11:44.000Z">
+<meta property="og:description" content="房屋染色这里有n个房子在一列直线上，现在我们需要给房屋染色，分别有红色蓝色和绿色。每个房屋染不同的颜色费用也不同，你需要设计一种染色方案使得相邻的房屋颜色不同，并且费用最小。费用通过一个 nx3 的矩阵给出，比如cost[0][0]表示房屋0染红色的费用，cost[1][2]表示房屋1染绿色的费用。
+costs = [[14,2,11],[11,14,5],[14,3,10]] return 10">
+<meta property="og:updated_time" content="2016-07-01T01:52:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="uniquepathII">
-<meta name="twitter:description" content="不同的路径 II“不同的路径” 的跟进问题：
-现在考虑网格中有障碍物，那样将会有多少条不同的路径？网格中的障碍和空位置分别用 1 和 0 来表示。
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152int uniquePathsWithObstacles(ve">
+<meta name="twitter:title" content="paintroof">
+<meta name="twitter:description" content="房屋染色这里有n个房子在一列直线上，现在我们需要给房屋染色，分别有红色蓝色和绿色。每个房屋染不同的颜色费用也不同，你需要设计一种染色方案使得相邻的房屋颜色不同，并且费用最小。费用通过一个 nx3 的矩阵给出，比如cost[0][0]表示房屋0染红色的费用，cost[1][2]表示房屋1染绿色的费用。
+costs = [[14,2,11],[11,14,5],[14,3,10]] return 10">
 
 
 
@@ -122,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/22/uniquepathII/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/07/01/paintroof/"/>
 
-  <title> uniquepathII | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> paintroof | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +241,7 @@
             
             
               
-                uniquepathII
+                paintroof
               
             
           </h1>
@@ -256,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-22T16:10:51+09:00" content="2016-06-22">
-              2016-06-22
+            <time itemprop="dateCreated" datetime="2016-07-01T10:41:35+09:00" content="2016-07-01">
+              2016-07-01
             </time>
           </span>
 
@@ -286,8 +283,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/22/uniquepathII/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/22/uniquepathII/" itemprop="commentsCount"></span>
+                <a href="/2016/07/01/paintroof/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/01/paintroof/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +307,10 @@
       
 
       
-        <h2 id="不同的路径-II"><a href="#不同的路径-II" class="headerlink" title="不同的路径 II"></a>不同的路径 II</h2><p>“不同的路径” 的跟进问题：</p>
-<p>现在考虑网格中有障碍物，那样将会有多少条不同的路径？网格中的障碍和空位置分别用 1 和 0 来表示。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; &amp;obstacleGrid)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> m = (<span class="keyword">int</span>)obstacleGrid.size();</span><br><span class="line">    <span class="keyword">if</span> (m &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n = (<span class="keyword">int</span>)obstacleGrid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[<span class="number">0</span>][i] != <span class="number">1</span>)</span><br><span class="line">                dp[<span class="number">0</span>][i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[<span class="number">0</span>][i] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j&lt;n;++j)</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[i][<span class="number">0</span>] != <span class="number">1</span>)</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j&lt;m;++j)</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[j][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;m;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;n;++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (obstacleGrid[i][j] == <span class="number">1</span>)</span><br><span class="line">                    dp[i][j] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="房屋染色"><a href="#房屋染色" class="headerlink" title="房屋染色"></a>房屋染色</h2><p>这里有n个房子在一列直线上，现在我们需要给房屋染色，分别有红色蓝色和绿色。每个房屋染不同的颜色费用也不同，你需要设计一种染色方案使得相邻的房屋颜色不同，并且费用最小。费用通过一个 nx3 的矩阵给出，比如cost[0][0]表示房屋0染红色的费用，cost[1][2]表示房屋1染绿色的费用。</p>
+<p>costs = [[14,2,11],[11,14,5],[14,3,10]] return 10</p>
+<p>这题是典型的动态规划问题，我的理解是这样的。想要知道当前最小的 cost c_i，由于只有三个颜色方案，所以当前的选择的颜色只有3个可能(红蓝绿)。如果当前选的是红色，那么上一个选的只能是蓝色或者是绿色，其余的也同理。所以在决定当前最小的 cost c_i 的时候，总共有 3*2 = 6 个方案。如果我们能求出这六个方案，那么只要从这六个里面选出来值最小的就行了。所以我们每次需要记录三个值，即当前颜色的最小值。首先设置初始值，就是第一个房子三个颜色的最小值。之后从第二个房子开始，每次都利用上一次的结果，最后就能得到最终的最小值了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minCost</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; costs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (costs.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; start = costs[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp;</span><br><span class="line">    dp.push_back(start);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;costs.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; d;</span><br><span class="line">        <span class="keyword">int</span> red = min(costs[i][<span class="number">0</span>] + dp[i<span class="number">-1</span>][<span class="number">1</span>], costs[i][<span class="number">0</span>] + dp[i<span class="number">-1</span>][<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">int</span> blue = min(costs[i][<span class="number">1</span>] + dp[i<span class="number">-1</span>][<span class="number">0</span>], costs[i][<span class="number">1</span>] + dp[i<span class="number">-1</span>][<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">int</span> green = min(costs[i][<span class="number">2</span>] + dp[i<span class="number">-1</span>][<span class="number">0</span>], costs[i][<span class="number">2</span>] + dp[i<span class="number">-1</span>][<span class="number">1</span>]);</span><br><span class="line">        d.push_back(red);</span><br><span class="line">        d.push_back(blue);</span><br><span class="line">        d.push_back(green);</span><br><span class="line">        dp.push_back(d);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; final = dp[costs.size()<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">int</span> cost1 = min(final[<span class="number">0</span>], final[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> min(cost1,final[<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -343,17 +341,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/22/mergesortII/" rel="next" title="mergesortII">
-                <i class="fa fa-chevron-left"></i> mergesortII
+              <a href="/2016/06/29/jumpgameII/" rel="next" title="jumpgameII">
+                <i class="fa fa-chevron-left"></i> jumpgameII
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/23/numIsland/" rel="prev" title="numIsland">
-                numIsland <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +495,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不同的路径-II"><span class="nav-number">1.</span> <span class="nav-text">不同的路径 II</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#房屋染色"><span class="nav-number">1.</span> <span class="nav-text">房屋染色</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +615,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/22/uniquepathII/';
-      var disqus_title = "uniquepathII";
-      var disqus_url = 'http://byelaney.github.io/2016/06/22/uniquepathII/';
+      var disqus_identifier = '2016/07/01/paintroof/';
+      var disqus_title = "paintroof";
+      var disqus_url = 'http://byelaney.github.io/2016/07/01/paintroof/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
