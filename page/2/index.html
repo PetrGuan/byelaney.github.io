@@ -240,6 +240,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/25/overloadcpp/" itemprop="url">
+                  overloadcpp
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-25T21:34:54+09:00" content="2016-06-25">
+              2016-06-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/25/overloadcpp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/25/overloadcpp/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="赋值运算符重载"><a href="#赋值运算符重载" class="headerlink" title="赋值运算符重载"></a>赋值运算符重载</h2><p>实现赋值运算符重载函数，确保：</p>
+<p>新的数据可准确地被复制<br>旧的数据可准确地删除/释放<br>可进行 A = B = C 赋值</p>
+<p>如果进行 A = B 赋值，则 A 中的数据被删除，取而代之的是 B 中的数据。</p>
+<p>如果进行 A = B = C 赋值，则 A 和 B 都复制了 C 中的数据。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">char</span> *m_pData;</span><br><span class="line">    Solution() &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_pData = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Solution(<span class="keyword">char</span> *pData) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_pData = pData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Implement an assignment operator</span></span><br><span class="line">    Solution <span class="keyword">operator</span>=(<span class="keyword">const</span> Solution &amp;object) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;object)</span><br><span class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (m_pData)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">delete</span> []m_pData;</span><br><span class="line">            m_pData = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (object.m_pData)</span><br><span class="line">        &#123;</span><br><span class="line">            m_pData = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(object.m_pData)+<span class="number">1</span>];</span><br><span class="line">            <span class="built_in">strcpy</span>(m_pData, object.m_pData);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/24/recoverRotate/" itemprop="url">
                   recoverRotate
                 </a>
@@ -1320,128 +1444,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/18/commonAncestor/" itemprop="url">
-                  commonAncestor
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-18T09:48:14+09:00" content="2016-06-18">
-              2016-06-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/18/commonAncestor/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/18/commonAncestor/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="最近公共祖先"><a href="#最近公共祖先" class="headerlink" title="最近公共祖先"></a>最近公共祖先</h2><p>给定一棵二叉树，找到两个节点的最近公共父节点(LCA)。</p>
-<p>这题其实有点难度,我一开始的想法是先对两棵树分别做 bfs,然后存在数组里,空节点也要存。这样的话假设树 T[i],那么它的子节点是很容易获取的, 也就是 T[2i+1] 和 T[2i+2]。这时候只要从数组的右边往左边扫描不断寻找各自的父亲节点,发现的第一个就是最近的公共祖先了,后来觉得好像这样写挺麻烦的。关键就在找到各自的父亲节点,我就单独提取出来写个找父亲节点的方法,然后再比较即可。我的写法比较耗费空间存储,想法很简单,也是递归,只要子节点里面不含有目标节点,就不把它添加到当前的 vector 里去。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;TreeNode*&gt; findDad(TreeNode* root,TreeNode* t)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; v;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> v;</span><br><span class="line">    <span class="keyword">if</span> (root == t)</span><br><span class="line">    &#123;</span><br><span class="line">        v.push_back(root);</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    &#125;</span><br><span class="line">    v.push_back(root);</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; left = findDad(root-&gt;left, t);</span><br><span class="line">    <span class="keyword">bool</span> l1 = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">bool</span> r1 = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; right = findDad(root-&gt;right, t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = (<span class="keyword">int</span>)left.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">        <span class="keyword">if</span> (left[i] == t)</span><br><span class="line">            l1 = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = (<span class="keyword">int</span>)right.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">        <span class="keyword">if</span> (right[i] == t)</span><br><span class="line">            r1 = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (l1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;left.size();++i)</span><br><span class="line">            v.push_back(left[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (r1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;right.size();++i)</span><br><span class="line">            v.push_back(right[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* A, TreeNode* B)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; Dad1 = findDad(root, A);</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; Dad2 = findDad(root, B);</span><br><span class="line">    <span class="keyword">int</span> p1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt; Dad1.size() &amp;&amp; p2 &lt; Dad2.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Dad1[p1] != Dad2[p2])</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ++p1;++p2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Dad1[p1<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1487,7 +1489,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1504,7 +1506,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

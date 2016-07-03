@@ -240,6 +240,220 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/14/levenshtein/" itemprop="url">
+                  levenshtein
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-14T18:34:29+09:00" content="2016-06-14">
+              2016-06-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/levenshtein/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/14/levenshtein/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是-Levenshtein-Distance"><a href="#什么是-Levenshtein-Distance" class="headerlink" title="什么是 Levenshtein Distance?"></a>什么是 Levenshtein Distance?</h2><p>Levenshtein distance (LD) 是一种检测字符串相似度的方法, 假设我们有字符串 s 和字符串 t, 这个距离就是字符串 s 转换到字符串 t 的步骤数,包括删除,增加和替换。比如说：</p>
+<blockquote>
+<ul>
+<li>如果 s 是 “test” 并且 t 是 “test”,那么 LD(s,t) = 0,因为显然这两个字符串相同。</li>
+<li>如果 s 是 “test” 并且 t 是 “tent”, 那么 LD(s,t) = 1, 因为只需要替换一个字母即可。</li>
+</ul>
+</blockquote>
+<p>显然 LD 越大，说明两个字符串的差别越大。Levenshtein distance 是一个俄罗斯科学家发明的,他叫 Vladimir Levenshtein,自古毛子多开挂啊！这个算法的应用还是非常广泛的,比较熟悉的可能就是论文查重了。</p>
+<blockquote>
+<ul>
+<li>拼写的检测</li>
+<li>演讲识别</li>
+<li>DNA 的分析</li>
+<li>查重方面</li>
+</ul>
+</blockquote>
+<p>首先来对这个算法有一个大概的了解:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Slow, recursive Levenshtein implementation</span></span><br><span class="line"><span class="comment"># (inspired by &lt;http://en.wikipedia.org/wiki/Levenshtein_distance&gt;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">leven</span><span class="params">(s, t)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># base case: empty strings</span></span><br><span class="line">    <span class="keyword">if</span> len(s) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> len(t)  <span class="comment"># cost of inserting all of t</span></span><br><span class="line">    <span class="keyword">if</span> len(t) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> len(s)  <span class="comment"># cost of inserting all of s</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># test if last characters match</span></span><br><span class="line">    <span class="keyword">if</span> s[<span class="number">-1</span>] == t[<span class="number">-1</span>]:</span><br><span class="line">        cost = <span class="number">0</span>    <span class="comment"># match; no cost</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cost = <span class="number">1</span>   <span class="comment"># no match; cost of substituting one letter.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># return minimum of</span></span><br><span class="line">    <span class="comment"># - (1) delete char from s,</span></span><br><span class="line">    <span class="comment"># - (2) delete char from t, and</span></span><br><span class="line">    <span class="comment"># - (3) delete char from both</span></span><br><span class="line">    <span class="keyword">return</span> min(</span><br><span class="line">        leven(s[:<span class="number">-1</span>], t) + <span class="number">1</span>, <span class="comment"># e.g., leven(fas, cats) + 1 (for deleting 't' from 'fast')</span></span><br><span class="line">        leven(s, t[:<span class="number">-1</span>]) + <span class="number">1</span>, <span class="comment"># e.g., leven(fast, cat) + 1 (for deleting 's' from 'cats')</span></span><br><span class="line">        leven(s[:<span class="number">-1</span>], t[:<span class="number">-1</span>]) +</span><br><span class="line">          cost <span class="comment"># e.g., leven(fas, cat) + cost (for 's'-&gt; t)</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<p>这里算法本身还是比较好理解的,代码的注释有很详细的说明。需要注意的是这里使用了递归,显然这很方便理解,但是如果你仔细想一下,这样的递归效率是非常低下的。道理与斐波那契数列的递归一样,重复计算了很多次我们已经计算过的项。所以我们要转变一下想法,从递归向 dynamic programming 进发。</p>
+<p>其实 dynamic programming 还是比较容易理解的,区别就在于前面的结果和当前的结果的联系,我们每次计算都会保存好这些结果,以供之后的计算使用,具体算法如下:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Step</strong></th>
+<th style="text-align:center"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1)</td>
+<td style="text-align:center">设 s 的长度为 n</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">设 t 的长度为 m</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">如果 s 的长度为0,那么就返回 m</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">如果 t 的长度为0,那么就返回 n</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">构建一个 (m+1)*(n+1) 的矩阵 dp</td>
+</tr>
+<tr>
+<td>(2)</td>
+<td style="text-align:center">把第一行的值依次设置为0到n</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">把第一列的值依次设置为0到m</td>
+</tr>
+<tr>
+<td>(3)</td>
+<td style="text-align:center">迭代 s 的每个字符(i 从 1 到 n):</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">迭代 t 的每个字符(j 从 1 到 m):</td>
+</tr>
+<tr>
+<td>(4)</td>
+<td style="text-align:center">if s[i] = t[j],那么 cost = 0</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">if s[i] != t[j],那么 cost = 1</td>
+</tr>
+<tr>
+<td>(5)</td>
+<td style="text-align:center">把 dp[i,j] 设置为以下值之中的最小值</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">(a). dp[i-1,j] + 1</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">(b). dp[i,j-1] + 1</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">(c). dp[i-1,j-1] + cost</td>
+</tr>
+<tr>
+<td>(6)</td>
+<td style="text-align:center">最后,你可以在 dp[m,n] 发现最终的结果</td>
+</tr>
+</tbody>
+</table>
+<p>第(5)步的三步可能比较难理解,其实也很简单,就是上面递归实现的三种情况。顺便提一下,时间复杂度是O(m*n)。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/12/bstinterval/" itemprop="url">
                   bstinterval
                 </a>
@@ -1324,128 +1538,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/08/binarylevel/" itemprop="url">
-                  binarylevel
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-08T16:53:31+09:00" content="2016-06-08">
-              2016-06-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/08/binarylevel/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/08/binarylevel/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="二叉树的层次遍历-II"><a href="#二叉树的层次遍历-II" class="headerlink" title="二叉树的层次遍历 II"></a>二叉树的层次遍历 II</h2><p>给出一棵二叉树，返回其节点值从底向上的层次序遍历（按从叶节点所在层到根节点所在的层遍历，然后逐层从左往右遍历）</p>
-<p>我是怎么想的呢，如果我现在在根节点，已经有了左右两节点的 <strong>vector<vector<int>&gt;</vector<int></strong>,该怎么做呢？其实觉得又和 <strong>merge sort</strong> 有点类似，从左 <strong>vector</strong> 到右 <strong>vector</strong>，取出来存入新的里面。代码写得太啰嗦了，水平有限…</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; levelOrderBottom(TreeNode* root) &#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; v = Helper(root);</span><br><span class="line">    reverse(v.begin(), v.end());</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; Helper(TreeNode* root)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; v;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi,vii;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> v;</span><br><span class="line"></span><br><span class="line">    vi.push_back(root-&gt;val);</span><br><span class="line">    v.push_back(vi);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; lf = Helper(root-&gt;left);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; rg = Helper(root-&gt;right);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; lf.size() &amp;&amp; j &lt; rg.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vv;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> ii = <span class="number">0</span>;ii&lt;lf[i].size();++ii)</span><br><span class="line">            &#123;</span><br><span class="line">                vv.push_back(lf[i][ii]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> ii = <span class="number">0</span>;ii&lt;rg[j].size();++ii)</span><br><span class="line">            &#123;</span><br><span class="line">                vv.push_back(rg[j][ii]);</span><br><span class="line">            &#125;</span><br><span class="line">            v.push_back(vv);</span><br><span class="line">            ++i;++j;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt; lf.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vv;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> ii = <span class="number">0</span>;ii&lt;lf[i].size();++ii)</span><br><span class="line">            &#123;</span><br><span class="line">                vv.push_back(lf[i][ii]);</span><br><span class="line">            &#125;</span><br><span class="line">            v.push_back(vv);</span><br><span class="line">            ++i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (j &lt; rg.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vv;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> ii = <span class="number">0</span>;ii&lt;rg[j].size();++ii)</span><br><span class="line">            &#123;</span><br><span class="line">                vv.push_back(rg[j][ii]);</span><br><span class="line">            &#125;</span><br><span class="line">            v.push_back(vv);</span><br><span class="line">            ++j;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1491,7 +1583,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1508,7 +1600,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
