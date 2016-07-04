@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="greedy," />
+  <meta name="keywords" content="BFS," />
 
 
 
@@ -86,22 +86,25 @@
 
 
 
-<meta name="description" content="跳跃游戏 II给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。你的目标是使用最少的跳跃次数到达数组的最后一个位置。给出数组A = [2,3,1,1,4]，最少到达数组最后一个位置的跳跃次数是2(从数组下标0跳一步到数组下标1，然后跳3步到数组的最后一个位置，一共跳跃2次)
-思路还是 greedy,参考 jumpgame 的解法。
-123456">
+<meta name="description" content="二叉树的层次遍历给出一棵二叉树，返回其节点值的层次遍历（逐层从左往右访问）
+[  [3],  [9,20],  [15,7]]
+显然这题目涉及到宽度优先搜索(BFS)，但关键就是这个 level 的问题。这里真没想出来，我也是看了提示。可以用当时的队列的元素个数来表示这个 level。
+1234567891011121314151617181920212223vector&amp;lt;vector&amp;lt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jumpgameII">
-<meta property="og:url" content="http://byelaney.github.io/2016/06/29/jumpgameII/index.html">
+<meta property="og:title" content="binlevel">
+<meta property="og:url" content="http://byelaney.github.io/2016/07/04/binlevel/index.html">
 <meta property="og:site_name" content="GuanJun's blog">
-<meta property="og:description" content="跳跃游戏 II给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。你的目标是使用最少的跳跃次数到达数组的最后一个位置。给出数组A = [2,3,1,1,4]，最少到达数组最后一个位置的跳跃次数是2(从数组下标0跳一步到数组下标1，然后跳3步到数组的最后一个位置，一共跳跃2次)
-思路还是 greedy,参考 jumpgame 的解法。
-123456">
-<meta property="og:updated_time" content="2016-06-29T07:54:46.000Z">
+<meta property="og:description" content="二叉树的层次遍历给出一棵二叉树，返回其节点值的层次遍历（逐层从左往右访问）
+[  [3],  [9,20],  [15,7]]
+显然这题目涉及到宽度优先搜索(BFS)，但关键就是这个 level 的问题。这里真没想出来，我也是看了提示。可以用当时的队列的元素个数来表示这个 level。
+1234567891011121314151617181920212223vector&amp;lt;vector&amp;lt">
+<meta property="og:updated_time" content="2016-07-04T07:55:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jumpgameII">
-<meta name="twitter:description" content="跳跃游戏 II给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。你的目标是使用最少的跳跃次数到达数组的最后一个位置。给出数组A = [2,3,1,1,4]，最少到达数组最后一个位置的跳跃次数是2(从数组下标0跳一步到数组下标1，然后跳3步到数组的最后一个位置，一共跳跃2次)
-思路还是 greedy,参考 jumpgame 的解法。
-123456">
+<meta name="twitter:title" content="binlevel">
+<meta name="twitter:description" content="二叉树的层次遍历给出一棵二叉树，返回其节点值的层次遍历（逐层从左往右访问）
+[  [3],  [9,20],  [15,7]]
+显然这题目涉及到宽度优先搜索(BFS)，但关键就是这个 level 的问题。这里真没想出来，我也是看了提示。可以用当时的队列的元素个数来表示这个 level。
+1234567891011121314151617181920212223vector&amp;lt;vector&amp;lt">
 
 
 
@@ -122,9 +125,9 @@
 
 
 
-  <link rel="canonical" href="http://byelaney.github.io/2016/06/29/jumpgameII/"/>
+  <link rel="canonical" href="http://byelaney.github.io/2016/07/04/binlevel/"/>
 
-  <title> jumpgameII | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> binlevel | GuanJun's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -244,7 +247,7 @@
             
             
               
-                jumpgameII
+                binlevel
               
             
           </h1>
@@ -256,8 +259,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-29T16:53:10+09:00" content="2016-06-29">
-              2016-06-29
+            <time itemprop="dateCreated" datetime="2016-07-04T16:50:36+09:00" content="2016-07-04">
+              2016-07-04
             </time>
           </span>
 
@@ -286,8 +289,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/29/jumpgameII/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/29/jumpgameII/" itemprop="commentsCount"></span>
+                <a href="/2016/07/04/binlevel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/04/binlevel/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,9 +313,10 @@
       
 
       
-        <h2 id="跳跃游戏-II"><a href="#跳跃游戏-II" class="headerlink" title="跳跃游戏 II"></a>跳跃游戏 II</h2><p>给出一个非负整数数组，你最初定位在数组的第一个位置。数组中的每个元素代表你在那个位置可以跳跃的最大长度。你的目标是使用最少的跳跃次数到达数组的最后一个位置。<br>给出数组A = [2,3,1,1,4]，最少到达数组最后一个位置的跳跃次数是2(从数组下标0跳一步到数组下标1，然后跳3步到数组的最后一个位置，一共跳跃2次)</p>
-<p>思路还是 greedy,参考 jumpgame 的解法。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nextMove</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> id = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;v.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (v[i] &lt; A.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> next = v[i] + A[v[i]];</span><br><span class="line">            <span class="keyword">if</span> (next &gt;= max)</span><br><span class="line">            &#123;</span><br><span class="line">                max = next;</span><br><span class="line">                id = v[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> (<span class="keyword">int</span>)A.size()<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (A.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> last_i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> steps = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i != A.size()<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=A[i];++j)</span><br><span class="line">            v.push_back(i+j);</span><br><span class="line">        <span class="keyword">int</span> next = nextMove(A, v);</span><br><span class="line">        last_i = i;</span><br><span class="line">        i = next;</span><br><span class="line">        ++steps;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> steps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="二叉树的层次遍历"><a href="#二叉树的层次遍历" class="headerlink" title="二叉树的层次遍历"></a>二叉树的层次遍历</h2><p>给出一棵二叉树，返回其节点值的层次遍历（逐层从左往右访问）</p>
+<p>[<br>  [3],<br>  [9,20],<br>  [15,7]<br>]</p>
+<p>显然这题目涉及到宽度优先搜索(BFS)，但关键就是这个 level 的问题。这里真没想出来，我也是看了提示。可以用当时的队列的元素个数来表示这个 level。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; levelOrder(TreeNode *root) &#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; v;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> v;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">queue</span>&lt;TreeNode*&gt; que;</span><br><span class="line">    que.push(root);</span><br><span class="line">    <span class="keyword">while</span> (que.size() &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; lv;</span><br><span class="line">        <span class="keyword">int</span> level_len = (<span class="keyword">int</span>)que.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;level_len;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            TreeNode* tmp = que.front();que.pop();</span><br><span class="line">            lv.push_back(tmp-&gt;val);</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;left != <span class="literal">NULL</span>)</span><br><span class="line">                que.push(tmp-&gt;left);</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;right != <span class="literal">NULL</span>)</span><br><span class="line">                que.push(tmp-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        v.push_back(lv);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +338,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/greedy/" rel="tag">#greedy</a>
+            <a href="/tags/BFS/" rel="tag">#BFS</a>
           
         </div>
       
@@ -343,17 +347,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/29/hasRoute/" rel="next" title="hasRoute">
-                <i class="fa fa-chevron-left"></i> hasRoute
+              <a href="/2016/07/04/cycleList/" rel="next" title="cycleList">
+                <i class="fa fa-chevron-left"></i> cycleList
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/01/paintroof/" rel="prev" title="paintroof">
-                paintroof <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +501,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃游戏-II"><span class="nav-number">1.</span> <span class="nav-text">跳跃游戏 II</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的层次遍历"><span class="nav-number">1.</span> <span class="nav-text">二叉树的层次遍历</span></a></li></ol></div>
             
           </div>
         </section>
@@ -621,9 +621,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'laney';
-      var disqus_identifier = '2016/06/29/jumpgameII/';
-      var disqus_title = "jumpgameII";
-      var disqus_url = 'http://byelaney.github.io/2016/06/29/jumpgameII/';
+      var disqus_identifier = '2016/07/04/binlevel/';
+      var disqus_title = "binlevel";
+      var disqus_url = 'http://byelaney.github.io/2016/07/04/binlevel/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
