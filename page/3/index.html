@@ -240,6 +240,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/18/smallestdiff/" itemprop="url">
+                  smallestdiff
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-18T10:16:31+09:00" content="2016-06-18">
+              2016-06-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/18/smallestdiff/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/18/smallestdiff/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="最小差"><a href="#最小差" class="headerlink" title="最小差"></a>最小差</h2><p>给定两个整数数组（第一个是数组 A，第二个是数组 B），在数组 A 中取 A[i]，数组 B 中取 B[j]，A[i] 和 B[j]两者的差越小越好(|A[i] - B[j]|)。返回最小差。</p>
+<p>题目比较简单,先排序然后双指针比较即可。我写的花了1000ms,我以为太慢了于是去参考了一下答案。发现答案是用 set 写的,先把 A 的元素放进 set ,之后再遍历 B 的元素和 set 里的元素比较,写的比较简洁。然而时间却差不多比我的还慢了50ms…好吧 做出来就好。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">smallestDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;A, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;B)</span> </span>&#123;</span><br><span class="line">    sort(A.begin(), A.end());</span><br><span class="line">    sort(B.begin(), B.end());</span><br><span class="line">    <span class="keyword">int</span> p1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">2147483647</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt; A.size() &amp;&amp; p2 &lt; B.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[p1] &lt; B[p2])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[p1]-B[p2]) &lt; min)</span><br><span class="line">                min = <span class="built_in">abs</span>(A[p1]-B[p2]);</span><br><span class="line">            ++p1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (A[p1] &gt; B[p2])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[p1]-B[p2]) &lt; min)</span><br><span class="line">                min = <span class="built_in">abs</span>(A[p1]-B[p2]);</span><br><span class="line">            ++p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">smallestDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;A, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> diff = <span class="number">0x7fffffff</span>;</span><br><span class="line">        <span class="keyword">int</span> la = A.size();</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; la; ++i)</span><br><span class="line">               s.insert(A[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> lb = B.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lb; ++i) &#123;</span><br><span class="line">            <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it = s.lower_bound(B[i]);</span><br><span class="line">            <span class="keyword">if</span> (it != s.end())</span><br><span class="line">                diff = min(diff, *it - B[i]);</span><br><span class="line">            <span class="keyword">if</span> (it != s.begin()) &#123;</span><br><span class="line">                it --;</span><br><span class="line">                diff = min(diff, B[i] - *it);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> diff;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/18/commonAncestor/" itemprop="url">
                   commonAncestor
                 </a>
@@ -1436,136 +1559,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/15/levenshtein2/" itemprop="url">
-                  levenshtein2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-15T09:41:07+09:00" content="2016-06-15">
-              2016-06-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/15/levenshtein2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/levenshtein2/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Levenshtein-Distance-的延伸"><a href="#Levenshtein-Distance-的延伸" class="headerlink" title="Levenshtein Distance 的延伸"></a>Levenshtein Distance 的延伸</h2><p>上一篇介绍了具体怎么算 Levenshtein Distance,这一篇我来大概讲讲应用。</p>
-<p>例如当你要处理拼写错误的时候,你就可以利用这个 Levenshtein Distance,具体怎么用呢？一个很容易想到的方法就是搜索你的词语库,计算输入和词语库词语的 Levenshtein Distance,返回值最小的那个是比较合理的。这个方法乍一看很美,其实是不太现实的,因为词语库一般都很大,而处理拼写错误的请求是很频繁的,这样的计算代价太大了,或者说效率很低。那么有没有什么好办法呢？答案是肯定的。这里要提到一个词 ‘trade off’,我们需要牺牲一定的准确性。我们可以反过来思考,现在我们有了用户输入的 term ,并且根据以往的统计经验,70%-80%的拼写错误都是一个字符的错误,于是我们可以利用这一点,生成所有可能的字符串。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">alphabet = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edits</span><span class="params">(word, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">""" Return all single edits to word.</span><br><span class="line">    Consider insertions, deletes, replacement, and transposition.</span><br><span class="line">    """</span></span><br><span class="line">    splits     = [(word[:i], word[i:]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    <span class="comment"># e.g., cat -&gt; [('', 'cat'), ('c', 'at'), ('ca', 't'), ('cat', '')]</span></span><br><span class="line">    deletes    = [a + b[<span class="number">1</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">if</span> b]                       <span class="comment"># cat-&gt; ca</span></span><br><span class="line">    transposes = [a + b[<span class="number">1</span>] + b[<span class="number">0</span>] + b[<span class="number">2</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">if</span> len(b)&gt;<span class="number">1</span>]  <span class="comment"># cat -&gt; act</span></span><br><span class="line">    replaces   = [a + c + b[<span class="number">1</span>:] <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">for</span> c <span class="keyword">in</span> alphabet <span class="keyword">if</span> b] <span class="comment"># cat -&gt; car</span></span><br><span class="line">    inserts    = [a + c + b     <span class="keyword">for</span> a, b <span class="keyword">in</span> splits <span class="keyword">for</span> c <span class="keyword">in</span> alphabet]      <span class="comment"># cat -&gt; cats</span></span><br><span class="line">    <span class="keyword">if</span> verbose:</span><br><span class="line">        print(<span class="string">'splits=%s\ndeletes=%s\ntransposes=%s\nreplaces=%s\ninserts=%s\n'</span> %</span><br><span class="line">             (splits, deletes, transposes, replaces, inserts))</span><br><span class="line">    <span class="keyword">return</span> set(deletes + transposes + replaces + inserts)                  <span class="comment"># union all edits</span></span><br><span class="line">    <span class="comment"># n deletions, n-1 transpositions, 26n substitutions, and 26(n+1) insertions, for a total of 54n+25.</span></span><br></pre></td></tr></table></figure>
-<h2 id="如何使用-spelling-correction"><a href="#如何使用-spelling-correction" class="headerlink" title="如何使用 spelling correction?"></a>如何使用 spelling correction?</h2><blockquote>
-<ul>
-<li>Make suggestions (“Did you mean?”)</li>
-<li>Add corrected terms to query</li>
-<li>only if query term is not in dictionary</li>
-<li>only if number of matches &lt; N</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1611,7 +1604,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1628,7 +1621,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
